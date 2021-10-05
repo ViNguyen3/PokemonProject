@@ -25,10 +25,10 @@ class Entity
     }
   }
   
-  //How much do you heal ?? 
+  //Heal full health
   public void heal()
   {
-
+    this.hp = this.maxHp; 
   }
 
 //Accessors 
