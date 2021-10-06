@@ -1,18 +1,28 @@
 import java.io.*;
 import java.util.Scanner; 
 import java.io.FileNotFoundException;
-class Map 
+class Map
 {
-  // char[][] map;
-  // boolean[][] revealed;
-  
+  private char[][] map; 
+  private boolean[][] revealed;
 
-  public static void main(String[] args) throws FileNotFoundException
+  //constructor iniltalize the revealed array to all False 
+  public Map() 
   {
-    char[][] map = new char[5][5];
-    boolean[][] revealed = new boolean[5][5];
-    Scanner in = new Scanner(new File("Area3.txt"));
-    int counter = 0;
+    this.revealed = new boolean[5][5];
+    this.map = new char[5][5];
+    for( int i = 0; i < revealed.length; i++ ) {
+     for( int j = 0; j < revealed[0].length; j++ ) {
+        revealed[i][j] = false;
+       }
+     }
+  }
+
+  //this method read file and put it into the array map
+  public void loadMap(int mapNum) throws FileNotFoundException
+  {
+    String mapName = "Area" + mapNum + ".txt"; 
+    Scanner in = new Scanner(new File(mapName)); 
     int i = 0,j = 0;
     while (in.hasNextLine())
     {
@@ -22,13 +32,9 @@ class Map
       { 
         if(Character.isLetter(currentLine.charAt(z)))
         {
-          map[j][i] = currentLine.charAt(z);
-          revealed[j][i] = false; 
+          map[j][i] = currentLine.charAt(z); 
           i++;
         }
-        //   System.out.println(map[i][j]);
-        //   map[j][i] = currentLine.charAt(z);
-        //   i++;
         if(i == 5)
         {
           j++; 
@@ -37,33 +43,37 @@ class Map
       }
     }
     in.close();
-
-    for (int a = 0; a < map.length; a++)
-    {
-      for(int b = 0; b < map[a].length; b++)
-      {
-        System.out.print(" " + map[a][b]);
-      }
-      System.out.println();
-    }
-
-    System.out.println(); 
-    
-    for (int a = 0; a < revealed.length; a++)
-    {
-      for(int b = 0; b < revealed[a].length; b++)
-      {
-        System.out.print(" " + revealed[a][b]);
-      }
-      System.out.println();
-    }
-
-
-    // String test = "He Llo"; 
-    // System.out.println(test.length()); 
-    // for(int i = 0; i < test.length()-1;i++)
-    // {
-    //   System.out.println(test.charAt(i));
-    // }
   }
-}
+  
+  public char getCharAtLoc(Point p)
+  {
+
+  }
+
+  public String mapToString()
+  {
+    for (int a = 0; a < this.map.length; a++)
+    {
+      for(int b = 0; b < this.map[a].length; b++)
+      {
+        return " " + this.map[a][b];
+      }
+      return "\n";
+    }
+  }
+
+  public Point findStart()
+  {
+    
+  }
+
+  public void reveal(Point p)
+  {
+
+  }
+
+  public removeCharAtLoc(Point p)
+  {
+    
+  }
+} 
