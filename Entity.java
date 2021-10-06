@@ -1,14 +1,15 @@
-class Entity
+//this class is abstract 
+public abstract class Entity
 {
   private String name; 
   private int hp; 
   private int maxHp; 
 
   //Constructor of the class 
-  public Entity(String name, int hp, int maxHp)
+  public Entity(String name, int maxHp)
   {
     this.name = name; 
-    this.hp = hp; 
+    this.hp = 0; 
     this.maxHp = maxHp;
   }
 
