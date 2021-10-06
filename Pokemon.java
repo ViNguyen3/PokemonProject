@@ -12,6 +12,40 @@ public abstract class Pokemon {
 
   public abstract String specialAttack(Pokemon p, int move);
   
+  public String getBasicMenu() {
 
+  }
+
+  public int getNumBasicMenuItems() {
+    
+  }
+
+  public String basicAttack(Pokemon p, int move) {
+
+  }
+
+  public String getAttackMenu() {
+
+  }
+
+  public int getNumAttackMenuItems() {
+
+  }
+
+  public String slam(Pokemon p) {
+
+  } 
+
+  public String tackle(Pokemon p) {
+
+  }
+
+  public String punch(Pokemon p) {
+    
+  }
+
+  public int getType() {
+    
+  }
 
 }
