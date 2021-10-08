@@ -1,4 +1,5 @@
 import java.io.*;
+import java.awt.Point; 
 import java.util.Scanner; 
 import java.io.FileNotFoundException;
 class Map
@@ -45,35 +46,59 @@ class Map
     in.close();
   }
   
+  //return the character on the map by the given index of the point
   public char getCharAtLoc(Point p)
-  {
-
+  { 
+    char re = map[(int)p.getX()][(int)p.getY()]; 
+    return re ;
   }
 
+  //Test the mapRe on seperate file to see if it works 
+  //uses boolean to hide or display - Have not done yet 
+  //Put Trainer's position as * - have not done yet 
   public String mapToString()
   {
+    String mapRe = ""; 
     for (int a = 0; a < this.map.length; a++)
     {
       for(int b = 0; b < this.map[a].length; b++)
       {
-        return " " + this.map[a][b];
+        mapRe += this.map[a][b]; 
       }
-      return "\n";
+      mapRe += "\n"; 
     }
+    return mapRe;  
   }
 
+  //loop through the array and find s which will be the starting point 
   public Point findStart()
   {
-    
+    Point startPoint = new Point(0,0);
+    for (int a = 0; a < this.map.length; a++)
+    {
+      for(int b = 0; b < this.map[a].length; b++)
+      {
+        if(this.map[a][b] == ('s'))
+        {
+          startPoint.setLocation(a, b);  
+          return startPoint;
+        }
+      }
+    }
+    return startPoint; 
   }
 
+  //changes the value of an element in the boolean array to True accordingly to the given point and then the toString should reveal it.  
   public void reveal(Point p)
   {
-
+    revealed[(int)p.getX()][(int)p.getY()] = true; 
   }
 
-  public removeCharAtLoc(Point p)
+  //remove i, w, p at given p by setting it equal to "" 
+  public void removeCharAtLoc(Point p)
   {
-    
+    //since char does not take '' have to go around like this 
+    String emptyStr = " "; 
+    map[(int)p.getX()][(int)p.getY()] = emptyStr.charAt(0); 
   }
 } 

@@ -22,7 +22,7 @@ public abstract class Entity
     }
     else
     {
-      System.out.println("hp has reaches 0 cannot substrac anymore!");
+      System.out.println("HP has reached 0 cannot substract anymore!");
     }
   }
   
@@ -51,6 +51,6 @@ public abstract class Entity
   @Override
   public String toString()
   {
-    return this.name + " HP:" + this.hp+ "/" + this.maxHp;
+    return this.name + " HP: " + this.hp+ "/" + this.maxHp;
   }
 }

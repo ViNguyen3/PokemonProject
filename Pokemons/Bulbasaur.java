@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Bulbasaur extends Pokemon implements Grass {
 
   public Bulbasaur (){
@@ -13,7 +15,15 @@ public class Bulbasaur extends Pokemon implements Grass {
   }
 
   public String specialAttack(Pokemon p, int move) {
-    return "FIXME: Implement this method";
+    
+    switch (move) {
+      case 1:
+        return vineWhip(p);
+      case 2:
+        return razorLeaf(p);
+      case 3:
+        return solarBeam(p);
+    }
   }
 
   public String vineWhip(Pokemon p) {
