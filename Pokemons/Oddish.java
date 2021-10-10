@@ -9,11 +9,11 @@ public class Oddish extends Pokemon implements Grass {
   }
 
   public int getNumSpecialMenuItems() {
-    
+
   }
 
   public String specialAttack(Pokemon p, int move) {
-    
+
     switch (move) {
       case 1:
         return vineWhip(p);
@@ -26,7 +26,7 @@ public class Oddish extends Pokemon implements Grass {
   public String vineWhip(Pokemon p) {
     return "FIXME";
   }
-  
+
   public String razorLeaf(Pokemon p) {
     return "FIXME";
   }
@@ -34,5 +34,5 @@ public class Oddish extends Pokemon implements Grass {
   public String solarBeam(Pokemon p) {
     return "FIXME";
   }
-  
+
 }
