@@ -6,7 +6,7 @@ public abstract class Pokemon extends Entity {
   public static final double [] [] battleTable = {{1, .5, 2}, {2, 1, .5}, {.5, 2, 1}};
   
   public Pokemon(String n) {
-    
+    super(n);
   }
 
   public abstract String getSpecialMenu();
@@ -75,7 +75,6 @@ public abstract class Pokemon extends Entity {
     return p.getName() + " is PUNCHED for " + dmg + " damage!"; 
   }
 
-  // Fire 0, Water 1, Grass 2
   public int getType() {
 
 

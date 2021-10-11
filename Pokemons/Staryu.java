@@ -5,7 +5,7 @@ public class Staryu extends Pokemon implements Water {
   }
 
   public String getSpecialMenu() {
-    return "FIXME: Implement this method";
+    return Water.specialMenu;
   }
 
   public int getNumSpecialMenuItems() {

@@ -66,11 +66,6 @@ class Map1
     }
 
 
-    // String test = "He Llo"; 
-    // System.out.println(test.length()); 
-    // for(int i = 0; i < test.length()-1;i++)
-    // {
-    //   System.out.println(test.charAt(i));
-    // }
+
   }
 }
