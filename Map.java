@@ -46,18 +46,17 @@ class Map
     in.close();
   }
   
-  //return the character on the map by the given index of the point //as well as set the boolean value to False at that place
+  //return the character on the map by the given index of the point 
   public char getCharAtLoc(Point p)
   { 
     char re = map[(int)p.getX()][(int)p.getY()];
-    revealed[(int)p.getX()][(int)p.getY()] = true; 
+    // revealed[(int)p.getX()][(int)p.getY()] = true; 
     return re ;
   }
 
-  //In what method do you keep track of x and boolean value 
-  //In what method do you update it ? 
-  //Put Trainer's position as * - have not done yet 
-  public String mapToString()
+
+  //Put Trainer's position as * accordingly to the Point p
+  public String mapToString(Point p)
   {
     this.reveal(this.findStart()); 
     String mapRe = ""; 
@@ -72,8 +71,14 @@ class Map
         }
         else
         {
-          
-          mapRe = mapRe + " " + "*"; //this.map[a][b]; 
+          if (a == (int)p.getX() & b == (int)p.getY())
+          {
+            mapRe = mapRe + " " + "*"; 
+          }
+          else
+          {
+            mapRe = mapRe + " " + this.map[a][b]; 
+          }
         }
       }
       mapRe += "\n"; 
@@ -117,21 +122,26 @@ class Map
   //Testing purposes only 
   public static void main(String[] args) throws FileNotFoundException
   {
+    Point startPoint = new Point(0,0);
+    Point startPoint2 = new Point(2,4);
+    Point startPoint3 = new Point(3,2);
     Map testObj = new Map(); 
-    testObj.loadMap(1);
-    System.out.print(testObj.mapToString());
+    testObj.loadMap(3);
     System.out.println();
     System.out.println();
     System.out.println(testObj.findStart());
+    testObj.reveal(startPoint);
+    testObj.reveal(startPoint2);
+    testObj.reveal(startPoint3);
+    System.out.print(testObj.mapToString(testObj.findStart()));
     // testObj.loadMap(2);
     // System.out.print(testObj.mapToString());
     // System.out.println();
     // System.out.println();
 
   
-    // Point startPoint = new Point(0,0);
-    // Point startPoint2 = new Point(2,4);
-    // Point startPoint3 = new Point(3,2);
+    
+
     // testObj.reveal(startPoint);
     // testObj.reveal(startPoint2);
     // testObj.reveal(startPoint3);
