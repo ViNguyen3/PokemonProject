@@ -1,3 +1,12 @@
 {
-  "files": {}
+  "files": {
+    "Pokemons/Squirtle.java": [
+      {
+        "id": "03a10375-3409-457e-bd7c-079f2020825e",
+        "line": 33,
+        "version": 143,
+        "index": 734
+      }
+    ]
+  }
 }

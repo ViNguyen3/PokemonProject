@@ -113,9 +113,7 @@ class Map
   //remove i, w, p at given p by setting it equal to "" 
   public void removeCharAtLoc(Point p)
   {
-    //since char does not take '' have to go around like this 
-    String emptyStr = " "; 
-    map[(int)p.getX()][(int)p.getY()] = emptyStr.charAt(0); 
+    map[(int)p.getX()][(int)p.getY()] = 'n'; 
   }
 
 
