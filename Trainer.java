@@ -23,6 +23,13 @@ public class Trainer extends Entity{
 
   public boolean spendMoney(int amnt)
   {
+    amnt = money--;
+    if (money>= amnt){
+      return true;
+    }
+    else{
+      return false;
+    }
     //decrease money 
     //return True if money >= amt 
     //return False if money < amt 
@@ -30,33 +37,51 @@ public class Trainer extends Entity{
 
   public void receiveMoney(int amt)
   {
+    money = money++;
+    amt = money + money;
     //increase money + amt 
   }
 
   public boolean hasPotion()
   {
+    if(potions > 0){
+      return true;
+    }
+    else{
+      return false;
+    }
     //return true if potion > 0 
     //return fasle if potion = 0 
   }
 
   public void receivePotion() 
   {
+    potions = potions++;
+    
     //increase potion++ 
   }
 
   public void usePotion(int pokeIndex)
   {
+    Entity.heal(pokemon[pokeIndex]);
     //.heal() the pokemon at the specific index in the list. 
   }
   
   public boolean hasPokeball() 
   {
+    if(pokeballs > 0){
+      return true;
+    }
+    else{
+      return false;
+    }
     //return true if pokeballs > 0 
     //return false if pokeballs = 0 
   }
 
   public void receivePokeball() 
   {
+    pokeballs = pokeballs++;
     //increase pokeballs
     
   }
@@ -80,8 +105,8 @@ public class Trainer extends Entity{
   public char goNorth() 
   {
 
-    int x = (int) location.getX();
-    Point north = new point(x,y-1);
+    
+    
     
     // start = loc[0][0]
     // [0][1]
@@ -114,7 +139,7 @@ public class Trainer extends Entity{
   public void healAllPokemon()
   {
     for(int i = 0; i < pokemon.size(); i++){
-      return Entity.heal(i);
+       Entity.heal(i);
     }
     //traverse the list 
     //pokemon in the list.heal() 
@@ -136,7 +161,11 @@ public class Trainer extends Entity{
   @Override
   public String toString() 
   {
-
+    return System.out.println(money);
+    return System.out.println(pokemon);
+    return System.out.println(map);
+    return System.out.println(pokeballs);
+    
   }
 }
 
