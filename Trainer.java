@@ -56,8 +56,7 @@ public class Trainer extends Entity{
 
   public void receivePotion() 
   {
-    potions = potions++;
-    
+    potions++;
     //increase potion++ 
   }
 
@@ -86,6 +85,8 @@ public class Trainer extends Entity{
     
   }
 
+  //Prof's answer 
+  // it should check that the user has a pokeball, and if they do, then get the hp and maxHp of the pokemon, use the hp to calculate the likelyhood of it being caught (there's an example calculation in the project description).  Then randomize to determine whether it was successful, add the pokemon to the user's list of pokemon, and return true if it was successful, false otherwise
   public boolean catchPokemon(Pokemon p){
     
     int hp = p.getHp();
