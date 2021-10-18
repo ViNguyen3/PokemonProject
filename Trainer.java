@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.awt.Point;
+import java.util.Random;
 
 public class Trainer extends Entity{
   private int money;
@@ -8,6 +9,7 @@ public class Trainer extends Entity{
   private Point loc;
   private Map map;
   private ArrayList<Pokemon> pokemon;
+  
 
   public Trainer(String n, Pokemon p, Map m){
     super(n,100);
@@ -23,8 +25,7 @@ public class Trainer extends Entity{
 
   public boolean spendMoney(int amnt)
   {
-    amnt = money--;
-    if (money>= amnt){
+    if(money >= amnt){
       return true;
     }
     else{
@@ -37,8 +38,8 @@ public class Trainer extends Entity{
 
   public void receiveMoney(int amt)
   {
-    money = money++;
-    amt = money + money;
+    money = money+amt;
+    
     //increase money + amt 
   }
 
@@ -62,7 +63,7 @@ public class Trainer extends Entity{
 
   public void usePotion(int pokeIndex)
   {
-    Entity.heal(pokemon[pokeIndex]);
+    (pokemon.get(pokeIndex)).heal(); 
     //.heal() the pokemon at the specific index in the list. 
   }
   
@@ -87,15 +88,29 @@ public class Trainer extends Entity{
 
   //Prof's answer 
   // it should check that the user has a pokeball, and if they do, then get the hp and maxHp of the pokemon, use the hp to calculate the likelyhood of it being caught (there's an example calculation in the project description).  Then randomize to determine whether it was successful, add the pokemon to the user's list of pokemon, and return true if it was successful, false otherwise
+  //double check later 
   public boolean catchPokemon(Pokemon p){
-    
-    int hp = p.getHp();
-    if(hp <= (hp/2)){
-      return true;
+    Random rand = new Random();
+    int upperbound = 100;
+    if(pokeballs >= 1){
+      int hp = p.getHp();
+      int maxHp = p.getMaxHp();
+      double avg = (hp/maxHp);
+      double trueAvg = Math.round(avg * 100.0) / 100.0;
+      double percentage = (1 - trueAvg)*(100);
+      int n = rand.nextInt(upperbound);
+      if (n <= percentage){
+        pokemon.add(p);
+        return true;
+      }
+      else{
+        return false;
+      }
     }
-    else{
-      return false;
-    }
+   // n = 25% 
+   // generate an int 0 - 100 
+   // any number inside n -> success 
+   // any number outside n -> fail 
   }
 
   public Point getLocation() 
@@ -104,33 +119,54 @@ public class Trainer extends Entity{
   }
     
   public char goNorth() 
-  {
-
-    
-    
-    
-    // start = loc[0][0]
-    // [0][1]
-    // char temp = map.getCharAtLoc([][]])
-    // if  temp != null 
-    //   return temp
-    // else 
-    //   Invalid
+  { 
+    Point p = map.findStart();
+    if(p.getY() + 1 >= 5){
+      System.out.println("invalid");
+      return 'a';
+    }
+    else{
+     return map.getCharAtLoc(p);
+    }
   }
 
+//if any methods return a means invalid 
   public char goSouth() 
   {
-    
+   Point p = map.findStart();
+    if( p.getY() - 1 <= 0){
+      System.out.println("invalid");
+      return 'a'; 
+    }
+    else{
+       return map.getCharAtLoc(p);
+    } 
   }
 
   public char goEast() 
   {
-    
+    Point p = map.findStart();
+    if(p.getX()- 1  >= 5){
+      
+      System.out.println("invalid");
+      return 'a'; 
+    }
+    else{
+       return map.getCharAtLoc(p);
+    }
   }
 
   public char goWest() 
   {
-
+    Point p = map.findStart();
+    if(p.getX()+ 1 >= 5){
+      
+      System.out.println("invalid");
+      return 'a'; 
+    }
+    else{
+       return map.getCharAtLoc(p);
+    }
   }
   
   public int getNumPokemon(){
@@ -140,7 +176,7 @@ public class Trainer extends Entity{
   public void healAllPokemon()
   {
     for(int i = 0; i < pokemon.size(); i++){
-       Entity.heal(i);
+       (pokemon.get(i)).heal();
     }
     //traverse the list 
     //pokemon in the list.heal() 
@@ -151,21 +187,24 @@ public class Trainer extends Entity{
     return this.pokemon.get(index);
   }
 
-  public string getPokemonList(){
+  public String getPokemonList(){
     System.out.println(pokemon);
     String p = "";
-    for (String pokemon : pokemons){
-      return p+= pokemon+" , ";
+    for(int i = 0; i < pokemon.size(); i++)
+    {
+      p = p+ pokemon.get(i) + " , ";
     }
+    return p;
   }
 
   @Override
   public String toString() 
   {
-    return System.out.println(money);
-    return System.out.println(pokemon);
-    return System.out.println(map);
-    return System.out.println(pokeballs);
+    String a = String.valueOf(money);
+    String b = String.valueOf(pokeballs);
+    String c = super.toString();
+    String d = map.toString(loc);
+    String str[] = new String[pokemon.size()];
     
   }
 }
@@ -179,5 +218,17 @@ getNumPokemon() returns size of arraylist
 healAllPokemon() calls heal() on all pokemon 
 getPokemonList() builds a toString of ArrayList
 toString() should display hitpoints, money, pokeballs, pokemon, and the map
+Ah you just mean any of the Direction methods.String
+I thought you meant you did all the others, but could not figure out North.
+Well you just need to check if that is a valid "spot to go to" then if it is, change the location the player goes to. Once that happens, you getCharAtLocation() and return that char.
+I don't know how you guys handle "cannot go that way", the way I did is by returning the null character '\0'.
 */
-
+// public static void main(String[] args)
+// {
+//   Random rand = new Random();
+//   for(int i = 0; i < 5; i++ )
+//   {
+//      int test = rand.nextInt(75); 
+//     System.out.print("Result: " + test); 
+//   }
+// } 

@@ -99,4 +99,17 @@ public abstract class Pokemon extends Entity {
     return pType;
   }
 
+ //Testing purposes only 
+  public static void main(String[] args)
+  {
+    Pokemon testPokemon = new Bulbasaur();
+
+    System.out.println(testPokemon.getBasicMenu());
+
+
+    System.out.println(testPokemon.getSpecialMenu());
+
+
+  }
+
 }
