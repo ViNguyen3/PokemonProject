@@ -106,6 +106,7 @@ public class Trainer extends Entity{
       else{
         return false;
       }
+      return false;
     }
    // n = 25% 
    // generate an int 0 - 100 
@@ -117,7 +118,7 @@ public class Trainer extends Entity{
   {
     return loc; 
   }
-    
+
   public char goNorth() 
   { 
     Point p = map.findStart();
@@ -203,7 +204,7 @@ public class Trainer extends Entity{
     String a = String.valueOf(money);
     String b = String.valueOf(pokeballs);
     String c = super.toString();
-    String d = map.toString(loc);
+    String d = map.mapToString(loc);
     String str[] = new String[pokemon.size()];
     
   }
