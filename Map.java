@@ -118,20 +118,20 @@ class Map
 
 
   //Testing purposes only 
-  public static void main(String[] args) throws FileNotFoundException
-  {
-    Point startPoint = new Point(0,0);
-    Point startPoint2 = new Point(2,4);
-    Point startPoint3 = new Point(3,2);
-    Map testObj = new Map(); 
-    testObj.loadMap(3);
-    System.out.println();
-    System.out.println();
-    System.out.println(testObj.findStart());
-    testObj.reveal(startPoint);
-    testObj.reveal(startPoint2);
-    testObj.reveal(startPoint3);
-    System.out.print(testObj.mapToString(testObj.findStart()));
+  // public static void main(String[] args) throws FileNotFoundException
+  // {
+    // Point startPoint = new Point(0,0);
+    // Point startPoint2 = new Point(2,4);
+    // Point startPoint3 = new Point(3,2);
+    // Map testObj = new Map(); 
+    // testObj.loadMap(3);
+    // System.out.println();
+    // System.out.println();
+    // System.out.println(testObj.findStart());
+    // testObj.reveal(startPoint);
+    // testObj.reveal(startPoint2);
+    // testObj.reveal(startPoint3);
+    // System.out.print(testObj.mapToString(testObj.findStart()));
     // testObj.loadMap(2);
     // System.out.print(testObj.mapToString());
     // System.out.println();
@@ -144,5 +144,5 @@ class Map
     // testObj.reveal(startPoint2);
     // testObj.reveal(startPoint3);
     // System.out.print(testObj.mapToString());
-  }
+  // }
 } 

@@ -8,6 +8,7 @@ class Main {
     int playerChoice;
     char mapChar = 'n';
     int i = 0;//for the menu
+    int mapNumber = 1; //initally load map 1
 
     // User input for their name
     System.out.println("Prof. Oak: Welcome new trainer! What is your name?");
@@ -38,6 +39,7 @@ class Main {
 
     //construct map and trainer object 
     Map mainMap = new Map();
+    mainMap.loadMap(mapNumber);//load map 1 
     Trainer player = new Trainer(playerName,starterPokemon,mainMap);
     //printing will be toString in Trainer class, as long as player doesn't quit the game, the program keep printing and updating the map and other stuffs.
     do
@@ -62,13 +64,32 @@ class Main {
         mapChar = player.goWest();
       }
 
-      if (mapChar == 'n') 
+
+      if (mapChar == 's')
+      {
+
+      }
+      else if (mapChar == 'n') 
       {
         System.out.println("There's nothing here");
       }
+      //load the next map and loop back 
+      //when loop back do you keep the old value or reset all of them
       else if (mapChar == 'f')
       {
-        mainMap.loadMap();
+        System.out.println("Loading next map");
+        if(mapNumber == 1)
+        {
+          mainMap.loadMap(2);
+        }
+        else if (mapNumber == 2)
+        {
+          mainMap.loadMap(3);
+        }
+        else if (mapNumber == 3)
+        {
+          mainMap.loadMap(1);
+        }
       }
       else if (mapChar == 'i')
       {
@@ -175,7 +196,7 @@ class Main {
     
     String wildMenu = "What do you want to do?\n1. Fight\n2. Use Potion\n3. Throw Poke Ball\n4. Run Away";
 
-    System.out.println(trainAttack);
+    System.out.println(wildMenu);
     int wildMenu = CheckInput.getIntRange(1, 4);
     int attackMove = "0";
 
