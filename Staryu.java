@@ -22,8 +22,10 @@ public class Staryu extends Pokemon implements Water {
         return bubbleBeam(p);
       case 3:
         return waterfall(p);
+      default:
+        System.out.println("Invalid entry. Please try again.");
     }
-    return "Invalid";
+    return "";
   }
   
   //1-5 dmg 

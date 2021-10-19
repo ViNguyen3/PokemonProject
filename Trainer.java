@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.awt.Point;
+import java.io.FileNotFoundException;
 import java.util.Random;
 
 public class Trainer extends Entity{
@@ -8,7 +9,7 @@ public class Trainer extends Entity{
   private int pokeballs;
   private Point loc;
   private Map map;
-  private ArrayList<Pokemon> pokemon;
+  private ArrayList<Pokemon> pokemon = new ArrayList<Pokemon>();
   
 
   public Trainer(String n, Pokemon p, Map m){
@@ -99,20 +100,23 @@ public class Trainer extends Entity{
       double trueAvg = Math.round(avg * 100.0) / 100.0;
       double percentage = (1 - trueAvg)*(100);
       int n = rand.nextInt(upperbound);
+
       if (n <= percentage){
         pokemon.add(p);
         return true;
       }
-      else{
+      else if( n > percentage)
+      {
         return false;
       }
-      return false;
     }
+    return false;
+  }
    // n = 25% 
    // generate an int 0 - 100 
    // any number inside n -> success 
    // any number outside n -> fail 
-  }
+  
 
   public Point getLocation() 
   {
@@ -127,6 +131,8 @@ public class Trainer extends Entity{
       return 'a';
     }
     else{
+      loc.move((int)loc.getX()-1, (int)loc.getY());
+     map.reveal(p); 
      return map.getCharAtLoc(p);
     }
   }
@@ -140,6 +146,7 @@ public class Trainer extends Entity{
       return 'a'; 
     }
     else{
+      map.reveal(p);
        return map.getCharAtLoc(p);
     } 
   }
@@ -153,6 +160,8 @@ public class Trainer extends Entity{
       return 'a'; 
     }
     else{
+      loc.move((int)loc.getX()-1, (int)loc.getY());
+      map.reveal(p);
        return map.getCharAtLoc(p);
     }
   }
@@ -166,6 +175,7 @@ public class Trainer extends Entity{
       return 'a'; 
     }
     else{
+      map.reveal(p);
        return map.getCharAtLoc(p);
     }
   }
@@ -201,12 +211,36 @@ public class Trainer extends Entity{
   @Override
   public String toString() 
   {
+    String e = "";  
     String a = String.valueOf(money);
     String b = String.valueOf(pokeballs);
     String c = super.toString();
     String d = map.mapToString(loc);
-    String str[] = new String[pokemon.size()];
+    for(int i = 0; i < pokemon.size(); i++)
+    {
+       e += pokemon.get(i).toString();
+    }
+      return "Trainer HP: "+  c + "\n" + "Money: " + a + "\n" + "Pokeball: " + b + "\n" + d + "\n" + e + "\n";
+  }
     
+  
+
+ public static void main(String[] args) throws FileNotFoundException
+  {
+    Pokemon test2 = new Staryu(); 
+     Pokemon test5 = new Bulbasaur();
+     Pokemon test6 = new Charmander();
+     Pokemon test7 = new Oddish();
+     Pokemon test8 = new Squirtle();
+     Pokemon test9 = new Ponyta();
+    Map test3 = new Map();
+    test3.loadMap(2);
+    Trainer test4 = new Trainer("test", test9, test3); 
+    System.out.println(test4.toString());
+    test4.goNorth(); 
+    System.out.println(test4.toString());
+    // Point c = test4.getLocation();
+    // System.out.println(c);
   }
 }
 

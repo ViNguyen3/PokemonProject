@@ -19,11 +19,15 @@ public class Squirtle extends Pokemon implements Water {
       case 1:
         return waterGun(p);
       case 2:
-        return bubleBeam(p);
+        return bubbleBeam(p);
       case 3:
         return waterfall(p);
+      default:
+        System.out.println("Invalid entry. Please try again.");
     }
-  }
+    return ""; 
+    }
+  
 
   //2-5 dmg 
   public String waterGun(Pokemon p) {

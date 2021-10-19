@@ -6,7 +6,7 @@ public class Ponyta extends Pokemon implements Fire {
   }
 
   public String getSpecialMenu() {
-    String specialMenu = "1. Vine Whip\n2. Razor Leaf\n3. Solar Beam";
+    String specialMenu = "1. Ember\n2. Fire Blast\n3. Fire Punch";
     return specialMenu;
   }
 
@@ -17,12 +17,15 @@ public class Ponyta extends Pokemon implements Fire {
   public String specialAttack(Pokemon p, int move) {
      switch (move) {
       case 1:
-        return vineWhip(p);
+        return ember(p);
       case 2:
-        return razorLeaf(p);
+        return fireBlast(p);
       case 3:
-        return solarBeam(p);
-      }
+        return firePunch(p);
+      default:
+        System.out.println("Invalid entry. Please try again.");
+    }
+    return ""; 
   }
 
   //0-4 dmg 

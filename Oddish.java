@@ -54,10 +54,10 @@ public class Oddish extends Pokemon implements Grass {
   public String solarBeam(Pokemon p) {
     // Solar beam by Oddish damages for 0-3
     Random rand = new Random();
+    double dmgType = battleTable[this.getType()][p.getType()];
     int dmg = rand.nextInt(4);
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
-
     return p.getName() + " BEAMED for " + specialDmg + " damage!";
   }
 
