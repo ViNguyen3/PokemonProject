@@ -126,7 +126,7 @@ public class Trainer extends Entity{
     }
     else{
       loc.move((int)loc.getX()-1, (int)loc.getY());
-      System.out.println("Loc: " + loc.toString());
+      // System.out.println("Loc: " + loc.toString());
       map.reveal(loc); 
       return map.getCharAtLoc(loc);
     }
@@ -141,7 +141,7 @@ public class Trainer extends Entity{
     }
      else{
        loc.move((int)loc.getX()+1, (int)loc.getY());
-       System.out.println("Loc: " + loc.toString());
+      //  System.out.println("Loc: " + loc.toString());
        map.reveal(loc); 
        return map.getCharAtLoc(loc);
      }
@@ -155,7 +155,7 @@ public class Trainer extends Entity{
     }
      else{
        loc.move((int)loc.getX(), (int)loc.getY()+1);
-       System.out.println("Loc: " + loc.toString());
+      //  System.out.println("Loc: " + loc.toString());
        map.reveal(loc); 
        return map.getCharAtLoc(loc);
      }
@@ -169,7 +169,6 @@ public class Trainer extends Entity{
     }
      else{
        loc.move((int)loc.getX(), (int)loc.getY()-1);
-       System.out.println("Loc: " + loc.toString());
        map.reveal(loc); 
        return map.getCharAtLoc(loc);
      }
@@ -229,6 +228,7 @@ public class Trainer extends Entity{
     Map test3 = new Map();
     test3.loadMap(2);
     Trainer test4 = new Trainer("test", test9, test3);
+    System.out.println(test4.toString());
    
     // for (int i = 0; i < 4; i++)
     // {

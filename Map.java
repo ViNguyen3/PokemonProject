@@ -19,21 +19,23 @@ class Map
      }
   }
 
-  //this method read file and put it into the array map
+  //this method read file and put it into the array map as well as reset the boolean array when load next map.
   public void loadMap(int mapNum) throws FileNotFoundException
   {
     String mapName = "Area" + mapNum + ".txt"; 
     Scanner in = new Scanner(new File(mapName)); 
     int i = 0,j = 0;
+    //this loop is to read file 
     while (in.hasNextLine())
     {
       String currentLine = in.nextLine();
-      //loop go through current line 
+      //loop go through current line and set boolean value 
       for(int z = 0; z < currentLine.length(); z++)
       { 
         if(Character.isLetter(currentLine.charAt(z)))
         {
           map[j][i] = currentLine.charAt(z); 
+          revealed[j][i] = false;
           i++;
         }
         if(i == 5)
@@ -58,7 +60,7 @@ class Map
   //Put Trainer's position as * accordingly to the Point p
   public String mapToString(Point p)
   {
-    // this.reveal(this.findStart()); 
+    this.reveal(p); 
     String mapRe = ""; 
     for (int a = 0; a < this.map.length; a++)
     {
