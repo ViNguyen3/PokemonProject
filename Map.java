@@ -58,7 +58,7 @@ class Map
   //Put Trainer's position as * accordingly to the Point p
   public String mapToString(Point p)
   {
-    this.reveal(this.findStart()); 
+    // this.reveal(this.findStart()); 
     String mapRe = ""; 
     for (int a = 0; a < this.map.length; a++)
     {

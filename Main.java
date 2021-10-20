@@ -11,18 +11,18 @@ class Main {
     int i = 0;//for the menu
     int mapNumber = 1; //initally load map 1
     String p1 = "You run into A\nA: Where's my money that you borrow before to buy pokeballs!\nA rob half of your money."; 
-    String p2 = "You run into B\nB: Hey, remember you bully me when we were in primary school\n（；¬＿¬)\nB smack and slap you for half your health."; 
+    String p2 = "You run into B\nB: Hey, remember you bully me when we were in primary school\n（；¬＿¬)\nB smack and slap you for for being a bad kid for half your health."; 
     String p3 = "You run into C\nC: Oi, Onii-chan~~(｡•̀ᴗ-)✧\nC kissed you heal you to full health"; 
-    String p4 = "You run into C's dad\nC's dad: How dare you decieve my daughter!\n(╬ Ò ‸ Ó)\nC's dad smack you for 10 health";  
+    String p4 = "You run into C's dad\nC's dad: How dare you decieve my daughter!\n(╬ Ò ‸ Ó)\nC's dad smack you for 10 health and took all your money cause the game hates you!";  
     // User input for their name
     System.out.println("Prof. Oak: Welcome new trainer! What is your name?");
     // Use the CheckInput class for the user inputs
     playerName = CheckInput.getString();
 
-    System.out.println("Great to meet you, " + playerName);
+    System.out.println("(ノ＞▽＜。)ノ What a bad name, " + playerName + " are you serious! LOL!!!");
 
     // User input for their starter pokemon
-    System.out.println("Please choose your first pokemon:\n1. Charmander\n2. Bulbasaur\n3. Squirtle");
+    System.out.println("Anywayas please choose your first pokemon:\n1. Charmander\n2. Bulbasaur\n3. Squirtle");
 
     // Use the CheckInput class for the user inputs (range for menu options)
     starterPokemonChoice = CheckInput.getIntRange(1, 3);
@@ -68,7 +68,7 @@ class Main {
         mapChar = player.goWest();
       }
 
-      //leave it ask instructor later 
+      //leave it ask instructor later how to keep the same loc for the next map
       if (mapChar == 's')
       {
 
@@ -79,6 +79,7 @@ class Main {
       }
       //load the next map and loop back 
       //when loop back do you keep the old value or reset all of them
+      //also keep the old location to transfer to the new map
       else if (mapChar == 'f')
       {
         System.out.println("Loading next map");
@@ -122,6 +123,22 @@ class Main {
         int num2 = num.nextInt(4);
         String num3 = "p" + Integer.toString(num2);
         System.out.println(num3);  
+        switch(num2)
+        {
+          case 1: 
+            player.spendMoney((int)((player.getMoney())/2)); 
+            break;
+          case 2: 
+            player.takeDamage((int)(player.getHp()/2)); 
+            break;
+          case 3: 
+            player.heal();
+            break;
+          case 4: 
+            player.takeDamage(10); 
+            player.spendMoney(player.getMoney()); 
+            break; 
+        }   
       }
       else if (mapChar == 'c')
       {
@@ -236,7 +253,17 @@ class Main {
         }
 
         // Wild Pokemon's move *NOT DONE*
-        System.out.println()
+        System.out.println("The wild " + wild.getName() + " is getting ready to charge!");
+        int wildAttack = rand.nextInt(2) + 1;
+        
+        // If the wildChoice is 1, choose random basic attack
+        if (wildAttack == 1) {
+          System.out.println(wild.basicAttack(chosenPokemon, rand.nextInt(wild.getNumBasicMenuItems) + 1));
+        }
+        // If the wildChoice is 2, choose random special attack
+        else if (wildAttack == 2) {
+          System.out.println(wild.specialAttack(chosenPokemon, rand.nextInt(wild.getNumSpecialMenuItems) + 1));
+        }
 
         // If chosen pokemon has no health, damage the trainer
         if (chosenPokemon.getHp() == 0) {
@@ -245,7 +272,7 @@ class Main {
           
           System.out.println(chosenPokemon.getName() + " has no more health left!");
           System.out.println("The wild " + wild.getName() + " charges and attacks you instead!");
-          t.takeDamage(dmg);
+          t.takeDamage(dmg);          
 
         }
 
@@ -261,7 +288,7 @@ class Main {
           break;
         }
 
-        // Ch
+        // Display and choose pokemon for healing, use the potion on the pokemon
         System.out.println("Choose the pokemon that you want to heal:");
         System.out.println(t.getPokemonList());
         int pokemonChoice =  CheckInput.getIntRange(1, t.getNumPokemon());
@@ -271,7 +298,7 @@ class Main {
         // End of Use Potion
         break;
 
-      // 3. Throw POkeball
+      // 3. Throw Pokeball
       case 3:
 
         // End of Throw Pokeball

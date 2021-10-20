@@ -111,12 +111,7 @@ public class Trainer extends Entity{
       }
     }
     return false;
-  }
-   // n = 25% 
-   // generate an int 0 - 100 
-   // any number inside n -> success 
-   // any number outside n -> fail 
-  
+  } 
 
   public Point getLocation() 
   {
@@ -125,59 +120,59 @@ public class Trainer extends Entity{
 
   public char goNorth() 
   { 
-    Point p = map.findStart();
-    if(p.getY() + 1 >= 5){
+    if(loc.getX() - 1 < 0){
       System.out.println("invalid");
       return 'a';
     }
     else{
       loc.move((int)loc.getX()-1, (int)loc.getY());
-     map.reveal(p); 
-     return map.getCharAtLoc(p);
+      System.out.println("Loc: " + loc.toString());
+      map.reveal(loc); 
+      return map.getCharAtLoc(loc);
     }
   }
 
 //if any methods return a means invalid 
   public char goSouth() 
   {
-   Point p = map.findStart();
-    if( p.getY() - 1 <= 0){
-      System.out.println("invalid");
-      return 'a'; 
+    if(loc.getX() + 1 >= 5){
+       System.out.println("invalid");
+       return 'a';
     }
-    else{
-      map.reveal(p);
-       return map.getCharAtLoc(p);
-    } 
+     else{
+       loc.move((int)loc.getX()+1, (int)loc.getY());
+       System.out.println("Loc: " + loc.toString());
+       map.reveal(loc); 
+       return map.getCharAtLoc(loc);
+     }
   }
 
   public char goEast() 
   {
-    Point p = map.findStart();
-    if(p.getX()- 1  >= 5){
-      
-      System.out.println("invalid");
-      return 'a'; 
+    if(loc.getY() + 1 >= 5){
+       System.out.println("invalid");
+       return 'a';
     }
-    else{
-      loc.move((int)loc.getX()-1, (int)loc.getY());
-      map.reveal(p);
-       return map.getCharAtLoc(p);
-    }
+     else{
+       loc.move((int)loc.getX(), (int)loc.getY()+1);
+       System.out.println("Loc: " + loc.toString());
+       map.reveal(loc); 
+       return map.getCharAtLoc(loc);
+     }
   }
 
   public char goWest() 
   {
-    Point p = map.findStart();
-    if(p.getX()+ 1 >= 5){
-      
-      System.out.println("invalid");
-      return 'a'; 
+     if(loc.getY() - 1 < 0){
+       System.out.println("invalid");
+       return 'a';
     }
-    else{
-      map.reveal(p);
-       return map.getCharAtLoc(p);
-    }
+     else{
+       loc.move((int)loc.getX(), (int)loc.getY()-1);
+       System.out.println("Loc: " + loc.toString());
+       map.reveal(loc); 
+       return map.getCharAtLoc(loc);
+     }
   }
   
   public int getNumPokemon(){
@@ -222,23 +217,47 @@ public class Trainer extends Entity{
     }
       return "Trainer HP: "+  c + "\n" + "Money: " + a + "\n" + "Pokeball: " + b + "\n" + d + "\n" + e + "\n";
   }
-    
   
-
  public static void main(String[] args) throws FileNotFoundException
   {
     Pokemon test2 = new Staryu(); 
-     Pokemon test5 = new Bulbasaur();
-     Pokemon test6 = new Charmander();
-     Pokemon test7 = new Oddish();
-     Pokemon test8 = new Squirtle();
-     Pokemon test9 = new Ponyta();
+    Pokemon test5 = new Bulbasaur();
+    Pokemon test6 = new Charmander();
+    Pokemon test7 = new Oddish();
+    Pokemon test8 = new Squirtle();
+    Pokemon test9 = new Ponyta();
     Map test3 = new Map();
     test3.loadMap(2);
-    Trainer test4 = new Trainer("test", test9, test3); 
-    System.out.println(test4.toString());
-    test4.goNorth(); 
-    System.out.println(test4.toString());
+    Trainer test4 = new Trainer("test", test9, test3);
+   
+    // for (int i = 0; i < 4; i++)
+    // {
+    //   test4.goNorth(); 
+    //   System.out.println(test4.toString());
+    // }
+    // for (int i = 0; i < 4; i++)
+    // {
+    //   test4.goWest(); 
+    //   System.out.println(test4.toString());
+    // }
+    // for (int i = 0; i < 4; i++)
+    // {
+    //   test4.goSouth(); 
+    //   System.out.println(test4.toString());
+    // }
+    // for (int i = 0; i < 4; i++)
+    // {
+    //   test4.goEast(); 
+    //   System.out.println(test4.toString());
+    // }
+    // test4.goWest(); 
+    // System.out.println(test4.toString());
+    //System.out.println(test4.toString());
+    //test4.goSouth();
+    //System.out.println(test4.toString());
+    //test4.goEast();
+   // System.out.println(test4.toString());
+   
     // Point c = test4.getLocation();
     // System.out.println(c);
   }

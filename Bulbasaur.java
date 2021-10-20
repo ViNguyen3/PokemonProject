@@ -59,7 +59,7 @@ public class Bulbasaur extends Pokemon implements Grass {
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
 
-    return p.getName() + " BEAMED for " + specialDmg + " damage!";
+    return p.getName() + " Bulbassaur pulls a Kamehameha BEAMED for " + specialDmg + " damage and almost vaporized you!";
   }
 
 }
