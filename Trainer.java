@@ -2,7 +2,16 @@ import java.util.ArrayList;
 import java.awt.Point;
 import java.io.FileNotFoundException;
 import java.util.Random;
-
+/**
+* The trainer class creates constructors and methods that the other files read while these constructors return either a specific String, variable, or boolean back to the main in order to follow a specific command.
+* integer money containes the money the trainer has
+* int potions contains the amount of potions the trainer has
+* Int pokeballs contains the amount of pokeballs the trainer has
+* private point loc contains the current location of the trainer 
+* private map reads through the {@link Map}
+* pokemon is the arraylist that contains all the pokemon the trainer has collected.
+* @author Angel Rubio
+*/
 public class Trainer extends Entity{
   private int money;
   private int potions;
@@ -11,22 +20,35 @@ public class Trainer extends Entity{
   private Map map;
   private ArrayList<Pokemon> pokemon = new ArrayList<Pokemon>();
   
-
+  /**
+  *The trainer method gives the trainer a set hp, a point in the map, and starts of with a fresh set of money, potions and pokeballs.
+  */
   public Trainer(String n, Pokemon p, Map m){
     super(n,100);
     map = m; 
     pokemon.add(p);
     loc = m.findStart();
+    money = 25;
+    potions = 1;
+    pokeballs = 5;
+    
   }
 
+   /**
+  * getMoney() returns the current amount of money the trainer posesses.
+  */
   public int getMoney()
   {
     return money;
   }
 
+   /**
+  *spendMoney(int amnt) is a boolean method that returns true if your current money is greater than amount owed and false if it is the exact opposite.
+  */
   public boolean spendMoney(int amnt)
   {
     if(money >= amnt){
+      money -= amnt;
       return true;
     }
     else{
@@ -37,13 +59,18 @@ public class Trainer extends Entity{
     //return False if money < amt 
   }
 
+   /**
+  *receiveMoney(int amt) adds a set amount to your current set of money.
+  */
   public void receiveMoney(int amt)
   {
     money = money+amt;
     
     //increase money + amt 
   }
-
+   /**
+  * hasPotion() is a boolean method that returns true if you have a potion and false if you don't.
+  */
   public boolean hasPotion()
   {
     if(potions > 0){
@@ -56,18 +83,31 @@ public class Trainer extends Entity{
     //return fasle if potion = 0 
   }
 
+   /**
+  *receivePotion() adds a potion to your total amount of potions
+  */
   public void receivePotion() 
   {
     potions++;
     //increase potion++ 
   }
 
+   /**
+  *usePotion uses a potion on a specified pokemon while the amount of potions is greater than zero.
+  */
   public void usePotion(int pokeIndex)
-  {
-    (pokemon.get(pokeIndex)).heal(); 
+  { 
+    if(potions > 0)
+    {
+      getPokemon(pokeIndex).heal(); 
+      potions--;
+    }
     //.heal() the pokemon at the specific index in the list. 
   }
   
+   /**
+  *Checks to see if the user has a pokeball. Returns true if trainer has at least one pokemon, returns false if it is zero.
+  */
   public boolean hasPokeball() 
   {
     if(pokeballs > 0){
@@ -80,9 +120,12 @@ public class Trainer extends Entity{
     //return false if pokeballs = 0 
   }
 
+   /**
+  *receivePokeball() increases the amount of pokeballs and adds that to your current amount.
+  */
   public void receivePokeball() 
   {
-    pokeballs = pokeballs++;
+    pokeballs++;
     //increase pokeballs
     
   }
@@ -90,6 +133,10 @@ public class Trainer extends Entity{
   //Prof's answer 
   // it should check that the user has a pokeball, and if they do, then get the hp and maxHp of the pokemon, use the hp to calculate the likelyhood of it being caught (there's an example calculation in the project description).  Then randomize to determine whether it was successful, add the pokemon to the user's list of pokemon, and return true if it was successful, false otherwise
   //double check later 
+
+   /**
+  *catchPokemon is a method that determines the catchrate of the pokemon and decides whether or not you catch it. It utilizes the random integer variable between 1-100 to help utilze the percent rate for which you catch pokemon. The higher the pokemon's hp is the less of the chance you have to catch it. Same is true for the other end of the spectrum. The boolean then returns true if the random number runs through the percent range and false if it isn't in the percent range
+  */
   public boolean catchPokemon(Pokemon p){
     Random rand = new Random();
     int upperbound = 100;
@@ -112,7 +159,7 @@ public class Trainer extends Entity{
     }
     return false;
   } 
-
+  
   public Point getLocation() 
   {
     return loc; 
@@ -189,19 +236,19 @@ public class Trainer extends Entity{
 
   public Pokemon getPokemon(int index)
   {
-    return this.pokemon.get(index);
+    return this.pokemon.get(index - 1);
   }
 
   public String getPokemonList(){
-    System.out.println(pokemon);
     String p = "";
     for(int i = 0; i < pokemon.size(); i++)
     {
-      p = p+ pokemon.get(i) + " , ";
+      p += (i+1) + ". " + pokemon.get(i).toString();
     }
     return p;
   }
 
+  //put potion later 
   @Override
   public String toString() 
   {
@@ -210,11 +257,12 @@ public class Trainer extends Entity{
     String b = String.valueOf(pokeballs);
     String c = super.toString();
     String d = map.mapToString(loc);
+    String f = String.valueOf(potions);
     for(int i = 0; i < pokemon.size(); i++)
     {
        e += pokemon.get(i).toString();
     }
-      return "Trainer HP: "+  c + "\n" + "Money: " + a + "\n" + "Pokeball: " + b + "\n" + d + "\n" + e + "\n";
+      return   c + "\n" + "Money: " + a + "\n" + "Potions: " + f + "\n" + "Pokeball: " + b + "\n" + d + "\n" +  e  + " \n ";
   }
   
  public static void main(String[] args) throws FileNotFoundException

@@ -36,7 +36,7 @@ public class Charmander extends Pokemon implements Fire {
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
 
-    return p.getName() + "Charmander uses Ember attack for " + specialDmg + " damage!";
+    return this.getName() + " uses EMBER on " + p.getName() + " for " + specialDmg + " damage!";
   }
   
   //1-4 dmg 
@@ -47,7 +47,7 @@ public class Charmander extends Pokemon implements Fire {
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
 
-    return p.getName() + "Charmander fires FireBlast for " + specialDmg + " damage!";
+    return this.getName() + " FIREBLASTS " + p.getName() + " for " + specialDmg + " damage!";
   }
 
   //1-3 dmg 
@@ -58,7 +58,7 @@ public class Charmander extends Pokemon implements Fire {
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
 
-    return p.getName() + "Charmanders used to learn boxing from Muhammad Ali and FirePunch for " + specialDmg + " damage!";
+    return this.getName() + "  used to learn boxing from Muhammad Ali and FIREPUNCHES " + p.getName() + " for " + specialDmg + " damage!";
   }
   
 }

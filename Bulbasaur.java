@@ -37,7 +37,7 @@ public class Bulbasaur extends Pokemon implements Grass {
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
 
-    return p.getName() + " Bulbassaur rage quit and WHIPPED for " + specialDmg + " damage!";
+    return p.getName() + "  WHIPS " + this.getName() + " for " + specialDmg + " damage!";
   }
   
   public String razorLeaf(Pokemon p) {
@@ -48,7 +48,7 @@ public class Bulbasaur extends Pokemon implements Grass {
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
 
-    return p.getName() + " Bulbassaur CUTS for " + specialDmg + " damage!";
+    return p.getName() + " SLICES " + this.getName() + " for " + specialDmg + " damage!";
   }
 
   public String solarBeam(Pokemon p) {
@@ -59,7 +59,8 @@ public class Bulbasaur extends Pokemon implements Grass {
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
 
-    return p.getName() + " Bulbassaur pulls a Kamehameha BEAMED for " + specialDmg + " damage and almost vaporized you!";
+    return p.getName() + " kamehameha BEAMS " + this.getName() + " for " + specialDmg + " damage!";
+
   }
 
 }

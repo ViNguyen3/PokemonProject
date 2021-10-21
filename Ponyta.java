@@ -36,7 +36,7 @@ public class Ponyta extends Pokemon implements Fire {
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
 
-    return p.getName() + " Ember for " + specialDmg + " damage!";
+    return this.getName() + " uses EMBER on " + p.getName() + " for " + specialDmg + " damage!";
   }
   
   //2-5dmg 
@@ -47,7 +47,7 @@ public class Ponyta extends Pokemon implements Fire {
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
 
-    return p.getName() + " FireBlast for " + specialDmg + " damage!";
+    return this.getName() + " FIREBLASTS " + p.getName() + " for " + specialDmg + " damage!";
   }
 
   //1-4 dmg 
@@ -58,7 +58,7 @@ public class Ponyta extends Pokemon implements Fire {
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
 
-    return p.getName() + " FirePunch for " + specialDmg + " damage!";
+    return this.getName() + "  used to learn boxing from Muhammad Ali and FIREPUNCHES " + p.getName() + " for " + specialDmg + " damage!";
   }
   
 }

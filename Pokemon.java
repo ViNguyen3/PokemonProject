@@ -46,7 +46,7 @@ public abstract class Pokemon extends Entity {
 
 // Attack type menu
   public String getAttackMenu() {
-    String attackMenu = "1. Basic Attack\n2.Special Attack";
+    String attackMenu = "1. Basic Attack\n2. Special Attack";
     return attackMenu;
   }
 
@@ -62,7 +62,7 @@ public abstract class Pokemon extends Entity {
     int dmg = rand.nextInt(6);
     p.takeDamage(dmg);
 
-    return p.getName() + " is SLAMMED by "+ this.getName() + " damage!";
+    return p.getName() + " is SLAMMED by "+ this.getName() + " for  "  + dmg + " damage!";
     
   } 
 
@@ -73,7 +73,7 @@ public abstract class Pokemon extends Entity {
     int dmg = rand.nextInt(2) + 2;
     p.takeDamage(dmg);
     
-    return p.getName() + " is TACKLED by "+ this.getName() + dmg + " damage!";
+    return p.getName() + " is TACKLED by "+ this.getName() + " for  "  + dmg + " damage!";
 
   }
 
@@ -84,7 +84,7 @@ public abstract class Pokemon extends Entity {
     int dmg = rand.nextInt(4) + 1;
     p.takeDamage(dmg);
 
-    return p.getName() + " is PUNCHED by "+ this.getName() + dmg + " damage!"; 
+    return p.getName() + " is PUNCHED by "+ this.getName() + " for " + dmg + " damage!"; 
   }
 
 // Pokemon's type, will be used for battle table

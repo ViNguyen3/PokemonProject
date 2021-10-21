@@ -36,8 +36,8 @@ public class Staryu extends Pokemon implements Water {
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
 
-    return p.getName() + "Staryu yearns for peace so shoot WaterGun for " + specialDmg + " damage!";
-  }
+    return this.getName() + " uses WATERGUN on " + p.getName() + " for " + specialDmg + " damage!";
+    }
   
   // 1-2 dmg 
   public String bubbleBeam(Pokemon p) {
@@ -47,7 +47,7 @@ public class Staryu extends Pokemon implements Water {
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
 
-    return p.getName() + "Staryu does not want to fight so BubbleBeam for " + specialDmg + " damage!";
+    return this.getName() + " BUBBLEBEAMS " + p.getName() + " for " + specialDmg + " damage!";
   }
 
   // 1-4 dmg 
@@ -58,7 +58,7 @@ public class Staryu extends Pokemon implements Water {
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
 
-    return p.getName() + "Staryu gave up and WaterFall for " + specialDmg + " damage!";
+    return this.getName() + " unleashes a WATERFALL on " + p.getName() + " for " + specialDmg + " damage!";
   }
   
 }

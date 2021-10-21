@@ -3,7 +3,7 @@ import java.awt.Point;
 import java.util.Scanner; 
 import java.io.FileNotFoundException;
 class Map
-{
+{ 
   private char[][] map; 
   private boolean[][] revealed;
 

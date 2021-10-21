@@ -9,16 +9,20 @@ public abstract class Entity
   public Entity(String name, int maxHp)
   {
     this.name = name; 
-    this.hp = 0; 
+    this.hp = maxHp; 
     this.maxHp = maxHp;
   }
 
   // Keep subtracting and stop when hp reaches 0 
   public void takeDamage(int d)
-  {
-    if (this.hp > 0)
+  { //see if we can seperate = and > 
+    if (this.hp >= d)
     {
       this.hp -= d;
+    }
+    else if (this.hp < d)
+    {
+      this.hp = 0; 
     }
     else
     {

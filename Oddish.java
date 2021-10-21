@@ -37,7 +37,7 @@ public class Oddish extends Pokemon implements Grass {
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
 
-    return p.getName() + " WHIPPED for " + specialDmg + " damage!";
+    return this.getName() + "  WHIPS " + p.getName() + " for " + specialDmg + " damage!";
   }
   
   public String razorLeaf(Pokemon p) {
@@ -48,7 +48,7 @@ public class Oddish extends Pokemon implements Grass {
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
 
-    return p.getName() + " CUTS for " + specialDmg + " damage!";
+    return this.getName() + " SLICES " + p.getName() + " for " + specialDmg + " damage!";
   }
 
   public String solarBeam(Pokemon p) {
@@ -58,7 +58,7 @@ public class Oddish extends Pokemon implements Grass {
     int dmg = rand.nextInt(4);
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
-    return p.getName() + " BEAMED for " + specialDmg + " damage!";
+    return this.getName() + " kamehameha BEAMS " + p.getName() + " for " + specialDmg + " damage!";
   }
 
 }

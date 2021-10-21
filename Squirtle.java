@@ -37,7 +37,7 @@ public class Squirtle extends Pokemon implements Water {
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
 
-    return p.getName() + " WaterGun for " + specialDmg + " damage!";
+    return this.getName() + " uses WATERGUN on " + p.getName() + " for " + specialDmg + " damage!";
   }
   
   //1-3 dmg 
@@ -48,7 +48,7 @@ public class Squirtle extends Pokemon implements Water {
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
 
-    return p.getName() + " BubbleBeam for " + specialDmg + " damage!";
+    return this.getName() + " BUBBLEBEAMS " + p.getName() + " for " + specialDmg + " damage!";
   }
 
   //1-4 dmg 
@@ -58,8 +58,8 @@ public class Squirtle extends Pokemon implements Water {
     int dmg = rand.nextInt(4)+1;
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
-
-    return p.getName() + " WaterFall for " + specialDmg + " damage!";
+   
+    return this.getName() + " unleashes a WATERFALL on " + p.getName() + " for " + specialDmg + " damage!";
   }
   
 }
