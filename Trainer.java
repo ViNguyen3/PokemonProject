@@ -24,7 +24,7 @@ public class Trainer extends Entity{
   *The trainer method gives the trainer a set hp, a point in the map, and starts of with a fresh set of money, potions and pokeballs.
   */
   public Trainer(String n, Pokemon p, Map m){
-    super(n,10);
+    super(n,30);
     map = m; 
     pokemon.add(p);
     loc = m.findStart();
@@ -168,7 +168,7 @@ public class Trainer extends Entity{
   public char goNorth() 
   { 
     if(loc.getX() - 1 < 0){
-      System.out.println("invalid");
+      //System.out.println("Can't go that way!\n");
       return 'a';
     }
     else{
@@ -183,7 +183,7 @@ public class Trainer extends Entity{
   public char goSouth() 
   {
     if(loc.getX() + 1 >= 5){
-       System.out.println("invalid");
+      //  System.out.println("Can't go that way!\n");
        return 'a';
     }
      else{
@@ -197,7 +197,7 @@ public class Trainer extends Entity{
   public char goEast() 
   {
     if(loc.getY() + 1 >= 5){
-       System.out.println("invalid");
+      //  System.out.println("Can't go that way!\n");
        return 'a';
     }
      else{
@@ -211,7 +211,7 @@ public class Trainer extends Entity{
   public char goWest() 
   {
      if(loc.getY() - 1 < 0){
-       System.out.println("invalid");
+      //  System.out.println("Can't go that way!\n");
        return 'a';
     }
      else{

@@ -51,7 +51,7 @@ class Main {
      {
       //options for different choices, as well as overriding mapchar 
       if (player.getHp() == 0) {
-        System.out.println("Game over!");
+        System.out.println("Game Over!");
         break;
       }
       System.out.println(player.toString());
@@ -59,21 +59,37 @@ class Main {
       if(i == 1)
       {
         mapChar = player.goNorth(); 
-        // System.out.println(player.toString());
+        if(mapChar == 'a')
+        {
+          System.out.println("Can't go that way");
+        }
+        // System.out.println(player.toString());  
       }
       else if (i == 2) 
       {
         mapChar = player.goSouth(); 
+        if(mapChar == 'a')
+        {
+          System.out.println("Can't go that way");
+        }
         // System.out.println(player.toString());
       }
       else if (i == 3)
       {
-        mapChar = player.goEast(); 
+        mapChar = player.goEast();
+        if(mapChar == 'a')
+        {
+          System.out.println("Can't go that way");
+        } 
         // System.out.println(player.toString());
       }
       else if (i == 4)
       {
         mapChar = player.goWest();
+        if(mapChar == 'a')
+        {
+          System.out.println("Can't go that way");
+        }
         // System.out.println(player.toString());
       }
       else if(i == 5)
@@ -141,7 +157,7 @@ class Main {
       {
         //randomzie number to choose which one to print out 
         Random num = new Random(); 
-        int num2 = num.nextInt(4); 
+        int num2 = num.nextInt(5); 
         switch(num2)
         {
           case 0: 
@@ -161,6 +177,11 @@ class Main {
             player.takeDamage(10); 
             player.spendMoney(player.getMoney()); 
             break; 
+          case 4: 
+            System.out.println("You run into C's husband\nC's husband: How dare you took my wife away!\n(╬ Ò ‸ Ó)\nC's husband stabbed you to dead and take all your money!");
+            player.takeDamage(player.getHp()); 
+            player.spendMoney(player.getMoney()); 
+            break;
         }
         mainMap.removeCharAtLoc(player.getLocation());   
       }
