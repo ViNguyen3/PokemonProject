@@ -24,7 +24,7 @@ public class Trainer extends Entity{
   *The trainer method gives the trainer a set hp, a point in the map, and starts of with a fresh set of money, potions and pokeballs.
   */
   public Trainer(String n, Pokemon p, Map m){
-    super(n,100);
+    super(n,10);
     map = m; 
     pokemon.add(p);
     loc = m.findStart();
@@ -260,7 +260,7 @@ public class Trainer extends Entity{
     String f = String.valueOf(potions);
     for(int i = 0; i < pokemon.size(); i++)
     {
-       e += pokemon.get(i).toString();
+       e += (i+1) + ". " + pokemon.get(i).toString() + "\n";
     }
       return   c + "\n" + "Money: " + a + "\n" + "Potions: " + f + "\n" + "Pokeball: " + b + "\n" + d + "\n" +  e  + " \n ";
   }

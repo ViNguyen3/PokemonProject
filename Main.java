@@ -10,10 +10,10 @@ class Main {
     char mapChar = 'n';
     int i = 0;//for the menu
     int mapNumber = 1; //initally load map 1
-    String p1 = "You run into A\nA: Where's my money that you borrow before to buy pokeballs!\nA rob half of your money."; 
-    String p2 = "You run into B\nB: Hey, remember you bully me when we were in primary school\n（；¬＿¬)\nB smack and slap you for for being a bad kid for half your health."; 
-    String p3 = "You run into C\nC: Oi, Onii-chan~~(｡•̀ᴗ-)✧\nC kissed you (⁄ ⁄•⁄ω⁄•⁄ ⁄) and heal you to full health"; 
-    String p4 = "You run into C's dad\nC's dad: How dare you decieve my daughter!\n(╬ Ò ‸ Ó)\nC's dad smack you for 10 health and took all your money cause the game hates you!";  
+    // String p1 = "You run into A\nA: Where's my money that you borrow before to buy pokeballs!\nA rob half of your money."; 
+    // String p2 = "You run into B\nB: Hey, remember you bully me when we were in primary school\n（；¬＿¬)\nB smack and slap you for for being a bad kid for half your health."; 
+    // String p3 = "You run into C\nC: Oi, Onii-chan~~(｡•̀ᴗ-)✧\nC kissed you (⁄ ⁄•⁄ω⁄•⁄ ⁄) and heal you to full health"; 
+    // String p4 = "You run into C's dad\nC's dad: How dare you decieve my daughter!\n(╬ Ò ‸ Ó)\nC's dad smack you for 10 health and took all your money cause the game hates you!";  
     // User input for their name
     System.out.println("Prof. Oak: Welcome new trainer! What is your name?");
     // Use the CheckInput class for the user inputs
@@ -50,6 +50,10 @@ class Main {
     do
      {
       //options for different choices, as well as overriding mapchar 
+      if (player.getHp() == 0) {
+        System.out.println("Game over!");
+        break;
+      }
       System.out.println(player.toString());
       i = mainMenu(); 
       if(i == 1)
@@ -77,6 +81,7 @@ class Main {
         System.out.println("Game over!");
         break;
       }
+
       // System.out.println(player.toString())
       if (mapChar == 'n') 
       {
@@ -173,8 +178,8 @@ class Main {
           player.healAllPokemon();
          }
        } 
-     }while(i != 5);   
-   
+     }while(i != 5 || player.getHp() == 0);   
+    
    }
 
 
@@ -261,6 +266,10 @@ class Main {
         System.out.println("Setting battle to: " + battle);
         break;
       } 
+      else if(t.getHp() == 0)
+      {
+        break;
+      }
       String wildMenu = "What do you want to do?\n1. Fight\n2. Use Potion\n3. Throw Poke Ball\n4. Run Away";
 
       System.out.println(wildMenu);
@@ -287,8 +296,9 @@ class Main {
             
             System.out.println(chosenPokemon.getName() + " has no more health left!");
             System.out.println("The wild " + wild.getName() + " charges and attacks you instead!");
-            System.out.println("You take " + dmg);
+            System.out.println("You take " + dmg + " damage!");
             t.takeDamage(dmg);
+            battle = false;
             break;          
           }        
 
@@ -308,9 +318,6 @@ class Main {
             System.out.println(chosenPokemon.specialAttack(wild, CheckInput.getIntRange(1,chosenPokemon.getNumSpecialMenuItems()))); 
           }
 
-          // if (wild.getHp() == 0) {
-          //   break;
-          // }
 
             // Wild Pokemon's random move (basic or attack)
           System.out.println("The wild " + wild.getName() + " is getting ready to charge!");
