@@ -10,16 +10,12 @@ class Main {
     char mapChar = 'n';
     int i = 0;//for the menu
     int mapNumber = 1; //initally load map 1
-    // String p1 = "You run into A\nA: Where's my money that you borrow before to buy pokeballs!\nA rob half of your money."; 
-    // String p2 = "You run into B\nB: Hey, remember you bully me when we were in primary school\n（；¬＿¬)\nB smack and slap you for for being a bad kid for half your health."; 
-    // String p3 = "You run into C\nC: Oi, Onii-chan~~(｡•̀ᴗ-)✧\nC kissed you (⁄ ⁄•⁄ω⁄•⁄ ⁄) and heal you to full health"; 
-    // String p4 = "You run into C's dad\nC's dad: How dare you decieve my daughter!\n(╬ Ò ‸ Ó)\nC's dad smack you for 10 health and took all your money cause the game hates you!";  
-    // User input for their name
+
     System.out.println("Prof. Oak: Welcome new trainer! What is your name?");
     // Use the CheckInput class for the user inputs
     playerName = CheckInput.getString();
 
-    System.out.println("ʕథ౪థʔ What a bad name, " + playerName + " are you serious! LOL!!!");
+    System.out.println("ﾉ｡≧◇≦）ﾉ What a bad name, " + playerName + " are you serious! LOL!!!");
 
     // User input for their starter pokemon
     System.out.println("Anyways, please choose your first pokemon:\n1. Charmander\n2. Bulbasaur\n3. Squirtle");
@@ -51,7 +47,7 @@ class Main {
      {
       //options for different choices, as well as overriding mapchar 
       if (player.getHp() == 0) {
-        System.out.println("Game Over!");
+        System.out.println("\n YOU DIED ");
         break;
       }
       System.out.println(player.toString());
@@ -157,11 +153,40 @@ class Main {
       {
         //randomzie number to choose which one to print out 
         Random num = new Random(); 
-        int num2 = num.nextInt(5); 
+        int num2 = num.nextInt(7); 
         switch(num2)
         {
           case 0: 
-            System.out.println("You run into A\nA: Where's my money that you borrow before to buy pokeballs!\nA rob half of your money.");
+            System.out.println("You run into Vegita from Dragon Ball\nVegita: Where's my money that you borrow before to buy pokeballs!\nA rob half of your money.");
+            System.out.println("                                 ,");
+            System.out.println("                           ,   ,'|");
+            System.out.println("                         ,/|.-'   \\.");
+            System.out.println("                        .-'  '       |.");
+            System.out.println("                  ,  .-'              |");
+            System.out.println("               /|,'                 |'");
+            System.out.println("              / '                    |  ,");
+            System.out.println("             /                       ,'/");
+            System.out.println("          .  |          _              /");
+            System.out.println("          \\`' .-.    ,' `.           |");
+            System.out.println("          \\ /   \\ /      \\          /");
+            System.out.println("          \\|    V        |        |  ,");
+            System.out.println("            (           ) /.--.   ''\"/");
+            System.out.println("             \"b.`. ,' _.ee'' 6)|   ,-'");
+            System.out.println("              \"= --\"\"  )   ' /.-'");
+            System.out.println("               \\ / `---\"   .\"|\'");
+            System.out.println("                \\\"..-    .'  |.");
+            System.out.println("                  `-__..-','   |");
+            System.out.println("               __.) ' .-'/    /\\._");
+            System.out.println("        _.--'/----..--------. _.-\"\"-._");
+            System.out.println("    .-'_)   \\.   /     __..-'     _.-'--.");
+            System.out.println("    / -'/      \"\"\"\"\"\"\"\"\"         ,'-.   . `.");
+            System.out.println("   | ' /                        /    `   `. \\");
+            System.out.println("   |   |                        |         | |");
+            System.out.println("    \\ .'\\                       |     \\     |");
+            System.out.println("   / '  | ,'               . -  \\`.    |  / /");
+            System.out.println("  / /   | |                      `/\"--. -' /\\");
+            System.out.println("  | |     \\ \\                     /     \\     |");
+            System.out.println("  | \\      | \\                 .-|      |    |");
             player.spendMoney((int)((player.getMoney())/2)); 
             break;
           case 1: 
@@ -169,7 +194,75 @@ class Main {
             player.takeDamage((int)(player.getHp()/2)); 
             break;
           case 2: 
-            System.out.println("You run into C\nC: Oi, Onii-chan~~(｡•̀ᴗ-)✧\nC kissed you (⁄ ⁄•⁄ω⁄•⁄ ⁄) and heal you to full health");
+            System.out.println("You run into Hatsune Miku\nMiku: Oi, Onii-chan~~(｡•̀ᴗ-)✧\nC kissed you (⁄ ⁄•⁄ω⁄•⁄ ⁄) and heal you to full health");
+            System.out.println("                                           ░░▒▒░░░░░░       ");
+            System.out.println("                                         ░░░░░░░░░░░░░░▒▒░░ ");
+            System.out.println("                                       ░░▒▒░░░░░░░░░░░░▒▒▓▓░░▒▒  ");
+            System.out.println("                                     ░░░░▒▒░░░░░░░░    ░░▒▒▓▓░░▒▒");
+            System.out.println("                                     ░░░░░░▒▒░░░░░░░░  ░░▒▒▓▓░░▒▒ ");
+            System.out.println("                                     ▒▒▒▒░░░░░░░░░░░░░░░░░░▓▓▒▒░░░░ ");
+            System.out.println("                                     ░░▒▒░░  ░░░░▒▒░░░░░░▒▒▓▓▒▒▒▒░░ ");
+            System.out.println("   ░░                                ░░▒▒▒▒▒▒    ▓▓▒▒▒▒░░░░▓▓▒▒▒▒░░          ");
+            System.out.println(" ░░░░░░  ░░                          ░░▓▓░░        ░░▒▒░░▒▒░░▒▒░░░░     ");
+            System.out.println(" ░░░░░░░░  ░░░░                        ▓▓░░  ░░    ░░▒▒▒▒▒▒  ▒▒░░░░  ");
+            System.out.println("    ░░░░░░░░░░      ░░                  ▒▒▒▒        ▒▒▓▓░░    ▒▒░░░░   ");
+            System.out.println("            ░░░░░░      ░░░░    ░░░░  ▒▒▒▒▒▒▓▓░░░░░░▓▓        ▒▒▒▒░░░░  ");
+            System.out.println("                ░░░░░░░          ▒▒    ░░░░▒▒░░░░░░░░▒▒░░░░  ▒▒▒▒░░▒▒    ");
+            System.out.println("                    ░░░░░░░░░░░░▒▒  ░░░░░░░░░░░░░░          ░░▒▒░░▒▒");
+            System.out.println("                              ▒▒▓▓░░░░░░░░░░░░░░░░          ░░▒▒░░░░");
+            System.out.println("                                ▒▒▒▒░░░░    ░░░░░░▒▒░░  ░░░░░░▒▒░░░░░░");
+            System.out.println("                            ░░▒▒▒▒▒▒▓▓▒▒  ░░░░    ▒▒░░░░░░░░▒▒░░░░░░ ");
+            System.out.println("                            ▒▒▒▒▒▒▒▒░░▓▓▒▒░░      ▒▒░░░░░░░░▒▒░░░░▒▒");
+            System.out.println("                          ░░▒▒▒▒▒▒▒▒░░░░▓▓      ░░░░░░░░░░░░▒▒░░▒▒▒▒");
+            System.out.println("                          ▒▒▒▒▒▒▒▒▒▒░░░░      ░░░░        ░░▒▒░░▒▒▒▒");
+            System.out.println("                      ░░░░▒▒▒▒▒▒░░      ▒▒░░░░  ░░      ░░▒▒░░▒▒▒▒ ");
+            System.out.println("                   ▒▒░░▒▒▒▒░░    ░░▒▒▒▒░░    ░░      ░░▒▒▒▒▒▒░░");
+            System.out.println("                      ▒▒▒▒▒▒    ░░░░  ░░▓▓▒▒    ░░      ▒▒▒▒▒▒▒▒░░");
+            System.out.println("                    ░░░░      ░░░░  ░░░░░░▒▒            ▒▒▒▒▒▒▒▒░░");
+            System.out.println("                 ░░░░  ▒▒▓▓░░░░░░░░░░  ▒▒            ▒▒▒▒▒▒▒▒░░");
+            System.out.println("                    ▒▒░░▒▒▒▒▓▓    ░░░░    ░░      ░░    ▒▒▒▒▒▒░░░░");
+            System.out.println("                    ░░▒▒▒▒▒▒▓▓    ░░░░                  ▓▓▒▒▒▒░░▒▒");
+            System.out.println("               ░░▒▒▒▒▒▒▒▒▒▒░░░░░░                ░░  ▒▒▒▒▒▒  ▒▒");
+            System.out.println("                  ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░        ░░░░▒▒░░░░▒▒▒▒▒▒  ░░ ");
+            System.out.println("                  ▒▒▒▒▒▒▒▒▒▒▒▒████████████████████████▒▒▒▒▒▒░░  ░░");
+            System.out.println("            ░░▒▒▒▒▓▓▒▒▓▓████████████████████▓▓██▓▓▓▓▒▒▒▒  ░░");
+            System.out.println("                ▒▒▒▒▓▓▒▒▒▒▓▓▓▓██▓▓████▓▓▓▓▓▓▓▓██▓▓▓▓▓▓▓▓▓▓▒▒  ░░");
+            System.out.println("                ▒▒▒▒▓▓▒▒▓▓██▓▓██▓▓▓▓▓▓▓▓▓▓▓▓▓▓██▓▓▓▓▓▓▓▓▓▓▒▒  ▒▒");
+            System.out.println("             ▒▒▓▓▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒  ▒▒ ");
+            System.out.println("                ▒▒▒▒░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██  ░░  ");
+            System.out.println("                ▓▓▒▒  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ ");
+            System.out.println("           ░░▓▓▒▒░░▓▓▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▓▓  ▒▒");
+            System.out.println("              ░░▓▓░░▒▒▓▓░░  ░░░░░░░░▒▒▒▒░░░░▒▒░░░░░░░░░░▒▒  ░░");
+            System.out.println("              ░░▓▓░░▓▓▒▒    ░░░░░░░░░░        ░░░░░░░░░░░░░░ ");
+            System.out.println("           ░░▒▒  ▓▓▒▒    ░░░░░░░░░░        ░░░░░░░░░░  ░░");
+            System.out.println("              ░░▒▒░░▓▓▒▒  ░░░░░░░░░░          ░░░░░░    ░░");
+            System.out.println("              ░░▒▒░░▒▒░░  ░░░░░░░░░░          ░░░░      ░░ ");
+            System.out.println("            ▒▒  ▒▒    ░░░░░░░░░░            ░░");
+            System.out.println("                ▒▒░░▒▒    ░░░░░░░░              ░░");
+            System.out.println("             ▒▒░░▒▒    ░░░░░░░░              ░░");
+            System.out.println("                ░░░░░░    ░░░░░░░░              ░░░░ ");
+            System.out.println("                  ░░░░    ░░  ░░░░              ░░░░");
+            System.out.println("              ░░      ░░  ░░                ▒▒░░    ░░");
+            System.out.println("                  ░░    ░░░░░░░░                ░░░░    ░░");
+            System.out.println("                     ░░░░░░░░                ░░░░░░░░");
+            System.out.println("                        ░░░░░░░░                ░░  ░░░░  ░░");
+            System.out.println("                        ░░░░░░░░                ░░  ░░░░");
+            System.out.println("                  ░░░░░░  ░░                    ░░░░");
+            System.out.println("                      ▒▒░░  ░░░░                    ░░░░    ░░");
+            System.out.println("                   ▓▓██████                        ▒▒▒▒██▓▓");
+            System.out.println("                      ██████▒▒                        ▓▓████▓▓");
+            System.out.println("                      ██████░░                        ░░██████");
+            System.out.println("               ██████                            ██████  ");
+            System.out.println("                    ░░████▓▓                            ▓▓████ ");
+            System.out.println("                    ░░████░░                            ▒▒████░░ ");
+            System.out.println("             ▒▒████                                ████▓▓");
+            System.out.println("                    ████▓▓                                ██████  ");
+            System.out.println("                    ▓▓▓▓▓▓                                ▓▓██▓▓░░");
+            System.out.println("                  ▒▒▓▓▓▓▒▒░░░░                            ▒▒▓▓▓▓░░    ");
+            System.out.println("                      ▓▓▒▒░░░░░░                          ░░▒▒▒▒▒▒ ");
+            System.out.println("                ▓▓░░░░▓▓▓▓░░░░                            ▓▓▒▒░░▓▓");
+            System.out.println("                ▒▒▒▒▒▒▓▓██▒▒  ░░░░░░░░░░░░░░░░░░░░░░        ▓▓▒▒▒▒▓▓   ");
+            System.out.println("                ██▓▓▓▓▓▓▓▓                            ░░░░▒▒▓▓▓▓▓▓██");
             player.heal();
             break;
           case 3: 
@@ -178,9 +271,46 @@ class Main {
             player.spendMoney(player.getMoney()); 
             break; 
           case 4: 
-            System.out.println("You run into C's husband\nC's husband: How dare you took my wife away!\n(╬ Ò ‸ Ó)\nC's husband stabbed you to dead and take all your money!");
-            player.takeDamage(player.getHp()); 
-            player.spendMoney(player.getMoney()); 
+            System.out.println("You ran into an antitank mine from World War II!");
+            System.out.println("      _.-^^---....,,--     ");
+            System.out.println("  _--                  --_ ");
+            System.out.println("<                        >)");
+            System.out.println("|                         | ");
+            System.out.println("  |._                   _./  ");
+            System.out.println("    ```--. . , ; .--'''    ");
+            System.out.println("         | |   |       ");
+            System.out.println("      .-=||  | |=-.   ");
+            System.out.println("      `-=#$%&%$#=-'   ");
+            System.out.println("         | ;  :|    ");
+            System.out.println("_____.,-#%&$@%#&#~,._____");
+            player.takeDamage((int)(player.getHp()/2)); 
+            break;
+          case 5: 
+            System.out.println("You were bamboozled by a tank and lose 5 health! ");
+            System.out.println("         ________      ");
+            System.out.println("     (( /========\\ ");
+            System.out.println("     __/__________\\____________n_");
+            System.out.println("   (( /              \\_____________]");
+            System.out.println("     /  =(*)=          \\ ");
+            System.out.println("    |_._._._._._._._._.|         ! ");
+            System.out.println(" (( / __________________ \\      =o ");
+            System.out.println("   | OOOOOOOOOOOOOOOOOOO0 |   =  ");
+            player.takeDamage(5);
+            break; 
+          case 6: 
+            System.out.println("You meet Doraemon and was given some money and heal yourself"); 
+            System.out.println("           ⢀⣠⣤⣴⣶⣶⣶⣶⣶⠶⣶⣤⣤⣀⠀⠀⠀  ");
+            System.out.println("       ⢀⣤⣾⣿⣿⣿⠁⠀⢀⠈⢿⢀⣀⠀⠹⣿⣿⣿⣦⣄");
+            System.out.println("      ⣴⣿⣿⣿⣿⣿⠿⠀⠀⣟⡇⢘⣾⣽⠀⠀⡏⠉⠙⢛⣿⣷⡖⠀");
+            System.out.println("     ⣾⣿⣿⡿⠿⠷⠶⠤⠙⠒⠀⠒⢻⣿⣿⡷⠋⠀⠴⠞⠋⠁⢙⣿⣄");
+            System.out.println("    ⢸⣿⣿⣯⣤⣤⣤⣤⣤⡄⠀⠀⠀⠀⠉⢹⡄⠀⠀⠀⠛⠛⠋⠉⠹⡇ ");
+            System.out.println("    ⢸⣿⣿⠀⠀⠀⣀⣠⣤⣤⣤⣤⣤⣤⣤⣼⣇⣀⣀⣀⣛⣛⣒⣲⢾⡷ ");
+            System.out.println("⢀⠤⠒⠒⢼⣿⣿⠶⠞⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⣼⠃ ");
+            System.out.println("⢮⠀⠀⠀⠀⣿⣿⣆⠀⠀⠻⣿⡿⠛⠉⠉⠁⠀⠉⠉⠛⠿⣿⣿⠟⠁⠀⣼⠃⠀  ");
+            System.out.println("⠈⠓⠶⣶⣾⣿⣿⣿⣧⡀⠀⠈⠒⢤⣀⣀⡀⠀⠀⣀⣀⡠⠚⠁⠀⢀⡼⠃⠀⠀");
+            System.out.println("    ⠈⢿⣿⣿⣿⣿⣿⣷⣤⣤⣤⣤⣭⣭⣭⣭⣭⣥⣤⣤⣤⣴⣟⠁");
+            player.receiveMoney(10);
+            player.heal();
             break;
         }
         mainMap.removeCharAtLoc(player.getLocation());   
@@ -283,8 +413,10 @@ class Main {
     while (battle) {
 
       if (wild.getHp() == 0) {
-        System.out.println("The wild " + wild.getName() + " has been defeated!");
-        System.out.println("Setting battle to: " + battle);
+        System.out.println("/nThe wild " + wild.getName() + " has been defeated!/n");
+        int rewardMoney = rand.nextInt(5) + 5;
+        System.out.println("You earned " + rewardMoney + " money for this victory!/n");
+        t.receiveMoney(rewardMoney);
         break;
       } 
       else if(t.getHp() == 0)
@@ -340,7 +472,7 @@ class Main {
           }
 
 
-            // Wild Pokemon's random move (basic or attack)
+            // Wild Pokemon's random move (basic or special)
           System.out.println("The wild " + wild.getName() + " is getting ready to charge!");
           int wildAttack = rand.nextInt(2) + 1;
           
@@ -356,7 +488,7 @@ class Main {
           System.out.println(wild.toString());
           }
 
-          // End of Fight
+          // End of 1. Fight
           break;
 
         // 2. Use Potion
@@ -383,7 +515,7 @@ class Main {
             t.usePotion(pokemonChoice);
           }
           
-          // End of Use Potion
+          // End of 2. Use Potion
           break;
 
         // 3. Throw Pokeball

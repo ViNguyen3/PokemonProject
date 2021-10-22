@@ -37,7 +37,7 @@ public class Bulbasaur extends Pokemon implements Grass {
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
 
-    return p.getName() + "  WHIPS " + this.getName() + " for " + specialDmg + " damage!";
+    return this.getName() + "  WHIPS " + p.getName() + " for " + specialDmg + " damage!";
   }
   
   public String razorLeaf(Pokemon p) {
@@ -48,7 +48,7 @@ public class Bulbasaur extends Pokemon implements Grass {
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
 
-    return p.getName() + " SLICES " + this.getName() + " for " + specialDmg + " damage!";
+    return this.getName() + " SLICES " + p.getName() + " for " + specialDmg + " damage!";
   }
 
   public String solarBeam(Pokemon p) {
@@ -58,8 +58,12 @@ public class Bulbasaur extends Pokemon implements Grass {
     int dmg = rand.nextInt(6);
     int specialDmg = (int) (dmg * dmgType);
     p.takeDamage(specialDmg);
-
-    return p.getName() + " kamehameha BEAMS " + this.getName() + " for " + specialDmg + " damage!";
+    System.out.println("_    ___    ___    ___    ___          ");
+    System.out.println("_`| / __`| / __`| / __`| / .-^  ___  ");
+    System.out.println("---/ /----/ /----/ /----/ /--=^^   ^^=,");
+    System.out.println("--/ /----/ /----/ /----/ /---=__   __=' ");
+    System.out.println("|._/   |._/   |._/   |._/       ^^^    /n");
+    return this.getName() + " kamehameha BEAMS " + p.getName() + " for " + specialDmg + " damage!";
 
   }
 
