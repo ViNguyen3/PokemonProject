@@ -1,19 +1,40 @@
+/**
+* The public class Staryu extends from Pokemon class and implements interface Water in order to let the pokemon the use specfic Water moves.
+* Staryu is a water type pokemon
+* @author Vi Nguyen 
+*/
 import java.util.Random;
 public class Staryu extends Pokemon implements Water {
-
+  /**
+  * The Staryu constructor creates the Staryu.
+  */
   public Staryu (){
     super("Staryu");
   }
 
-  //copy from interface 
+  /** 
+  * The getSpecialMenu method consists of the special menu options
+  * @return the string consisting of the special attack menu options that the user chooses from.
+  */
   public String getSpecialMenu() {
-    return Water.specialMenu;
+    System.out.println("\nChoose a Special Attack:");
+    return "1. Water Gun\n2. Bubble Beam\n3. Waterfall";
   }
-  // copy from interface 
+  
+  /** 
+  * getNumSpecialMenuItems consists of the integer/number of special attack menu items from the menu.
+  * @return the total number of special menu items
+  */
   public int getNumSpecialMenuItems() {
     return 3; 
   }
 
+  /**
+  * The specialAttack method consists of a switch statement with cases returning the specific special attack choices.
+  * @param p the Pokemon performing the special attack
+  * @param move is the integer the player chooses from special attack menu
+  * @return the chosen special attack and the outcome
+  */ 
   public String specialAttack(Pokemon p, int move) {
     switch (move) {
       case 1:
@@ -28,7 +49,11 @@ public class Staryu extends Pokemon implements Water {
     return "";
   }
   
-  //1-5 dmg 
+  /**
+  * The waterGun method consists of the waterGun move performed by the Pokemon, dealing damage of 1-5
+  * @param p the Pokemon performing the special attack
+  * @return the string describing the attack
+  */ 
   public String waterGun(Pokemon p) {
     Random rand = new Random();
     double dmgType = battleTable[this.getType()][p.getType()];
@@ -39,7 +64,11 @@ public class Staryu extends Pokemon implements Water {
     return this.getName() + " uses WATERGUN on " + p.getName() + " for " + specialDmg + " damage!";
     }
   
-  // 1-2 dmg 
+  /**
+  * The bubbleBeam method consists of the bubbleBeam move performed by the Pokemon, dealing damage of 1-2
+  * @param p the Pokemon performing the special attack
+  * @return the string describing the attack
+  */ 
   public String bubbleBeam(Pokemon p) {
     Random rand = new Random();
     double dmgType = battleTable[this.getType()][p.getType()];
@@ -50,7 +79,11 @@ public class Staryu extends Pokemon implements Water {
     return this.getName() + " BUBBLEBEAMS " + p.getName() + " for " + specialDmg + " damage!";
   }
 
-  // 1-4 dmg 
+  /**
+  * The waterfall method consists of the waterfall move performed by the Pokemon, dealing damage of 1-4
+  * @param p the Pokemon performing the special attack
+  * @return the string describing the attack
+  */ 
   public String waterfall(Pokemon p) {
     Random rand = new Random();
     double dmgType = battleTable[this.getType()][p.getType()];

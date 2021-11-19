@@ -1,53 +1,157 @@
 import java.util.Random;
 import java.io.FileNotFoundException;;
+
+/**
+* The Main class for our Pokemon game project
+* @author Dylan Ros
+* @author Vi Nguyen
+* @author Angel Rubio
+*/
 class Main {
+  /**
+  * The main method consists of every user prompt, construction of Map and Trainer objects, displays the map, directions, ability to quit the game, and various events depending on the trainer's position on the map.
+  */
   public static void main(String[] args) throws FileNotFoundException
   {
     String playerName;
     int starterPokemonChoice;
     Pokemon starterPokemon;
-    int playerChoice;
     char mapChar = 'n';
     int i = 0;//for the menu
     int mapNumber = 1; //initally load map 1
 
     System.out.println("Prof. Oak: Welcome new trainer! What is your name?");
-    // Use the CheckInput class for the user inputs
     playerName = CheckInput.getString();
-
+    System.out.println("");
     System.out.println("ﾉ｡≧◇≦）ﾉ What a bad name, " + playerName + " are you serious! LOL!!!");
 
-    // User input for their starter pokemon
     System.out.println("Anyways, please choose your first pokemon:\n1. Charmander\n2. Bulbasaur\n3. Squirtle");
 
     // Use the CheckInput class for the user inputs (range for menu options)
     starterPokemonChoice = CheckInput.getIntRange(1, 3);
-    //initializing the starterPokemon to avoid errors 
+    System.out.println("");
+
+    // Initializing the starterPokemon to avoid errors 
     starterPokemon = new Charmander();
 
     switch(starterPokemonChoice) {
       case 1: 
         starterPokemon = new Charmander();
+        // System.out.println("              _.--\"\"`-..");
+        // System.out.println("            ,'          `.");
+        // System.out.println("          ,'          __  `.");
+        // System.out.println("         /|          \" __  \\");
+        // System.out.println("        , |           / |.   .");
+        // System.out.println("        |,'          !_.'|   |");
+        // System.out.println("      ,'             '   |   |");
+        // System.out.println("     /              |`--'|   |");
+        // System.out.println("    |                `---'   |");
+        // System.out.println("     .   ,                   |                       ,\".");
+        // System.out.println("      ._     '           _'  |                    , ' \\ `");
+        // System.out.println("  `.. `.`-...___,...---\"\"    |       __,.        ,`\"   L,|");
+        // System.out.println("  |, `- .`._        _,-,.'   .  __.-'-. /        .   ,    \\");
+        // System.out.println("-:..     `. `-..--_.,.<       `\"      / `.        `-/ |   .");
+        // System.out.println("  `,         \"\"\"\"'     `.              ,'         |   |  ',,");
+        // System.out.println("    `.      '            '            /          '    |'. |/");
+        // System.out.println("      `.   |              \\       _,-'           |       ''");
+        // System.out.println("        `._'               \\   '\"\\                .      |");
+        // System.out.println("           |                '     \\                `._  ,'");
+        // System.out.println("           |                 '     \\                 .'|");
+        // System.out.println("           |                 .      \\                | |");
+        // System.out.println("           |                 |       L              ,' |");
+        // System.out.println("           `                 |       |             /   '");
+        // System.out.println("            \\                |       |           ,'   /");
+        // System.out.println("          ,' \\               |  _.._ ,-..___,..-'    ,'");
+        // System.out.println("         /     .             .      `!             ,j'");
+        // System.out.println("        /       `.          /        .           .'/");
+        // System.out.println("       .          `.       /         |        _.'.'");
+        // System.out.println("        `.          7`'---'          |------\"'_.'");
+        // System.out.println("       _,.`,_     _'                ,''-----\"'");
+        // System.out.println("   _,-_    '       `.     .'      ,\\");
+        // System.out.println("   -\" /`.         _,'     | _  _  _.|");
+        // System.out.println("    \"\"--'---\"\"\"\"\"'        `' '! |! /");
+        // System.out.println("                            `\" \" -'");   
         break;
       case 2: 
         starterPokemon = new Bulbasaur();
+        // System.out.println("                                        /  ");
+        // System.out.println("                        _,.------....___,.' ',.-.");
+        // System.out.println("                     ,-'          _,.--\"        |");
+        // System.out.println("                   ,'         _.-'              .");
+        // System.out.println("                  /   ,     ,'                   `");
+        // System.out.println("                 .   /     /                     ``.");
+        // System.out.println("                 |  |     .                       \\.\\");
+        // System.out.println("       ____      |___._.  |       __               \\ `.");
+        // System.out.println("     .'    `---\"\"       ``\"-.--\"'`  \\               .  \\");
+        // System.out.println("    .  ,            __               `              |   .");
+        // System.out.println("    `,'         ,-\"'  .               \\             |    L");
+        // System.out.println("   ,'          '    _.'                -._          /    |");
+        // System.out.println("  ,`-.    ,\".   `--'                      >.      ,'     |");
+        // System.out.println(" . .'\\'   `-'       __    ,  ,-.         /  `.__.-      ,'");
+        // System.out.println(" ||:, .           ,'  ;  /  / \\ `        `.    .      .'/");
+        // System.out.println(" j|:D  \\          `--'  ' ,'_  . .         `.__, \\   , /");
+        // System.out.println("/ L:_  |                 .  \"' :_;                `.'.'");
+        // System.out.println(".    \"\"'                  \"\"\"\"\"'                    V");
+        // System.out.println(" `.                                 .    `.   _,..  `");
+        // System.out.println("   `,_   .    .                _,-'/    .. `,'   __  `");
+        // System.out.println("    ) \\`._        ___....----\"'  ,'   .'  \\ |   '  \\  .");
+        // System.out.println("   /   `. \"`-.--\"'         _,' ,'     `---' |    `./  |");
+        // System.out.println("  .   _  `\"\"'--.._____..--\"   ,             '         |");
+        // System.out.println("  | .\" `. `-.                /-.           /          ,");
+        // System.out.println("  | `._.'    `,_            ;  /         ,'          .");
+        // System.out.println(" .'          /| `-.        . ,'         ,           ,");
+        // System.out.println(" '-.__ __ _,','    '`-..___;-...__   ,.'\\ ____.___.'");
+        // System.out.println(" `\"^--'..'   '-`-^-'\"--    `-^-'`.''\"\"\"\"\"`.,^.`.--'");
         break;
       case 3: 
         starterPokemon = new Squirtle();
+        // System.out.println("               _,........__");
+        // System.out.println("            ,-'            \"`-.");
+        // System.out.println("          ,'                   `-.");
+        // System.out.println("        ,'                        \\");
+        // System.out.println("      ,'                           .");
+        // System.out.println("      .'\\               ,\"\".       `");
+        // System.out.println("     ._.'|             / |  `       \\");
+        // System.out.println("     |   |            `-.'  ||       `.");
+        // System.out.println("     |   |            '-._,'||       | \\");
+        // System.out.println("     .`.,'             `..,'.'       , |`-.");
+        // System.out.println("     l                       .'`.  _/  |   `.");
+        // System.out.println("     `-.._'-   ,          _ _'   -\" \\  .     `");
+        // System.out.println("`.\"\"\"\"\"'-.`-...,---------','         `. `....__.");
+        // System.out.println(".'        `\"-..___      __,'\\          \\  \\     \\");
+        // System.out.println("\\_ .          |   `\"\"\"\"'    `.           . \\     \\");
+        // System.out.println("  `.          |              `.          |  .     L");
+        // System.out.println("    `.        |`--...________.'.        j   |     |");
+        // System.out.println("      `._    .'      |          `.     .|   ,     |");
+        // System.out.println("         `--,\\       .            `7\"\"' |  ,      |");
+        // System.out.println("            ` `      `            /     |  |      |    _,-'\"\"\"`-.");
+        // System.out.println("             \\ `.     .          /      |  '      |  ,'          `.");
+        // System.out.println("             \\  v.__  .        '       .   \\    /| /              \\");
+        // System.out.println("               \\/    `\"\"\\\"\"\"\"\"\"\"`.       \\   \\  /.''                |");
+        // System.out.println("                `        .        `._ ___,j.  `/ .-       ,---.     |");
+        // System.out.println("                ,`-.      \\         .\"     `.  |/        j     `    |");
+        // System.out.println("               /    `.     \\       /         \\ /         |     /    j");
+        // System.out.println("              |       `-.   7-.._ .          |\"          '         /");
+        // System.out.println("              |          `./_    `|          |            .     _,'");
+        // System.out.println("              `.           / `----|          |-............`---'");
+        // System.out.println("                \\          \\      |          |");
+        // System.out.println("               ,'           )     `.         |");
+        // System.out.println("                7____,,..--'      /          |");
+        // System.out.println("                                  `---.__,--.'");
         break;
     }
 
-    //construct map and trainer object 
+    // Construct map and trainer object 
     Map mainMap = new Map();
     mainMap.loadMap(mapNumber);//load map 1 
     Trainer player = new Trainer(playerName,starterPokemon,mainMap);
-    // System.out.println(player.toString());
-    //printing will be toString in Trainer class, as long as player doesn't quit the game, the program keep printing and updating the map and other stuffs.
+    // Printing will be toString in Trainer class, as long as player doesn't quit the game, the program keep printing and updating the map and other stuffs.
     do
      {
-      //options for different choices, as well as overriding mapchar 
+      // Options for different choices, as well as overriding mapchar 
       if (player.getHp() == 0) {
         System.out.println("\n YOU DIED ");
+        System.out.println("\n GAME OVER");
         break;
       }
       System.out.println(player.toString());
@@ -57,81 +161,76 @@ class Main {
         mapChar = player.goNorth(); 
         if(mapChar == 'a')
         {
-          System.out.println("Can't go that way");
+          System.out.println("Can't go that way\n");
         }
-        // System.out.println(player.toString());  
       }
       else if (i == 2) 
       {
         mapChar = player.goSouth(); 
         if(mapChar == 'a')
         {
-          System.out.println("Can't go that way");
+          System.out.println("Can't go that way\n");
         }
-        // System.out.println(player.toString());
       }
       else if (i == 3)
       {
         mapChar = player.goEast();
         if(mapChar == 'a')
         {
-          System.out.println("Can't go that way");
+          System.out.println("Can't go that way\n");
         } 
-        // System.out.println(player.toString());
       }
       else if (i == 4)
       {
         mapChar = player.goWest();
         if(mapChar == 'a')
         {
-          System.out.println("Can't go that way");
+          System.out.println("Can't go that way\n");
         }
-        // System.out.println(player.toString());
       }
       else if(i == 5)
       {
-        System.out.println("Game over!");
+        System.out.println("Game Over!");
         break;
       }
 
-      // System.out.println(player.toString())
       if (mapChar == 'n') 
       {
-        System.out.println("There's nothing here");
+        System.out.println("There's nothing here\n");
       }
-      //load the next map and loop back 
-      //when loop back do you keep the old value or reset all of them
-      //also keep the old location to transfer to the new map
+      // Load the next map and loop back 
+      // Also keep the old location to transfer to the new map
       else if (mapChar == 'f')
       {
-        System.out.println("Loading next map");
+        System.out.println("Loading next map...\n");
         if(mapNumber == 1)
         {
           mainMap.loadMap(2);
+          mapNumber++; 
         }
         else if (mapNumber == 2)
         {
           mainMap.loadMap(3);
+          mapNumber++; 
         }
         else if (mapNumber == 3)
         {
           mainMap.loadMap(1);
+          mapNumber = 1; 
         }
-        System.out.println(player.toString());
       }
-      //add print statment 
       else if (mapChar == 'i')
       {
         Random rand = new Random(); 
         int or = rand.nextInt(10);
         if(or >= 5)
         {
-          System.out.println("You got a pokeball");
+          System.out.println("You got a pokeball!\n");
           player.receivePokeball();
         }
         else 
         {
-          System.out.println("You got a potion");
+          System.out.println("You got a potion!\n");
           player.receivePotion();
         }
         mainMap.removeCharAtLoc(player.getLocation());
@@ -142,8 +241,10 @@ class Main {
         int temp1 = player.getNumPokemon(); 
         Pokemon wild = chooseRandomPokemon();
         System.out.println("A wild " + wild.getName() + " has appeared!");
-        System.out.println(wild.toString());
+        System.out.println(wild.toString() + "\n");
         trainerAttack(player, wild);
+        
+        // Once the pokemon is defeated or captured, remove the w on the map
         if(wild.getHp() == 0 || temp1 < player.getNumPokemon()) 
         {
           mainMap.removeCharAtLoc(player.getLocation());
@@ -190,8 +291,27 @@ class Main {
             player.spendMoney((int)((player.getMoney())/2)); 
             break;
           case 1: 
-            System.out.println("You run into B\nB: Hey, remember you bully me when we were in primary school\n（；¬＿¬)\nB smack and slap you for for being a bad kid for half your health.");
-            player.takeDamage((int)(player.getHp()/2)); 
+            System.out.println("You run into Saber\nSaber: Hey, buy me something to eat\n（；¬＿¬)\nSaber took away half your money");
+            System.out.println(" 　　　　　　　　　　　　　＿　 　 ＿＿ 　_,..　-―-    "); 
+            System.out.println("　　　　　　　　　　　__<＞''\"´　　　　　 ｀^''＜⌒丶 ＼"); 
+            System.out.println("　　　　　　　　　　〈／ 　 ／　　　　　　　　　 ＼ 　 ＼丶  "); 
+            System.out.println("　　　　　　　　 ／7ﾞ /　/　　　　　 　 　 　 　 　 ヽ　　∨"); 
+            System.out.println("　　　　　　 　 _〉:∧│　　　　 | :　　　　　|:　　　|ハ"); 
+            System.out.println("　　 　  　 　 〈: 7 : : |　|　 　 : | : :　| : : 　| : : .　j:　i"); 
+            System.out.println("　　　　　　　　〉| : ヽ|　|│:ィ:/|⌒:/ﾄ : : |ィ7ト: /: :│"); 
+            System.out.println("　 　 　 　 　 〈八＼_|　|人ィ灯圷ﾐ/ｲ : ﾘィ灯Y}.: : :|　　"); 
+            System.out.println("　　　　　　　　｀{: :〈│: 　 |　Vツ　　|／　ﾋｿ /:.|/|/　　　 "); 
+            System.out.println("　　　　　　　　　｀ｰｯ| :　　| 　 　 　 　 　 〉　 {: :|"); 
+            System.out.println("　　　　　 　 　 　 /:::| :　 │　　　　　　　　　八:|"); 
+            System.out.println(" 　　　　 　 　 　 /:::/| :　　|＼　　 　 ﾉ‐ 　 ｲ: : :|"); 
+            System.out.println("　　　　　　　　　＼{∧: : : |　　　　.,,_/〉イ|/| : : |"); 
+            System.out.println("　　　　　 　 　 　 厶ｨﾍ: Ν≧=‐<_,´}′ 　 | ∧|"); 
+            System.out.println("　 　 　 　　 　 _／⌒＾ ∧|　 　 __/7 ｛≧=､_l厶_　 　,,.｡;;::,."); 
+            System.out.println("　　　 　 　'´￣｀>､　　 　 ＼／::// /〈:＼　Υ ハ,;;::ﾟ::..　　ﾞ:;,,"); 
+            System.out.println("　　　　　 |　　　ﾞ⌒＼　　　〈::rく/　{　{ﾊ:::〉　V　;斗-冖冖ｰ‐(ヽ"); 
+            System.out.println("　　　　　 |　　＼　　　∨　　｀｝　 　 　 ﾉ´　　} 〈　　　　 　 ⊂ﾆﾉ"); 
+            System.out.println("　　　　　 │　　　ヽ 　　∨　　{　　　　∧　　　∨＼　　　　 ⊂/"); 
+            player.spendMoney((int)(player.getMoney()/2)); 
             break;
           case 2: 
             System.out.println("You run into Hatsune Miku\nMiku: Oi, Onii-chan~~(｡•̀ᴗ-)✧\nC kissed you (⁄ ⁄•⁄ω⁄•⁄ ⁄) and heal you to full health");
@@ -266,7 +386,7 @@ class Main {
             player.heal();
             break;
           case 3: 
-            System.out.println("You run into C's dad\nC's dad: How dare you decieve my daughter!\n(╬ Ò ‸ Ó)\nC's dad smack you for 10 health and took all your money cause the game hates you!");
+            System.out.println("You run into Saber's dad\nSaber's dad: How dare you decieve my daughter!\n(╬ Ò ‸ Ó)\nC's dad smack you for 10 health and took all your money cause the game hates you!");
             player.takeDamage(10); 
             player.spendMoney(player.getMoney()); 
             break; 
@@ -325,7 +445,7 @@ class Main {
          }
         else
          {
-          System.out.println("Hello, welcome to the pokemon hospital.\nPoor you little pokemons got a horrible master!\nLet me fix you up.");
+          System.out.println("\nWelcome to the Pokemon hospital!\nPoor little pokemons, you have a horrible master!\nLet me fix them up.\n\nPOKEMON HAVE BEEN HEALED\n");
           player.healAllPokemon();
          }
        } 
@@ -334,46 +454,57 @@ class Main {
    }
 
 
-  //print main menu 
+  /**
+  * Print the main menu
+  */
   public static int mainMenu() 
   {
     System.out.println("Main Menu:\n1. Go North\n2. Go South\n3. Go East\n4. Go West\n5. Quit");
     int choice = CheckInput.getIntRange(1, 5);
+    System.out.println("");
     return choice;
   }
 
-  //display menu for item in the store, gets users' input,checks that the user has enough money, spends the money and gets the item if they do, otherwise notifies the user that they don't have enough. 
+
+  /**
+  * Display menu for item in the store, gets users' input,checks that the user has enough money, spends the money and gets the item if they do, otherwise notifies the user that they don't have enough. 
+  * @param t takes in Trainer object to have access to the items, pokemons and hp.
+  */
   public static void store(Trainer t)
   {
     int val = 0;
     do{
-      System.out.println("Hello, you wanna spend your precious money!\n1. Buy Potion - $5\n2. Buy Poke Balls - $3\n3. Exit"); 
+      System.out.println("\nHello, do you wanna spend your precious money?!\n1. Buy Potion - $5\n2. Buy Poke Balls - $3\n3. Exit"); 
       val = CheckInput.getIntRange(1,3); 
       if (val == 3)
       {
-        System.out.println("Good bye then! ");
+        System.out.println("\nGood bye then! ");
       }
       else if (val == 1 & t.getMoney() >= 5)
       {
-        System.out.println("Here's your potion");
+        System.out.println("\nHere's your potion");
         t.spendMoney(3);
         t.receivePotion();
       }
       else if (val == 2 & t.getMoney() >= 3) 
       {
-        System.out.println("Here's your Pokeball");
+        System.out.println("\nHere's your Pokeball");
         t.spendMoney(5);
         t.receivePokeball();
       }
       else//break the loop when player have no money 
       {
-        System.out.println("You are broke go make some money and come back later!");
+        System.out.println("\nYou are broke! Go make some money and come back later!\n");
         break; 
       }
     }while(val != 3);
   }
 
-  //generate randomly from 1 to 6 and choose from the wild pokemon
+
+  /**
+  * Generate randomly from 1 to 6 and choose from the wild pokemon. 
+  * @return Pokemon object to use as wild and fight player 
+  */
   public static Pokemon chooseRandomPokemon()
   {
     Random rand = new Random();
@@ -401,21 +532,23 @@ class Main {
     }
     return randPokemon;
   }
-
+/**
+* The trainerAttack method is the game's combat system consisting of the use of attacks, potions, pokeballs, and running away from a fight.
+* @param t represents the trainer
+* @param wild represents the wild pokemon that the player fights
+*/
   public static void trainerAttack(Trainer t, Pokemon wild) {
 
     Random rand = new Random();
 
     boolean battle = true;
     
-    
-
     while (battle) {
-
+      // If the wild pokemon is defeated, end the fight and reward player 5-10 money.
       if (wild.getHp() == 0) {
-        System.out.println("/nThe wild " + wild.getName() + " has been defeated!/n");
+        System.out.println("\nThe wild " + wild.getName() + " has been defeated!");
         int rewardMoney = rand.nextInt(5) + 5;
-        System.out.println("You earned " + rewardMoney + " money for this victory!/n");
+        System.out.println("You earned " + rewardMoney + " money for this victory!\n");
         t.receiveMoney(rewardMoney);
         break;
       } 
@@ -423,10 +556,12 @@ class Main {
       {
         break;
       }
+
       String wildMenu = "What do you want to do?\n1. Fight\n2. Use Potion\n3. Throw Poke Ball\n4. Run Away";
 
       System.out.println(wildMenu);
       int wildChoice = CheckInput.getIntRange(1, 4);
+      System.out.println("");
        
 
 
@@ -435,21 +570,23 @@ class Main {
         case 1:
           System.out.println("Choose a Pokemon:");
           System.out.println(t.getPokemonList());
+          System.out.println("");
+
       
           // Choose from list of pokemon and display chosen pokemon
           Pokemon chosenPokemon = t.getPokemon(CheckInput.getIntRange(1, t.getNumPokemon()));
           System.out.println(chosenPokemon.getName() + ", I choose you!");
-          
+          System.out.println("");      
 
 
-          // If chosen pokemon has no health, damage the trainer
+          // If chosen pokemon has no health, damage the trainer and break
           if (chosenPokemon.getHp() == 0 ) {
             
             int dmg = rand.nextInt(10) + 1;
             
             System.out.println(chosenPokemon.getName() + " has no more health left!");
             System.out.println("The wild " + wild.getName() + " charges and attacks you instead!");
-            System.out.println("You take " + dmg + " damage!");
+            System.out.println("You take " + dmg + " damage!\n");
             t.takeDamage(dmg);
             battle = false;
             break;          
@@ -468,7 +605,7 @@ class Main {
             // Display and choose 2. Special attack
           else if (attackChoice == 2) {
             System.out.println(chosenPokemon.getSpecialMenu()); 
-            System.out.println(chosenPokemon.specialAttack(wild, CheckInput.getIntRange(1,chosenPokemon.getNumSpecialMenuItems()))); 
+            System.out.println(chosenPokemon.specialAttack(wild, CheckInput.getIntRange(1,chosenPokemon.getNumSpecialMenuItems())));         
           }
 
 
@@ -478,14 +615,14 @@ class Main {
           
           // If the wildChoice is 1, choose random basic attack
           if (wildAttack == 1) {
-          System.out.println(wild.basicAttack(chosenPokemon, rand.nextInt(3) + 1));
-          System.out.println(wild.toString());
+          System.out.println(wild.basicAttack(chosenPokemon, rand.nextInt(3) + 1) + "\n");
+          System.out.println(wild.toString() + "\n");
           }
 
           // If the wildChoice is 2, choose random special attack
           else if (wildAttack == 2) {
-          System.out.println(wild.specialAttack(chosenPokemon, rand.nextInt(3) + 1));
-          System.out.println(wild.toString());
+          System.out.println(wild.specialAttack(chosenPokemon, rand.nextInt(3) + 1) + "\n");
+          System.out.println(wild.toString() + "\n");
           }
 
           // End of 1. Fight
@@ -522,18 +659,25 @@ class Main {
         case 3:
           if (!t.hasPokeball()) {
             System.out.println("You do not have any pokeballs left.");
+            System.out.println(wild.toString() + "\n");
             break;
           }
 
-          if (t.catchPokemon(wild)) {
-            System.out.println("You have captured " + wild.getName() + "!");
-            battle = false;
-            break;
-          }
+          else
+          {
+            if (t.catchPokemon(wild)) {
+                System.out.println("You have captured " + wild.getName() + "!");
+                battle = false;
+                break;
+              }
 
-          else {
-            System.out.println("You did not capture " + wild.getName() + "!");
+            else {
+              System.out.println("You did not capture " + wild.getName() + "!\n");
+              System.out.println(wild.toString() + "\n");
+
+            }
           }
+ 
 
           // End of Throw Pokeball
           break;
@@ -541,6 +685,7 @@ class Main {
         // 4. Run Away
         case 4: 
           int rand1 = rand.nextInt(4); 
+          System.out.println("\nYou couldn't handle the wild " + wild.getName() + " and have run away!\n");
           switch(rand1) {
             case 0:
               if(t.goNorth() != 'a')
@@ -565,15 +710,9 @@ class Main {
               {
                 battle = false; 
                 break;
-              }
-            
-
-        //   }while(temp != 'a');
-          
-        
+              }              
         }
       }
-
       }
   }
 }

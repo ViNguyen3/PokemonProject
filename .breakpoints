@@ -1,5 +1,21 @@
 {
   "files": {
+    "Main.java": [
+      {
+        "id": "4a2db52a-49fb-41a1-88b7-191658d7496a",
+        "line": 220,
+        "version": 19801,
+        "index": 11781
+      }
+    ],
+    "Pokemon.java": [
+      {
+        "id": "c57b9430-fdaa-48bb-98da-4ab49c3f6084",
+        "line": 135,
+        "version": 6026,
+        "index": 4827
+      }
+    ],
     "Pokemons/Squirtle.java": [
       {
         "id": "03a10375-3409-457e-bd7c-079f2020825e",

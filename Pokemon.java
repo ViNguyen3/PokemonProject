@@ -1,34 +1,58 @@
 import java.util.Random;
-
+/**
+* The abstract Pokemon class contains the pokemon constructor and the methods that handle the pokemon and their health along with the basic attack menu and attacks along with the getting of the pokemon's types.
+* @author Dylan Ros
+*/
 public abstract class Pokemon extends Entity {
   
-  // Battle Table for elemental advtanges/disadvantages, fire 0, water 1, grass 2
+  /** 
+  * battleTable consists of the values tied to element/type advantages/disadvantages that [attacking] and [defending] pokemon use to determine their attack's total damage output.
+  * Fire Types are 0, Water types are 1, and Grass types are 2.
+  */
   public static final double [] [] battleTable = {{1, .5, 2}, {2, 1, .5}, {.5, 2, 1}};
   
-  // Constructor for pokemon, string n for its name 
-  // 25 represents 25 HP that the pokemon will start with
-  public Pokemon(String n) {
-    super(n, 25);
+  /** 
+  * Pokemon constructor creates new Pokemon
+  * Pokemon are assigned 25 HP once made
+  * @param n represents the name of the Pokemon and 25 maxHp
+  */ 
+  public Pokemon(String n, int h, int m) {
+    super(n, h, 25);
   }
 
-  public abstract String getSpecialMenu();
+  // public abstract String getSpecialMenu();
 
-  public abstract int getNumSpecialMenuItems();
+  // public abstract int getNumSpecialMenuItems();
 
-  public abstract String specialAttack(Pokemon p, int move);
+  // public abstract String specialAttack(Pokemon p, int move);
+
+    public String getAttackTypeMenu() {
+      
+    }
   
-  // Basic attack menu
+  /** 
+  * The getBasicMenu method consists of the basic menu options
+  * @return the string consisting of the basic attack menu options that the user chooses from.
+  */
   public String getBasicMenu() {
     String basicMenu = "1. Slam\n2. Tackle\n3. Punch";
     return basicMenu;
   }
 
-  // Number of items in basic attack menu
+  /** 
+  * getNumBasicMenuItems consists of the integer/number of basic attack menu items from the menu.
+  * @return the total number of basic menu items
+  */
   public int getNumBasicMenuItems() {
     return 3;
   }
 
-// Basic attacks from menu
+/**
+* The basicAttack method consists of a switch statement with cases returning the specific basic attack choices.
+* @param p the Pokemon performing the basic attack
+* @param move is the integer the player chooses from basic attack menu
+* @return the chosen basic attack and the outcome
+*/ 
   public String basicAttack(Pokemon p, int move) {
     
     switch (move) {
@@ -44,51 +68,81 @@ public abstract class Pokemon extends Entity {
       return "";
   }
 
-// Attack type menu
+  /** 
+  * The getAttackMenu method consists of the two attack menu options
+  * @return the string consisting of the two type of attack menus
+  */
   public String getAttackMenu() {
+    System.out.println("\nChoose an attack:");
     String attackMenu = "1. Basic Attack\n2. Special Attack";
     return attackMenu;
   }
 
-// Number of items in attack menu
+  /** 
+  * getNumAttackMenuItems consists of the integer/number of the attack menu items from the menu.
+  * @return the total number of attack menu items
+  */
   public int getNumAttackMenuItems() {
     return 2;
   }
 
-// Basic attack: Slam
+/**
+* The slam method consists of the slam move performed by the pokemon, dealing damage of 0-5
+* @param p the Pokemon performing the basic attack
+* @return the string describing the attack
+*/ 
   public String slam(Pokemon p) {
     // Slam damages between 0 and 5
     Random rand = new Random();
     int dmg = rand.nextInt(6);
     p.takeDamage(dmg);
 
-    return p.getName() + " is SLAMMED by "+ this.getName() + " for  "  + dmg + " damage!";
+    return this.getName() + " SLAMS "+ p.getName() + " for  "  + dmg + " damage!";
     
   } 
 
-// Basic attack: Tackle
+/**
+* The tackle method consists of the tackle move performed by the pokemon, dealing damage of 2-3
+* @param p the Pokemon performing the basic attack
+* @return the string describing the attack
+*/ 
   public String tackle(Pokemon p) {
     // Tackle damages between 2 and 3
     Random rand = new Random();
     int dmg = rand.nextInt(2) + 2;
     p.takeDamage(dmg);
     
-    return p.getName() + " is TACKLED by "+ this.getName() + " for  "  + dmg + " damage!";
+    return this.getName() + " TACKLES "+ p.getName() + " for  "  + dmg + " damage!";
 
   }
 
-// Basic attack: Punch
+/**
+* The punch method consists of the punch move performed by the pokemon, dealing damage of 1-4
+* @param p the Pokemon performing the basic attack
+* @return the string describing the attack
+*/ 
   public String punch(Pokemon p) {
     // Punch damages between 1 and 4
     Random rand = new Random();
     int dmg = rand.nextInt(4) + 1;
     p.takeDamage(dmg);
-
-    return p.getName() + " is PUNCHED by "+ this.getName() + " for " + dmg + " damage!"; 
+    System.out.println("|_,-_-___-_,_,_,_,__, ,--, /: :\\/': :`\\/: :\\ __,__,__,_,-_-___-_,___.|"); 
+    System.out.println("|{    (    (    (    |`;  ' `,'   `.;    `: |{(    )   )   (    (    |"); 
+    System.out.println("|-;      )     ,-,   |    |     |  '  |     |.-,  ,.  /;      )     ,|"); 
+    System.out.println("| ;   ;;    /\\/   \\/\\| :  |     |  :  |     ||  \\/  \\/ ;   ;;    /\\/ |"); 
+    System.out.println("|  |  ;`,  ,  `      | :. |  :  |  :  |  :  | \\         |  ;`,  ,  ` |"); 
+    System.out.println("|  ; |  | |    ,  ,,  \\__/: :.. : :.. | :.. |  )   ,    ; |  | |     |"); 
+    System.out.println("|  ; ;  `,'   / \\/  \\      `---',\\___/,\\___/ /' , / \\   ; ;  `,'     |"); 
+    System.out.println("|   |;   |  ,'  ;\\   ',         `==._ .. . /'  / \\  ;\\   |;   |      |"); 
+    System.out.println("|   ||     /    ;;)  ;;\\             `-::-'   /  ;) ;;\\ ||          |"); 
+    System.out.println("----------------------------------------------------------------------"); 
+    return this.getName() + " PUNCHES "+ p.getName() + " for " + dmg + " damage!"; 
   }
 
-// Pokemon's type, will be used for battle table
-// "Resolved to a type" errors until types are with Pokemon class
+/**
+* The getType method assigns Pokemons of a specific type to their proper number according to the battleTable (Fire-0, Water-1, and Grass-2)
+* @return the string describing the attack
+*/ 
   public int getType() {
     int pType = 0;
 
@@ -98,18 +152,4 @@ public abstract class Pokemon extends Entity {
 
     return pType;
   }
-
- //Testing purposes only 
-  public static void main(String[] args)
-  {
-    Pokemon testPokemon = new Bulbasaur();
-
-    System.out.println(testPokemon.getBasicMenu());
-
-
-    System.out.println(testPokemon.getSpecialMenu());
-
-
-  }
-
 }

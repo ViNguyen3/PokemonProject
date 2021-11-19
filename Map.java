@@ -1,3 +1,9 @@
+/**
+* The Map class read file, checking boolean value, returning underlinning character as well as how the map should be printed out to the main. 
+*char[][] map is an array containning characters that were read from a file 
+*boolean[][] revealed is a backing array keeping track of boolean value of each character.
+* @author Vi Nguyen 
+*/
 import java.io.*;
 import java.awt.Point; 
 import java.util.Scanner; 
@@ -6,8 +12,11 @@ class Map
 { 
   private char[][] map; 
   private boolean[][] revealed;
+  private static Map instance = null;
 
-  //constructor iniltalize the revealed array to all False 
+  /**
+  * Default constructor - iniltalize the revealed array to all False 
+  */
   public Map() 
   {
     this.revealed = new boolean[5][5];
@@ -19,7 +28,15 @@ class Map
      }
   }
 
-  //this method read file and put it into the array map as well as reset the boolean array when load next map.
+  public static Map getInstance()
+  {
+    return instance;
+  }
+
+  /**
+  * Read file and put it into the array map as well as reset the boolean array when load next map.
+  * @param mapNum set the number of the map to read 
+  */
   public void loadMap(int mapNum) throws FileNotFoundException
   {
     String mapName = "Area" + mapNum + ".txt"; 
@@ -48,16 +65,25 @@ class Map
     in.close();
   }
   
-  //return the character on the map by the given index of the point 
+
+  /**
+  * Return the character on the map by the given index of the point
+  * @param p takes in location which is index of the element in the array
+  * @return return the character in the Array at the specifed index
+  */
   public char getCharAtLoc(Point p)
   { 
     char re = map[(int)p.getX()][(int)p.getY()];
     // revealed[(int)p.getX()][(int)p.getY()] = true; 
     return re ;
   }
+  
 
-
-  //Put Trainer's position as * accordingly to the Point p
+  /**
+  * Put Trainer's position as * accordingly to the Point p as well as checking the boolean value to either display chracter or x 
+  * @param p takes in to the player location
+  * @return return the String map 
+  */
   public String mapToString(Point p)
   {
     this.reveal(p); 
@@ -88,7 +114,11 @@ class Map
     return mapRe;  
   }
 
-  //loop through the array and find s which will be the starting point 
+  
+  /**
+  * Loop through the array and find character s which will be the starting point
+  * @return return Point object which is the location of the starting point  
+  */
   public Point findStart()
   {
     Point startPoint = new Point(0,0);
@@ -106,45 +136,23 @@ class Map
     return startPoint; 
   }
 
-  //changes the value of an element in the boolean array to True accordingly to the given point and then the toString should reveal it.  
+ 
+  /**
+  * Changes the value of an element in the boolean array to True accordingly to the given point and then the toString should reveal it.  
+  * @param p is the location (indexes) in the array
+  */
   public void reveal(Point p)
   {
     revealed[(int)p.getX()][(int)p.getY()] = true; 
   }
 
-  //remove i, w, p at given p by setting it equal to "" 
+ 
+  /**
+  * Remove i, w, p at given p by setting it equal to 'n'
+  * @param p is the location (indexes) in the array
+  */
   public void removeCharAtLoc(Point p)
   {
     map[(int)p.getX()][(int)p.getY()] = 'n'; 
   }
-
-
-  //Testing purposes only 
-  // public static void main(String[] args) throws FileNotFoundException
-  // {
-    // Point startPoint = new Point(0,0);
-    // Point startPoint2 = new Point(6,6);
-    // Point startPoint3 = new Point(3,2);
-    // Map testObj = new Map(); 
-    // testObj.loadMap(3);
-    // System.out.println(testObj.getCharOb)
-    // System.out.println();
-    // System.out.println();
-    // System.out.println(testObj.findStart());
-    // testObj.reveal(startPoint);
-    // testObj.reveal(startPoint2);
-    // testObj.reveal(startPoint3);
-    // System.out.print(testObj.mapToString(testObj.findStart()));
-    // testObj.loadMap(2);
-    // System.out.print(testObj.mapToString());
-    // System.out.println();
-    // System.out.println();
-
-  
-    
-
-    // testObj.reveal(startPoint);
-    // testObj.reveal(startPoint2);
-    // testObj.reveal(startPoint3);
-    // System.out.print(testObj.mapToString());
   }
