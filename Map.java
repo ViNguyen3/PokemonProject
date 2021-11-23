@@ -114,7 +114,6 @@ class Map
     return mapRe;  
   }
 
-  
   /**
   * Loop through the array and find character s which will be the starting point
   * @return return Point object which is the location of the starting point  
@@ -155,4 +154,4 @@ class Map
   {
     map[(int)p.getX()][(int)p.getY()] = 'n'; 
   }
-  }
+}

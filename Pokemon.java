@@ -28,6 +28,13 @@ public abstract class Pokemon extends Entity {
 
     public String getAttackTypeMenu() {
       
+      
+      String basicMenu = "1. Slam\n2. Tackle\n3. Punch";
+      return basicMenu;
+
+      System.out.println("\nChoose a Special Attack:");
+      String specialMenu = "1. Vine Whip\n2. Razor Leaf\n3. Solar Beam";
+      return specialMenu;
     }
   
   /** 
