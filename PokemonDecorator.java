@@ -1,76 +1,43 @@
 public abstract class PokemonDecorator extends Pokemon 
 {
   private Pokemon pokemon; 
-
+  
   public PokemonDecorator(Pokemon p, String extraName, int extraHp)
   {
-  
+    super(p.getName() + extraName, p.getHp() + extraHp, p.getMaxHp() + extraHp);
+    pokemon = p; 
   }
   
-  //is it the same as the one in the POkemon class 
+  //call the method from the element subclasses
+  //java will automatically skip the abstract and call from the concreate classes 
   public String getAttackMenu(int atkType) {
-    System.out.println("\nChoose an attack:");
-    String attackMenu = "1. Basic Attack\n2. Special Attack";
-    return attackMenu;
+    return pokemon.getAttackMenu(atkType); 
   }
 
 
   public int getNumAttackMenuItems(int atkType)
   {
-      
+     return pokemon.getNumAttackMenuItems(atkType);
   }
   
-  //copy from Pokemon class 
+  
   public String getAttackString(int atkType, int move)
   {
-    String atkString = "";
-    switch (move) {
-      case 1:
-        atkString += "SLAMMED";
-        break;
-      case 2:
-        atkString += "TACKLED";
-        break;
-      case 3:
-        atkString += "PUNCHED";
-        break;
-      default:
-        System.out.println("Invalid entry. Please try again.");
-    }
-      return atkString;
+    return pokemon.getAttackString(atkType, move); 
   }
 
   public int getAttackDamage(int atkType, int move)
   {
-    Random rand = new Random();
-    int dmg = 0;
-
-    switch (move) {
-      case 1:
-        // Slam damages between 0 and 5
-        dmg = rand.nextInt(6);
-        break;
-
-      case 2:
-        // Tackle damages between 2 and 3
-        dmg = rand.nextInt(2) + 2;
-        break;
-        
-      case 3:
-        // Punch damages between 1 and 4
-        dmg = rand.nextInt(4) + 1;
-        break;
-    }
-    return dmg;
+    return pokemon.getAttackDamage(atkType, move); 
   }
   
-  public int getAttackMultiplier(Pokemon p, int type)
+  public double getAttackMultiplier(Pokemon p, int type)
   {
-
+    return pokemon.getAttackMultiplier(p, type); 
   }
 
   public int getAttackBonus(int type)
   {
-            
+    return super.getAttackBonus(type);         
   }
 }

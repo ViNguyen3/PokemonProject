@@ -17,17 +17,17 @@ public class Trainer extends Entity{
   private int potions;
   private int pokeballs;
   private Point loc;
-  private Map map;
+  // private Map map;
   private ArrayList<Pokemon> pokemon = new ArrayList<Pokemon>();
   
   /**
   *The trainer method gives the trainer a set hp, a point in the map, and starts of with a fresh set of money, potions and pokeballs.
   */
-  public Trainer(String n, Pokemon p, Map m){
-    super(n,30);
-    map = m; 
+  public Trainer(String n, Pokemon p){
+    super(n,30,30);
+    // map = m; 
     pokemon.add(p);
-    loc = m.findStart();
+    loc = Map.getInstance().findStart();
     money = 25;
     potions = 1;
     pokeballs = 5;
@@ -183,8 +183,8 @@ public class Trainer extends Entity{
     else{
       loc.move((int)loc.getX()-1, (int)loc.getY());
       // System.out.println("Loc: " + loc.toString());
-      map.reveal(loc); 
-      return map.getCharAtLoc(loc);
+      Map.getInstance().reveal(loc); 
+      return Map.getInstance().getCharAtLoc(loc);
     }
   }
 
@@ -204,8 +204,8 @@ public class Trainer extends Entity{
      else{
        loc.move((int)loc.getX()+1, (int)loc.getY());
       //  System.out.println("Loc: " + loc.toString());
-       map.reveal(loc); 
-       return map.getCharAtLoc(loc);
+       Map.getInstance().reveal(loc); 
+       return Map.getInstance().getCharAtLoc(loc);
      }
   }
 
@@ -224,8 +224,8 @@ public class Trainer extends Entity{
      else{
        loc.move((int)loc.getX(), (int)loc.getY()+1);
       //  System.out.println("Loc: " + loc.toString());
-       map.reveal(loc); 
-       return map.getCharAtLoc(loc);
+       Map.getInstance().reveal(loc); 
+       return Map.getInstance().getCharAtLoc(loc);
      }
   }
 
@@ -243,8 +243,8 @@ public class Trainer extends Entity{
     }
      else{
        loc.move((int)loc.getX(), (int)loc.getY()-1);
-       map.reveal(loc); 
-       return map.getCharAtLoc(loc);
+       Map.getInstance().reveal(loc); 
+       return Map.getInstance().getCharAtLoc(loc);
      }
   }
   
@@ -266,8 +266,6 @@ public class Trainer extends Entity{
     for(int i = 0; i < pokemon.size(); i++){
        (pokemon.get(i)).heal();
     }
-    
-    
   }
 
 
@@ -307,7 +305,7 @@ public class Trainer extends Entity{
     String a = String.valueOf(money);
     String b = String.valueOf(pokeballs);
     String c = super.toString();
-    String d = map.mapToString(loc);
+    String d = Map.getInstance().mapToString(loc);
     String f = String.valueOf(potions);
     for(int i = 0; i < pokemon.size(); i++)
     {
