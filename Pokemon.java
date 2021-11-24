@@ -129,9 +129,11 @@ public abstract class Pokemon extends Entity {
     return dmg;
   }
 
-// attack multiplier based on move, nothing for basic ?
+// Basic attacks do not have any multipliers against pokemon types
   public int getAttackMultiplier(Pokemon p, int atkType) {
-    // FIX ME
+    if (atkType == 1) {
+      return 1;
+    }
     return 0;
   }
 
@@ -141,8 +143,15 @@ public abstract class Pokemon extends Entity {
     return 0;
   }
 
+
   public String attack(Pokemon p, int atkType, int move) {
-    
+    int attackDmg = this.getAttackDamage(atkType, move);
+    int attackBonus = this.getAttackBonus(atkType);
+    int attackMultiplier = this.getAttackMultiplier(p, atkType);
+
+    int totalDmg = (attackDmg + attackBonus) * attackMultiplier;
+
+    return this.getName() + " is " + this.getAttackString(atkType, move) + " and takes " + totalDmg + " damage!"; 
   }
 
 /**

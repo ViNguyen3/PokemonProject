@@ -16,41 +16,82 @@
 //   public String firePunch(Pokemon p); 
 // }
 
-
+import java.util.Random;
 public class Fire extends Pokemon 
 {
    public Fire(String n, int h, int m)
    {
-     
+     super(n, h, m);
    }
 
    @Override 
    public String getAttackMenu(int atkType)
    {
-     String specialMenu = "1. Ember\n2. Fire Blast\n3. Fire Punch";
+    return "1. Ember\n2. Fire Blast\n3. Fire Punch";
    }
    
    @Override   
    public int getNumAttackMenuItems(int atkType)
    {
-
+    return 3; 
    }
 
    @Override 
    public String getAttackString(int atkType, int move)
    {
-
+      String atkString = "";
+    switch (move) {
+      case 1:
+        atkString += "Ember";
+        break;
+      case 2:
+        atkString += "Fire BLast";
+        break;
+      case 3:
+        atkString += "Fire Punch";
+        break;
+      default:
+        System.out.println("Invalid entry. Please try again.");
+    }
+      return atkString;
    }
 
    @Override 
    public int getAttackDamage(int atkType, int move)
    {
+      Random rand = new Random();
+      int dmg = 0;
 
+      switch (move) {
+      case 1:
+        //range 0-4 
+        dmg = rand.nextInt(5); 
+        return dmg;
+      case 2:
+        //range 1-5
+        dmg = rand.nextInt(5) + 1;
+        return dmg;
+      case 3:
+        //range 1-4
+        dmg = rand.nextInt(4) + 1;
+        return dmg;
+      default:
+        System.out.println("Invalid entry. Please try again.");
+    }
+    return 0; 
    }
 
    @Override 
-   public int getAttackMutiplier(Pokemon p, int atkType)
+   public double getAttackMultiplier(Pokemon p, int atkType)
    {
+     double dmgMultiplier = 0;
+     if (atkType == 1) {
+       return 1;
+     }
 
+     else {
+        dmgMultiplier = battleTable[this.getType()][p.getType()];
+     }
+     return dmgMultiplier;
    }
 }

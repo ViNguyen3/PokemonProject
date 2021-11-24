@@ -12,6 +12,6 @@ public class AttackUp extends PokemonDecorator
     //attack type shouldn't matter in this situation 
     Random rand = new Random();
     int dmg = rand.nextInt(2) + 1;
-    return dmg;
+    return dmg + super.getAttackBonus(type);
   }
 }
