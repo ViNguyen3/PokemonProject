@@ -30,6 +30,10 @@ class Map
 
   public static Map getInstance()
   {
+    if(instance == null)
+    {
+      instance = new Map();
+    }
     return instance;
   }
 

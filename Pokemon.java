@@ -27,32 +27,29 @@ public abstract class Pokemon extends Entity {
   // public abstract String specialAttack(Pokemon p, int move);
 
     public String getAttackTypeMenu() {
-      
-      
-      String basicMenu = "1. Slam\n2. Tackle\n3. Punch";
-      return basicMenu;
+      return "1. Basic Attacks\n2. Special Attacks";
+    }
 
-      System.out.println("\nChoose a Special Attack:");
-      String specialMenu = "1. Vine Whip\n2. Razor Leaf\n3. Solar Beam";
-      return specialMenu;
+    public int getNumAttackTypeMenuItems() {
+      return 2;
     }
   
   /** 
   * The getBasicMenu method consists of the basic menu options
   * @return the string consisting of the basic attack menu options that the user chooses from.
   */
-  public String getBasicMenu() {
-    String basicMenu = "1. Slam\n2. Tackle\n3. Punch";
-    return basicMenu;
-  }
+  // public String getBasicMenu() {
+  //  String basicMenu = "1. Slam\n2. Tackle\n3. Punch";
+  //  return basicMenu;
+ // }
 
-  /** 
+  /*()
   * getNumBasicMenuItems consists of the integer/number of basic attack menu items from the menu.
   * @return the total number of basic menu items
   */
-  public int getNumBasicMenuItems() {
-    return 3;
-  }
+ // public int getNumBasicMenuItems() {
+ //   return 3;
+ // }
 
 /**
 * The basicAttack method consists of a switch statement with cases returning the specific basic attack choices.
@@ -79,18 +76,73 @@ public abstract class Pokemon extends Entity {
   * The getAttackMenu method consists of the two attack menu options
   * @return the string consisting of the two type of attack menus
   */
-  public String getAttackMenu() {
-    System.out.println("\nChoose an attack:");
-    String attackMenu = "1. Basic Attack\n2. Special Attack";
+  public String getAttackMenu(int atkType) {
+    String attackMenu = "1. Slam\n2. Tackle\n3. Punch";
     return attackMenu;
   }
-
   /** 
   * getNumAttackMenuItems consists of the integer/number of the attack menu items from the menu.
   * @return the total number of attack menu items
   */
-  public int getNumAttackMenuItems() {
+  public int getNumAttackMenuItems(int atkType) {
     return 2;
+  }
+
+  public String getAttackString(int atkType, int move) {
+    String atkString = "";
+    switch (move) {
+      case 1:
+        atkString += "SLAMMED";
+        break;
+      case 2:
+        atkString += "TACKLED";
+        break;
+      case 3:
+        atkString += "PUNCHED";
+        break;
+      default:
+        System.out.println("Invalid entry. Please try again.");
+    }
+      return atkString;
+  }
+
+  public int getAttackDamage(int atkType, int move) {
+    Random rand = new Random();
+    int dmg = 0;
+
+    switch (move) {
+      case 1:
+        // Slam damages between 0 and 5
+        dmg = rand.nextInt(6);
+        break;
+
+      case 2:
+        // Tackle damages between 2 and 3
+        dmg = rand.nextInt(2) + 2;
+        break;
+        
+      case 3:
+        // Punch damages between 1 and 4
+        dmg = rand.nextInt(4) + 1;
+        break;
+    }
+    return dmg;
+  }
+
+// attack multiplier based on move, nothing for basic ?
+  public int getAttackMultiplier(Pokemon p, int atkType) {
+    // FIX ME
+    return 0;
+  }
+
+// attack bonus added to damage
+  public int getAttackBonus(int atkType) {
+    // FIX ME
+    return 0;
+  }
+
+  public String attack(Pokemon p, int atkType, int move) {
+    
   }
 
 /**
