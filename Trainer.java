@@ -293,6 +293,27 @@ public class Trainer extends Entity{
     return p;
   }
 
+  //what about the parameter 
+
+  // public void buffAllPokemon()
+  // {
+  //   for(int i = 0; i < pokemon.size(); i++){
+  //      (pokemon.get(i)).getAttackBonus();
+  //   }
+  // }
+
+  // public void debuffAllPokemon()
+  // {
+  //   for(int i = 0; i < pokemon.size(); i++){
+  //      (pokemon.get(i)).getAttackBonus();
+  //   }
+  // }
+
+  //remove the pokemon from the list 
+  public Pokemon removePokemon(int index)
+  {
+    return pokemon.remove(index);
+  }
 
   /**
   * Convert the integer variables money, pokeballs, and potions; the trainer hp; the map and character location (loc); and the arraylist pokemon and convert it into a string.
