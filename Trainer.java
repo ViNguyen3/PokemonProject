@@ -293,21 +293,44 @@ public class Trainer extends Entity{
     return p;
   }
 
-  //what about the parameter 
+  
+  public void buffAllPokemon()
+  { 
+    Random rand = new Random();
+    int res = rand.nextInt(2) + 1;
+    //create new buff poke 
+    for(int i = 0; i < pokemon.size(); i++){
+      if(res == 1)
+      {
+        Pokemon p1 = new AttackUp(pokemon.get(i));
+        pokemon.set(i,p1);
+      }
+      else 
+      {
+        Pokemon p1 = new HpUp(pokemon.get(i));
+        pokemon.set(i,p1);
+      }
+    }
+  }
 
-  // public void buffAllPokemon()
-  // {
-  //   for(int i = 0; i < pokemon.size(); i++){
-  //      (pokemon.get(i)).getAttackBonus();
-  //   }
-  // }
-
-  // public void debuffAllPokemon()
-  // {
-  //   for(int i = 0; i < pokemon.size(); i++){
-  //      (pokemon.get(i)).getAttackBonus();
-  //   }
-  // }
+  public void debuffAllPokemon()
+  {
+    Random rand = new Random();
+    int res = rand.nextInt(2) + 1;
+    //create new buff poke 
+    for(int i = 0; i < pokemon.size(); i++){
+      if(res == 1)
+      {
+        Pokemon p1 = new AttackDown(pokemon.get(i));
+        pokemon.set(i,p1);
+      }
+      else 
+      {
+        Pokemon p1 = new HpDown(pokemon.get(i));
+        pokemon.set(i,p1);
+      }
+    }
+  }
 
   //remove the pokemon from the list 
   public Pokemon removePokemon(int index)

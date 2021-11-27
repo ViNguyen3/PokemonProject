@@ -57,20 +57,20 @@ public abstract class Pokemon extends Entity {
 * @param move is the integer the player chooses from basic attack menu
 * @return the chosen basic attack and the outcome
 */ 
-  public String basicAttack(Pokemon p, int move) {
+ // public String basicAttack(Pokemon p, int move) {
     
-    switch (move) {
-      case 1:
-        return slam(p);
-      case 2:
-        return tackle(p);
-      case 3:
-        return punch(p);
-      default:
-        System.out.println("Invalid entry. Please try again.");
-    }
-      return "";
-  }
+//    switch (move) {
+//      case 1:
+//        return slam(p);
+//      case 2:
+//        return tackle(p);
+//      case 3:
+//        return punch(p);
+//      default:
+//        System.out.println("Invalid entry. Please try again.");
+//    }
+//      return "";
+//  }
 
   /** 
   * The getAttackMenu method consists of the two attack menu options
@@ -134,7 +134,7 @@ public abstract class Pokemon extends Entity {
     if (atkType == 1) {
       return 1;
     }
-    return 0;
+    return 1;
   }
 
 // attack bonus added to damage
@@ -151,7 +151,7 @@ public abstract class Pokemon extends Entity {
 
     double totalDmg = (attackDmg + attackBonus) * attackMultiplier;
 
-    return this.getName() + " is " + this.getAttackString(atkType, move) + " and takes " + totalDmg + " damage!"; 
+    return p.getName() + " is " + this.getAttackString(atkType, move) + " and takes " + totalDmg + " damage!"; 
   }
 
 /**
@@ -159,53 +159,53 @@ public abstract class Pokemon extends Entity {
 * @param p the Pokemon performing the basic attack
 * @return the string describing the attack
 */ 
-  public String slam(Pokemon p) {
-    // Slam damages between 0 and 5
-    Random rand = new Random();
-    int dmg = rand.nextInt(6);
-    p.takeDamage(dmg);
+  // public String slam(Pokemon p) {
+  //   // Slam damages between 0 and 5
+  //   Random rand = new Random();
+  //   int dmg = rand.nextInt(6);
+  //   p.takeDamage(dmg);
 
-    return this.getName() + " SLAMS "+ p.getName() + " for  "  + dmg + " damage!";
+  //   return this.getName() + " SLAMS "+ p.getName() + " for  "  + dmg + " damage!";
     
-  } 
+  // } 
 
 /**
 * The tackle method consists of the tackle move performed by the pokemon, dealing damage of 2-3
 * @param p the Pokemon performing the basic attack
 * @return the string describing the attack
 */ 
-  public String tackle(Pokemon p) {
-    // Tackle damages between 2 and 3
-    Random rand = new Random();
-    int dmg = rand.nextInt(2) + 2;
-    p.takeDamage(dmg);
+  // public String tackle(Pokemon p) {
+  //   // Tackle damages between 2 and 3
+  //   Random rand = new Random();
+  //   int dmg = rand.nextInt(2) + 2;
+  //   p.takeDamage(dmg);
     
-    return this.getName() + " TACKLES "+ p.getName() + " for  "  + dmg + " damage!";
+  //   return this.getName() + " TACKLES "+ p.getName() + " for  "  + dmg + " damage!";
 
-  }
+  // }
 
 /**
 * The punch method consists of the punch move performed by the pokemon, dealing damage of 1-4
 * @param p the Pokemon performing the basic attack
 * @return the string describing the attack
 */ 
-  public String punch(Pokemon p) {
-    // Punch damages between 1 and 4
-    Random rand = new Random();
-    int dmg = rand.nextInt(4) + 1;
-    p.takeDamage(dmg);
-    System.out.println("|_,-_-___-_,_,_,_,__, ,--, /: :\\/': :`\\/: :\\ __,__,__,_,-_-___-_,___.|"); 
-    System.out.println("|{    (    (    (    |`;  ' `,'   `.;    `: |{(    )   )   (    (    |"); 
-    System.out.println("|-;      )     ,-,   |    |     |  '  |     |.-,  ,.  /;      )     ,|"); 
-    System.out.println("| ;   ;;    /\\/   \\/\\| :  |     |  :  |     ||  \\/  \\/ ;   ;;    /\\/ |"); 
-    System.out.println("|  |  ;`,  ,  `      | :. |  :  |  :  |  :  | \\         |  ;`,  ,  ` |"); 
-    System.out.println("|  ; |  | |    ,  ,,  \\__/: :.. : :.. | :.. |  )   ,    ; |  | |     |"); 
-    System.out.println("|  ; ;  `,'   / \\/  \\      `---',\\___/,\\___/ /' , / \\   ; ;  `,'     |"); 
-    System.out.println("|   |;   |  ,'  ;\\   ',         `==._ .. . /'  / \\  ;\\   |;   |      |"); 
-    System.out.println("|   ||     /    ;;)  ;;\\             `-::-'   /  ;) ;;\\ ||          |"); 
-    System.out.println("----------------------------------------------------------------------"); 
-    return this.getName() + " PUNCHES "+ p.getName() + " for " + dmg + " damage!"; 
-  }
+  // public String punch(Pokemon p) {
+  //   // Punch damages between 1 and 4
+  //   Random rand = new Random();
+  //   int dmg = rand.nextInt(4) + 1;
+  //   p.takeDamage(dmg);
+  //   System.out.println("|_,-_-___-_,_,_,_,__, ,--, /: :\\/': :`\\/: :\\ __,__,__,_,-_-___-_,___.|"); 
+  //   System.out.println("|{    (    (    (    |`;  ' `,'   `.;    `: |{(    )   )   (    (    |"); 
+  //   System.out.println("|-;      )     ,-,   |    |     |  '  |     |.-,  ,.  /;      )     ,|"); 
+  //   System.out.println("| ;   ;;    /\\/   \\/\\| :  |     |  :  |     ||  \\/  \\/ ;   ;;    /\\/ |"); 
+  //   System.out.println("|  |  ;`,  ,  `      | :. |  :  |  :  |  :  | \\         |  ;`,  ,  ` |"); 
+  //   System.out.println("|  ; |  | |    ,  ,,  \\__/: :.. : :.. | :.. |  )   ,    ; |  | |     |"); 
+  //   System.out.println("|  ; ;  `,'   / \\/  \\      `---',\\___/,\\___/ /' , / \\   ; ;  `,'     |"); 
+  //   System.out.println("|   |;   |  ,'  ;\\   ',         `==._ .. . /'  / \\  ;\\   |;   |      |"); 
+  //   System.out.println("|   ||     /    ;;)  ;;\\             `-::-'   /  ;) ;;\\ ||          |"); 
+  //   System.out.println("----------------------------------------------------------------------"); 
+  //   return this.getName() + " PUNCHES "+ p.getName() + " for " + dmg + " damage!"; 
+  // }
 
 /**
 * The getType method assigns Pokemons of a specific type to their proper number according to the battleTable (Fire-0, Water-1, and Grass-2)
