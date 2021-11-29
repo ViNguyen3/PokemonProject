@@ -147,8 +147,8 @@ class Main {
     }
 
     // Construct map and trainer object 
-    Map mainMap = new Map();
-    mainMap.loadMap(mapNumber);//load map 1 
+    // Map mainMap = new Map();
+    Map.getInstance().loadMap(mapNumber);//load map 1 
     Trainer player = new Trainer(playerName,starterPokemon);
     // Printing will be toString in Trainer class, as long as player doesn't quit the game, the program keep printing and updating the map and other stuffs.
     do
@@ -214,22 +214,22 @@ class Main {
         gymAttack(player, gymLeader, tempPoke);
         if(tempPoke.getHp() == 0) 
         {
-          mainMap.removeCharAtLoc(player.getLocation());
+          Map.getInstance().removeCharAtLoc(player.getLocation());
           System.out.println("You have defeated the gym leader and their pokemon!\nAll of your pokemons have received a random buff!\nNow it is time to move on...\nLoading next map...\n");
           player.buffAllPokemon();
           if(mapNumber == 1)
           {
-            mainMap.loadMap(2);
+            Map.getInstance().loadMap(2);
             mapNumber++; 
           }
           else if (mapNumber == 2)
           {
-            mainMap.loadMap(3);
+            Map.getInstance().loadMap(3);
             mapNumber++; 
           }
           else if (mapNumber == 3)
           {
-            mainMap.loadMap(1);
+            Map.getInstance().loadMap(1);
             mapNumber = 1; 
           }
         }
@@ -279,7 +279,7 @@ class Main {
           System.out.println("You got a potion!\n");
           player.receivePotion();
         }
-        mainMap.removeCharAtLoc(player.getLocation());
+        Map.getInstance().removeCharAtLoc(player.getLocation());
       }
       else if (mapChar == 'w')
       {
@@ -293,7 +293,7 @@ class Main {
         // Once the pokemon is defeated or captured, remove the w on the map
         if(wild.getHp() == 0 || temp1 < player.getNumPokemon()) 
         {
-          mainMap.removeCharAtLoc(player.getLocation());
+          Map.getInstance().removeCharAtLoc(player.getLocation());
         }
       }
       else if (mapChar == 'p')
@@ -479,7 +479,7 @@ class Main {
             player.heal();
             break;
         }
-        mainMap.removeCharAtLoc(player.getLocation());   
+        Map.getInstance().removeCharAtLoc(player.getLocation());   
       }
       else if (mapChar == 'c')
       {

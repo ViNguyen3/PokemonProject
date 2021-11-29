@@ -24,10 +24,12 @@ public class Trainer extends Entity{
   *The trainer method gives the trainer a set hp, a point in the map, and starts of with a fresh set of money, potions and pokeballs.
   */
   public Trainer(String n, Pokemon p){
+  // public Trainer(String n, Pokemon p, Map m){
     super(n,30,30);
     // map = m; 
     pokemon.add(p);
     loc = Map.getInstance().findStart();
+    // loc = map.findStart();
     money = 25;
     potions = 1;
     pokeballs = 5;
@@ -177,14 +179,16 @@ public class Trainer extends Entity{
   public char goNorth() 
   { 
     if(loc.getX() - 1 < 0){
-      //System.out.println("Can't go that way!\n");
+      System.out.println("Can't go that way!\n");
       return 'a';
     }
     else{
       loc.move((int)loc.getX()-1, (int)loc.getY());
       // System.out.println("Loc: " + loc.toString());
       Map.getInstance().reveal(loc); 
+      // map.reveal(loc);
       return Map.getInstance().getCharAtLoc(loc);
+      // return map.getCharAtLoc(loc);
     }
   }
 
@@ -198,7 +202,7 @@ public class Trainer extends Entity{
   public char goSouth() 
   {
     if(loc.getX() + 1 >= 5){
-      //  System.out.println("Can't go that way!\n");
+       System.out.println("Can't go that way!\n");
        return 'a';
     }
      else{
@@ -206,6 +210,8 @@ public class Trainer extends Entity{
       //  System.out.println("Loc: " + loc.toString());
        Map.getInstance().reveal(loc); 
        return Map.getInstance().getCharAtLoc(loc);
+      // map.reveal(loc); 
+      // return map.getCharAtLoc(loc);
      }
   }
 
@@ -225,8 +231,11 @@ public class Trainer extends Entity{
        loc.move((int)loc.getX(), (int)loc.getY()+1);
       //  System.out.println("Loc: " + loc.toString());
        Map.getInstance().reveal(loc); 
+      //  map.reveal(loc);
        System.out.println("Go East: " + Map.getInstance().getCharAtLoc(loc));
+      //  System.out.println("Go East: " + map.getCharAtLoc(loc)); 
        return Map.getInstance().getCharAtLoc(loc);
+      //  return map.getCharAtLoc(loc);
      }
   }
 
@@ -246,6 +255,8 @@ public class Trainer extends Entity{
        loc.move((int)loc.getX(), (int)loc.getY()-1);
        Map.getInstance().reveal(loc); 
        return Map.getInstance().getCharAtLoc(loc);
+      //  map.reveal(loc); 
+      //  return map.getCharAtLoc(loc);
      }
   }
   
@@ -351,6 +362,7 @@ public class Trainer extends Entity{
     String b = String.valueOf(pokeballs);
     String c = super.toString();
     String d = Map.getInstance().mapToString(loc);
+    // String d = map.mapToString(loc);
     String f = String.valueOf(potions);
     for(int i = 0; i < pokemon.size(); i++)
     {
