@@ -12,12 +12,13 @@ public class PokemonGenerator {
 
   private static PokemonGenerator instance = null;
 
-  private PokemonGenerator() {
+  //CHANGES TO PUBLIC FOR LAZY PURPOSES. 
+  public PokemonGenerator() {
     try{
       File pokemonList = new File("PokemonList.txt");
       Scanner fileScan = new Scanner(pokemonList);
 
-      Pattern p = Pattern.compile("(\\w+), (\\w+)");
+      Pattern p = Pattern.compile("(\\w+),(\\w+)");
       
       Matcher match;
 
@@ -26,6 +27,7 @@ public class PokemonGenerator {
         match = p.matcher(currentLine);
         if(match.find()) {
         pokemon.put(match.group(1), match.group(2));
+        // System.out.println(match.group(1) + " " + match.group(2));
         }        
       }
       fileScan.close();
@@ -64,8 +66,8 @@ public class PokemonGenerator {
   }
 
   public Pokemon getPokemon(String name) {
-    Pokemon newPokemon = null;
-    
+    Pokemon newPokemon = new Fire(name, 25, 25);
+
     switch(pokemon.get(name)) {
       case "Fire" :
         newPokemon = new Fire(name, 25, 25);
@@ -113,4 +115,13 @@ public class PokemonGenerator {
       return p1;
     }
   }
+
+  // public static void main(String[] args) throws FileNotFoundException
+  // {
+  //   PokemonGenerator test = new PokemonGenerator(); 
+    
+  //   System.out.println(test.getPokemon("Charmander"));
+
+  // }
 }
+

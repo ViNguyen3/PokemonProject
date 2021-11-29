@@ -16,6 +16,7 @@ class Main {
     String playerName;
     int starterPokemonChoice;
     Pokemon starterPokemon;
+    PokemonGenerator pokemonGen = PokemonGenerator.getInstance();
     char mapChar = 'n';
     int i = 0;//for the menu
     int mapNumber = 1; //initally load map 1
@@ -32,11 +33,15 @@ class Main {
     System.out.println("");
 
     // Initializing the starterPokemon to avoid errors 
-    starterPokemon = new Charmander();
+    starterPokemon = null;
 
     switch(starterPokemonChoice) {
       case 1: 
-        starterPokemon = new Charmander();
+        System.out.println(pokemonGen.getPokemon("Charmander"));
+        starterPokemon = pokemonGen.getPokemon("Charmander");
+      
+     
+          
         // System.out.println("              _.--\"\"`-..");
         // System.out.println("            ,'          `.");
         // System.out.println("          ,'          __  `.");
@@ -73,7 +78,7 @@ class Main {
         // System.out.println("                            `\" \" -'");   
         break;
       case 2: 
-        starterPokemon = new Bulbasaur();
+        starterPokemon = pokemonGen.getPokemon("Bulbasaur");
         // System.out.println("                                        /  ");
         // System.out.println("                        _,.------....___,.' ',.-.");
         // System.out.println("                     ,-'          _,.--\"        |");
@@ -104,7 +109,7 @@ class Main {
         // System.out.println(" `\"^--'..'   '-`-^-'\"--    `-^-'`.''\"\"\"\"\"`.,^.`.--'");
         break;
       case 3: 
-        starterPokemon = new Squirtle();
+        starterPokemon = pokemonGen.getPokemon("Squirtle");
         // System.out.println("               _,........__");
         // System.out.println("            ,-'            \"`-.");
         // System.out.println("          ,'                   `-.");
@@ -204,26 +209,61 @@ class Main {
       {
         System.out.println("Boss FIGHT !"); 
         Pokemon tempPoke = PokemonGenerator.getInstance().generateRandomPokemon(2);
-        Trainer gymleader = new Trainer("Gym leader", tempPoke);
-
-
+        Trainer gymLeader = new Trainer("Gym leader", tempPoke);
+        System.out.println("The gym leader has appeared! Get ready for battle!\n");
+        gymAttack(player, gymLeader, tempPoke);
+        if(tempPoke.getHp() == 0) 
+        {
+          mainMap.removeCharAtLoc(player.getLocation());
+          System.out.println("You have defeated the gym leader and their pokemon!\nAll of your pokemons have received a random buff!\nNow it is time to move on...\nLoading next map...\n");
+          player.buffAllPokemon();
+          if(mapNumber == 1)
+          {
+            mainMap.loadMap(2);
+            mapNumber++; 
+          }
+          else if (mapNumber == 2)
+          {
+            mainMap.loadMap(3);
+            mapNumber++; 
+          }
+          else if (mapNumber == 3)
+          {
+            mainMap.loadMap(1);
+            mapNumber = 1; 
+          }
+        }
+        else
+        {
+          System.out.println("You have lost the battle so run away!");
+          Random rand = new Random();
+          int rand3 = rand.nextInt(4); 
+          System.out.println("\nYou couldn't handle the wild " + tempPoke.getName() + " and have run away!\n");
+          switch(rand3) {
+            case 0:
+              if(player.goNorth() != 'a')
+              {
+                break;
+              }
+            case 1:
+              if(player.goSouth() != 'a')
+              {
+                break;
+              }
+            case 2:
+              if(player.goEast() != 'a')
+              {
+                break;
+              }
+            case 3:
+              if(player.goWest() != 'a')
+              {
+                break;
+              }              
+           }
+        }
         
-        System.out.println("Loading next map...\n");
-        if(mapNumber == 1)
-        {
-          mainMap.loadMap(2);
-          mapNumber++; 
-        }
-        else if (mapNumber == 2)
-        {
-          mainMap.loadMap(3);
-          mapNumber++; 
-        }
-        else if (mapNumber == 3)
-        {
-          mainMap.loadMap(1);
-          mapNumber = 1; 
-        }
+
       }
       else if (mapChar == 'i')
       {
@@ -511,33 +551,153 @@ class Main {
   * Generate randomly from 1 to 6 and choose from the wild pokemon. 
   * @return Pokemon object to use as wild and fight player 
   */
-  public static Pokemon chooseRandomPokemon()
-  {
+  // public static Pokemon chooseRandomPokemon()
+  // {
+  //   Random rand = new Random();
+  //   Pokemon randPokemon = null;
+  //   int rand1 = rand.nextInt(6); 
+  //   switch(rand1) {
+  //     case 0:
+  //       randPokemon = new Bulbasaur();
+  //       break; 
+  //     case 1:
+  //       randPokemon = new Charmander();
+  //       break;
+  //     case 2:
+  //       randPokemon = new Oddish();
+  //       break;
+  //     case 3:
+  //       randPokemon = new Ponyta();
+  //       break;
+  //     case 4:
+  //       randPokemon = new Squirtle();
+  //       break;
+  //     case 5:
+  //       randPokemon = new Staryu();
+  //       break;
+  //   }
+  //   return randPokemon;
+  // }
+
+
+  public static void gymAttack(Trainer t, Trainer gym, Pokemon gymPoke) {
+   
     Random rand = new Random();
-    Pokemon randPokemon = null;
-    int rand1 = rand.nextInt(6); 
-    switch(rand1) {
-      case 0:
-        randPokemon = new Bulbasaur();
-        break; 
-      case 1:
-        randPokemon = new Charmander();
+
+    boolean battle = true;
+    
+    while (battle) {
+      // If the wild pokemon is defeated, end the fight and reward player 5-10 money.
+      if (gymPoke.getHp() == 0) {
+        System.out.println("\nThe gym leader's " + gymPoke.getName() + " has been defeated!");
+        int rewardMoney = rand.nextInt(5) + 5;
+        System.out.println("You earned " + rewardMoney + " money for this victory!\n");
+        t.receiveMoney(rewardMoney);
         break;
-      case 2:
-        randPokemon = new Oddish();
+      } 
+      else if(t.getHp() == 0)
+      {
         break;
-      case 3:
-        randPokemon = new Ponyta();
-        break;
-      case 4:
-        randPokemon = new Squirtle();
-        break;
-      case 5:
-        randPokemon = new Staryu();
-        break;
-    }
-    return randPokemon;
-  }
+      }
+
+      String gymMenu = "What do you want to do?\n1. Fight\n2. Use Potion\n";
+
+      System.out.println(gymMenu);
+      int gymChoice = CheckInput.getIntRange(1, 4);
+      System.out.println("");
+      switch(gymChoice) {
+        // 1. Fight
+        case 1:
+          System.out.println("Choose a Pokemon:");
+          System.out.println(t.getPokemonList());
+          System.out.println("");
+
+      
+          // Choose from list of pokemon and display chosen pokemon
+          Pokemon chosenPokemon = t.getPokemon(CheckInput.getIntRange(1, t.getNumPokemon()));
+          System.out.println(chosenPokemon.getName() + ", I choose you!");
+          System.out.println("");      
+
+
+          // If chosen pokemon has no health, damage the trainer and break
+          if (chosenPokemon.getHp() == 0 ) {
+            
+            int dmg = rand.nextInt(10) + 1;
+            
+            System.out.println(chosenPokemon.getName() + " has no more health left!");
+            System.out.println("The gym leader's " + gymPoke.getName() + " charges and attacks you instead!");
+            System.out.println("You take " + dmg + " damage!\n");
+            t.takeDamage(dmg);
+            battle = false;
+            break;          
+          }        
+
+          // Display and choose attack set (basic or special)
+          //cast down to call method from Pokemon class 
+          System.out.println(((Pokemon)chosenPokemon).getAttackTypeMenu());
+          int attackChoice = CheckInput.getIntRange(1, chosenPokemon.getNumAttackTypeMenuItems());
+          
+          // Display and choose 1. Basic attack
+          if (attackChoice == 1) {
+            System.out.println(chosenPokemon.getAttackMenu(1));
+            System.out.println(chosenPokemon.attack(gymPoke, 1, CheckInput.getIntRange(1, chosenPokemon.getNumAttackMenuItems(1))));
+          }
+
+            // Display and choose 2. Special attack
+          else if (attackChoice == 2) {
+            System.out.println(chosenPokemon.getAttackMenu(2)); 
+            System.out.println(chosenPokemon.attack(gymPoke, 2, CheckInput.getIntRange(1,chosenPokemon.getNumAttackMenuItems(2))));         
+          }
+
+
+            // Wild Pokemon's random move (basic or special)
+          System.out.println("The gym leader's " + gymPoke.getName() + " is getting ready to charge!");
+          int gymAttack = rand.nextInt(2) + 1;
+          
+          // If the wildChoice is 1, choose random basic attack
+          if (gymAttack == 1) {
+          System.out.println(gymPoke.attack(chosenPokemon, 1, rand.nextInt(3) + 1) + "\n");
+          System.out.println(gymPoke.toString() + "\n");
+          }
+
+          // If the wildChoice is 2, choose random special attack
+          else if (gymAttack == 2) {
+          System.out.println(gymPoke.attack(chosenPokemon, 2, rand.nextInt(3) + 1) + "\n");
+          System.out.println(gymPoke.toString() + "\n");
+          }
+
+          // End of 1. Fight
+          break;
+
+        // 2. Use Potion
+        case 2: 
+
+          // If trainer does not have potions, display and break
+          if (!t.hasPotion()) {
+            System.out.println("You do not have any potions left.");
+            break;
+          }
+
+          // Display and choose pokemon for healing, use the potion on the pokemon
+          System.out.println("Choose the pokemon that you want to heal:");
+          System.out.println(t.getPokemonList());
+          
+          int pokemonChoice =  CheckInput.getIntRange(0, t.getNumPokemon());
+          Pokemon healPokemon = t.getPokemon(pokemonChoice);
+          
+          if(healPokemon.getHp() == healPokemon.getMaxHp()) {
+            System.out.println(healPokemon.getName() + " is at full health, cannot be healed.");
+          }
+          else {
+            System.out.println("You chose to heal " + healPokemon.getName());
+            t.usePotion(pokemonChoice);
+          }    
+          // End of 2. Use Potion
+          break;
+      }
+      }
+  }            
+
 /**
 * The trainerAttack method is the game's combat system consisting of the use of attacks, potions, pokeballs, and running away from a fight.
 * @param t represents the trainer
@@ -563,8 +723,7 @@ class Main {
         break;
       }
 
-      String wildMenu = "What do you want to do?\n1. Fight\n2. Use Potion\n3. Throw Poke Ball\n4. Run Away";
-
+      String wildMenu = "What do you want to do?\n1. Fight\n2. Use Potion\n3. Throw Pokeballs\n4. Run away";
       System.out.println(wildMenu);
       int wildChoice = CheckInput.getIntRange(1, 4);
       System.out.println("");
@@ -599,19 +758,20 @@ class Main {
           }        
 
           // Display and choose attack set (basic or special)
-          System.out.println(chosenPokemon.getAttackMenu());
-          int attackChoice = CheckInput.getIntRange(1, chosenPokemon.getNumAttackMenuItems());
+          //cast down to call method from Pokemon class 
+          System.out.println(((Pokemon)chosenPokemon).getAttackTypeMenu());
+          int attackChoice = CheckInput.getIntRange(1, chosenPokemon.getNumAttackTypeMenuItems());
           
           // Display and choose 1. Basic attack
           if (attackChoice == 1) {
-            System.out.println(chosenPokemon.getBasicMenu());
-            System.out.println(chosenPokemon.basicAttack(wild, CheckInput.getIntRange(1, chosenPokemon.getNumBasicMenuItems())));
+            System.out.println(chosenPokemon.getAttackMenu(1));
+            System.out.println(chosenPokemon.attack(wild, 1, CheckInput.getIntRange(1, chosenPokemon.getNumAttackMenuItems(1))));
           }
 
             // Display and choose 2. Special attack
           else if (attackChoice == 2) {
-            System.out.println(chosenPokemon.getSpecialMenu()); 
-            System.out.println(chosenPokemon.specialAttack(wild, CheckInput.getIntRange(1,chosenPokemon.getNumSpecialMenuItems())));         
+            System.out.println(chosenPokemon.getAttackMenu(2)); 
+            System.out.println(chosenPokemon.attack(wild, 2, CheckInput.getIntRange(1,chosenPokemon.getNumAttackMenuItems(2))));         
           }
 
 
@@ -621,13 +781,13 @@ class Main {
           
           // If the wildChoice is 1, choose random basic attack
           if (wildAttack == 1) {
-          System.out.println(wild.basicAttack(chosenPokemon, rand.nextInt(3) + 1) + "\n");
+          System.out.println(wild.attack(chosenPokemon, 1, rand.nextInt(3) + 1) + "\n");
           System.out.println(wild.toString() + "\n");
           }
 
           // If the wildChoice is 2, choose random special attack
           else if (wildAttack == 2) {
-          System.out.println(wild.specialAttack(chosenPokemon, rand.nextInt(3) + 1) + "\n");
+          System.out.println(wild.attack(chosenPokemon, 2, rand.nextInt(3) + 1) + "\n");
           System.out.println(wild.toString() + "\n");
           }
 
@@ -717,7 +877,7 @@ class Main {
                 battle = false; 
                 break;
               }              
-        }
+           }
       }
       }
   }

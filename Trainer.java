@@ -225,6 +225,7 @@ public class Trainer extends Entity{
        loc.move((int)loc.getX(), (int)loc.getY()+1);
       //  System.out.println("Loc: " + loc.toString());
        Map.getInstance().reveal(loc); 
+       System.out.println("Go East: " + Map.getInstance().getCharAtLoc(loc));
        return Map.getInstance().getCharAtLoc(loc);
      }
   }
