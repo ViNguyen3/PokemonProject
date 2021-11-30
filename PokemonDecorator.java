@@ -10,6 +10,7 @@ public abstract class PokemonDecorator extends Pokemon
   
   //call the method from the element subclasses
   //java will automatically skip the abstract and call from the concreate classes 
+  @Override
   public String getAttackMenu(int atkType) {
     return pokemon.getAttackMenu(atkType); 
   }

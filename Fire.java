@@ -27,7 +27,15 @@ public class Fire extends Pokemon
    @Override 
    public String getAttackMenu(int atkType)
    {
-    return "1. Ember\n2. Fire Blast\n3. Fire Punch";
+    String attackMenu = "1. Ember\n2. Fire Blast\n3. Fire Punch";
+
+    if(atkType == 1) {
+      attackMenu = super.getAttackMenu(1);
+      return attackMenu;
+    }
+    else {
+      return "1. Ember\n2. Fire Blast\n3. Fire Punch";
+    }
    }
    
    @Override   
@@ -39,19 +47,24 @@ public class Fire extends Pokemon
    @Override 
    public String getAttackString(int atkType, int move)
    {
-      String atkString = "";
-    switch (move) {
-      case 1:
-        atkString += "Ember";
-        break;
-      case 2:
-        atkString += "Fire BLast";
-        break;
-      case 3:
-        atkString += "Fire Punch";
-        break;
-      default:
-        System.out.println("Invalid entry. Please try again.");
+    String atkString = "";
+    if(atkType == 1) {
+      return super.getAttackString(atkType, move);
+    }
+    else {
+      switch (move) {
+        case 1:
+          atkString += "hit with EMBERS";
+          break;
+        case 2:
+          atkString += "FIRE BLASTED";
+          break;
+        case 3:
+          atkString += "FIRE PUNCHED";
+          break;
+        default:
+          System.out.println("Invalid entry. Please try again.");
+      }
     }
       return atkString;
    }

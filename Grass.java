@@ -26,7 +26,14 @@ public class Grass extends Pokemon
    @Override 
    public String getAttackMenu(int atkType)
    {
-    return "1. Vine Whip\n2. Razor Leaf\n3. Solar Beam";
+    String attackMenu = "1. Vine Whip\n2. Razor Leaf\n3. Solar Beam";
+    if(atkType == 1) {
+      attackMenu = super.getAttackMenu(1);
+      return attackMenu;
+    }
+    else {
+      return "1. Vine Whip\n2. Razor Leaf\n3. Solar Beam";
+    }
    }
    
    @Override   
@@ -38,19 +45,24 @@ public class Grass extends Pokemon
    @Override 
    public String getAttackString(int atkType, int move)
    {
-      String atkString = "";
-    switch (move) {
-      case 1:
-        atkString += "Vine Whip";
-        break;
-      case 2:
-        atkString += "Razor Leaf";
-        break;
-      case 3:
-        atkString += "Solar Beam";
-        break;
-      default:
-        System.out.println("Invalid entry. Please try again.");
+    String atkString = "";
+    if(atkType == 1) {
+      return super.getAttackString(atkType, move);
+    }
+    else {
+      switch (move) {
+        case 1:
+          atkString += "VINE WHIPPED";
+          break;
+        case 2:
+          atkString += "cut with RAZOR LEAVES";
+          break;
+        case 3:
+          atkString += "SOLAR BEAMED";
+          break;
+        default:
+          System.out.println("Invalid entry. Please try again.");
+      }
     }
       return atkString;
    }

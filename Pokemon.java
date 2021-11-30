@@ -17,7 +17,7 @@ public abstract class Pokemon extends Entity {
   * @param n represents the name of the Pokemon and 25 maxHp
   */ 
   public Pokemon(String n, int h, int m) {
-    super(n, h, 25);
+    super(n, h, m);
   }
 
   // public abstract String getSpecialMenu();
@@ -78,7 +78,12 @@ public abstract class Pokemon extends Entity {
   */
   public String getAttackMenu(int atkType) {
     String attackMenu = "1. Slam\n2. Tackle\n3. Punch";
-    return attackMenu;
+    if(atkType == 1) {
+      return attackMenu;
+    }
+    else {
+      return "";
+    }
   }
   /** 
   * getNumAttackMenuItems consists of the integer/number of the attack menu items from the menu.
@@ -150,8 +155,9 @@ public abstract class Pokemon extends Entity {
     double attackMultiplier = this.getAttackMultiplier(p, atkType);
 
     double totalDmg = (attackDmg + attackBonus) * attackMultiplier;
+    p.takeDamage((int)totalDmg);
 
-    return p.getName() + " is " + this.getAttackString(atkType, move) + " and takes " + totalDmg + " damage!"; 
+    return p.getName() + " is " + this.getAttackString(atkType, move) + " and takes " + (int)totalDmg + " damage!"; 
   }
 
 /**

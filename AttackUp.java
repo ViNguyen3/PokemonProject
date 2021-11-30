@@ -3,9 +3,10 @@ public class AttackUp extends PokemonDecorator
 {
   public AttackUp(Pokemon p)
   {
-    super(p, "+ATK", 0);
+    super(p, " +ATK", 0);
   } 
 
+@Override
   public int getAttackBonus(int type)
   {
     //generate a random value for bonus attack from 1-2 

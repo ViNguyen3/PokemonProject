@@ -208,9 +208,9 @@ class Main {
       else if (mapChar == 'f')
       {
         System.out.println("Boss FIGHT !"); 
-        Pokemon tempPoke = PokemonGenerator.getInstance().generateRandomPokemon(2);
+        Pokemon tempPoke = PokemonGenerator.getInstance().generateRandomPokemon(mapNumber + 2);
         Trainer gymLeader = new Trainer("Gym leader", tempPoke);
-        System.out.println("The gym leader has appeared! Get ready for battle!\n");
+        System.out.println("The gym leader has appeared! Get ready for battle!\nThey have a " + tempPoke.getName() + "!\n");
         gymAttack(player, gymLeader, tempPoke);
         if(tempPoke.getHp() == 0) 
         {
@@ -235,10 +235,10 @@ class Main {
         }
         else
         {
-          System.out.println("You have lost the battle so run away!");
+          System.out.println("You have lost the battle agains the gym leader!");
           Random rand = new Random();
           int rand3 = rand.nextInt(4); 
-          System.out.println("\nYou couldn't handle the wild " + tempPoke.getName() + " and have run away!\n");
+          System.out.println("\nYou failed to defeat the gym leader's " + tempPoke.getName() + " and ran away!\nCome back when you're ready.\n");
           switch(rand3) {
             case 0:
               if(player.goNorth() != 'a')
@@ -285,7 +285,7 @@ class Main {
       {
         // Randomize wild pokemon and reveal to player
         int temp1 = player.getNumPokemon(); 
-        Pokemon wild = PokemonGenerator.getInstance().generateRandomPokemon(1);
+        Pokemon wild = pokemonGen.generateRandomPokemon(mapNumber - 1);
         System.out.println("A wild " + wild.getName() + " has appeared!");
         System.out.println(wild.toString() + "\n");
         trainerAttack(player, wild);
@@ -304,7 +304,7 @@ class Main {
         switch(num2)
         {
           case 0: 
-            // System.out.println("You run into Vegita from Dragon Ball\nVegita: Where's my money that you borrow before to buy pokeballs!\nA rob half of your money.");
+            System.out.println("You run into Vegita from Dragon Ball\nVegita: Where's my money that you borrow before to buy pokeballs!\nA rob half of your money.");
             // System.out.println("                                 ,");
             // System.out.println("                           ,   ,'|");
             // System.out.println("                         ,/|.-'   \\.");
@@ -337,7 +337,7 @@ class Main {
             player.spendMoney((int)((player.getMoney())/2)); 
             break;
           case 1: 
-            // System.out.println("You run into Saber\nSaber: Hey, buy me something to eat\n（；¬＿¬)\nSaber took away half your money");
+            System.out.println("You run into Saber\nSaber: Hey, buy me something to eat\n（；¬＿¬)\nSaber took away half your money");
             // System.out.println(" 　　　　　　　　　　　　　＿　 　 ＿＿ 　_,..　-―-    "); 
             // System.out.println("　　　　　　　　　　　__<＞''\"´　　　　　 ｀^''＜⌒丶 ＼"); 
             // System.out.println("　　　　　　　　　　〈／ 　 ／　　　　　　　　　 ＼ 　 ＼丶  "); 
@@ -360,7 +360,7 @@ class Main {
             player.spendMoney((int)(player.getMoney()/2)); 
             break;
           case 2: 
-            // System.out.println("You run into Hatsune Miku\nMiku: Oi, Onii-chan~~(｡•̀ᴗ-)✧\nC kissed you (⁄ ⁄•⁄ω⁄•⁄ ⁄) and heal you to full health");
+            System.out.println("You run into Hatsune Miku\nMiku: Oi, Onii-chan~~(｡•̀ᴗ-)✧\nC kissed you (⁄ ⁄•⁄ω⁄•⁄ ⁄) and heal you to full health");
             // System.out.println("                                           ░░▒▒░░░░░░       ");
             // System.out.println("                                         ░░░░░░░░░░░░░░▒▒░░ ");
             // System.out.println("                                       ░░▒▒░░░░░░░░░░░░▒▒▓▓░░▒▒  ");
@@ -437,7 +437,7 @@ class Main {
             player.spendMoney(player.getMoney()); 
             break; 
           case 4: 
-            // System.out.println("You ran into an antitank mine from World War II!");
+            System.out.println("You ran into an antitank mine from World War II!");
             // System.out.println("      _.-^^---....,,--     ");
             // System.out.println("  _--                  --_ ");
             // System.out.println("<                        >)");
@@ -452,7 +452,7 @@ class Main {
             player.takeDamage((int)(player.getHp()/2)); 
             break;
           case 5: 
-            // System.out.println("You were bamboozled by a tank and lose 5 health! ");
+            System.out.println("You were bamboozled by a tank and lose 5 health! ");
             // System.out.println("         ________      ");
             // System.out.println("     (( /========\\ ");
             // System.out.println("     __/__________\\____________n_");
@@ -464,7 +464,7 @@ class Main {
             player.takeDamage(5);
             break; 
           case 6: 
-            // System.out.println("You meet Doraemon and was given some money and heal yourself"); 
+            System.out.println("You meet Doraemon and was given some money and heal yourself"); 
             // System.out.println("           ⢀⣠⣤⣴⣶⣶⣶⣶⣶⠶⣶⣤⣤⣀⠀⠀⠀  ");
             // System.out.println("       ⢀⣤⣾⣿⣿⣿⠁⠀⢀⠈⢿⢀⣀⠀⠹⣿⣿⣿⣦⣄");
             // System.out.println("      ⣴⣿⣿⣿⣿⣿⠿⠀⠀⣟⡇⢘⣾⣽⠀⠀⡏⠉⠙⢛⣿⣷⡖⠀");
@@ -723,6 +723,8 @@ class Main {
         break;
       }
 
+      
+
       String wildMenu = "What do you want to do?\n1. Fight\n2. Use Potion\n3. Throw Pokeballs\n4. Run away";
       System.out.println(wildMenu);
       int wildChoice = CheckInput.getIntRange(1, 4);
@@ -739,9 +741,28 @@ class Main {
 
       
           // Choose from list of pokemon and display chosen pokemon
-          Pokemon chosenPokemon = t.getPokemon(CheckInput.getIntRange(1, t.getNumPokemon()));
+          int pokeChoice = CheckInput.getIntRange(1, t.getNumPokemon());
+          Pokemon chosenPokemon = t.getPokemon(pokeChoice);
           System.out.println(chosenPokemon.getName() + ", I choose you!");
           System.out.println("");      
+
+          System.out.println("Calculating debuff probability!");
+          Random randDebuff = new Random();
+          int debuffProb = randDebuff.nextInt(100);
+          if(debuffProb <= 24)
+          {
+            //debuff enemy's poke
+            PokemonGenerator pokemonGen = PokemonGenerator.getInstance();
+            wild = pokemonGen.addRandomDebuff(wild);
+            System.out.println("The wild " + wild.getName() + " has been debuffed!\n");
+          }
+          else if (debuffProb < 35 && debuffProb >= 25)
+          {
+            //debuff player's pokemon
+            t.debuffPokemon(pokeChoice);
+            System.out.println("Uh oh! Your " + chosenPokemon.getName() + " has been debuffed!\n");
+
+          }
 
 
           // If chosen pokemon has no health, damage the trainer and break
@@ -806,7 +827,8 @@ class Main {
           // Display and choose pokemon for healing, use the potion on the pokemon
           System.out.println("Choose the pokemon that you want to heal:");
           System.out.println(t.getPokemonList());
-          
+          PokemonGenerator pokemonGen = PokemonGenerator.getInstance();
+
           int pokemonChoice =  CheckInput.getIntRange(0, t.getNumPokemon());
           Pokemon healPokemon = t.getPokemon(pokemonChoice);
           
@@ -816,6 +838,8 @@ class Main {
           else {
             System.out.println("You chose to heal " + healPokemon.getName());
             t.usePotion(pokemonChoice);
+            // Pokemon buffPokemon = pokemonGen.addRandomBuff(healPokemon);
+            // System.out.println("buff Poke: " + buffPokemon.getName());
           }
           
           // End of 2. Use Potion
@@ -833,8 +857,19 @@ class Main {
           {
             if (t.catchPokemon(wild)) {
                 System.out.println("You have captured " + wild.getName() + "!");
-                battle = false;
-                break;
+                if(t.getNumPokemon() < 7) {
+                  battle = false;
+                  break;  
+                }
+                else {
+                  System.out.println("You are only able to have 6 pokemon!\nChoose a pokemon to remove:");
+                  System.out.println(t.getPokemonList());
+                  int pokemonRemove =  CheckInput.getIntRange(0, t.getNumPokemon()); 
+                  t.removePokemon(pokemonRemove-1);
+                  battle = false;
+                  break;  
+                }
+
               }
 
             else {

@@ -23,7 +23,14 @@ public class Water extends Pokemon
    @Override 
    public String getAttackMenu(int atkType)
    {
-    return "1. Water Gun\n2. Bubble Beam\n3. Waterfall";
+    String attackMenu = "1. Water Gun\n2. Bubble Beam\n3. Waterfall";
+    if(atkType == 1) {
+      attackMenu = super.getAttackMenu(1);
+      return attackMenu;
+    }
+    else {
+      return "1. Water Gun\n2. Bubble Beam\n3. Waterfall";
+    }    
    }
    
    @Override   
@@ -35,19 +42,24 @@ public class Water extends Pokemon
    @Override 
    public String getAttackString(int atkType, int move)
    {
-      String atkString = "";
-    switch (move) {
-      case 1:
-        atkString += "Water Gun";
-        break;
-      case 2:
-        atkString += "Bubble Beam";
-        break;
-      case 3:
-        atkString += "Waterfall";
-        break;
-      default:
-        System.out.println("Invalid entry. Please try again.");
+    String atkString = "";
+    if(atkType == 1) {
+      return super.getAttackString(atkType, move);
+    }
+    else {
+      switch (move) {
+        case 1:
+          atkString += "sprayed with WATER GUN";
+          break;
+        case 2:
+          atkString += "BUBBLE BEAMED";
+          break;
+        case 3:
+          atkString += "submerged with WATERFALL";
+          break;
+        default:
+          System.out.println("Invalid entry. Please try again.");
+      }
     }
       return atkString;
    }

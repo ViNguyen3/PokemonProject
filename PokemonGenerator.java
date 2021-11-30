@@ -46,23 +46,31 @@ public class PokemonGenerator {
 
   public Pokemon generateRandomPokemon(int level) {
     Random rand = new Random();
-    String randPokemon = "";
     int listPokemon = rand.nextInt(pokemon.size());
-    int l = 0;
+    String[] name = pokemon.keySet().toArray(new String[pokemon.size()]);
+    String getName = name[listPokemon];
+    Pokemon generatePokemon = getPokemon(getName);
 
-    for(String key : pokemon.keySet()) {
-      if(l == listPokemon) {
-        randPokemon = key;
-      l++;
-      }
-    }
 
-    Pokemon generatePokemon = getPokemon(randPokemon);
+  //   int l = 0;
 
-   for(int i = 1; i < level; i++) {
-     addRandomBuff(generatePokemon);
+  //   for(String key : pokemon.keySet()) {
+  //     if(l == listPokemon) {
+  //       randPokemon = key;
+  //     l++;
+  //     }
+  //   }
+
+
+  //   Pokemon generatePokemon = getPokemon(randPokemon);
+  //   System.out.println(randPokemon);
+
+   for(int i = 0; i < level; i++) {
+    //  System.out.println("Looping: " + i);
+     generatePokemon = addRandomBuff(generatePokemon);
    }
-    return generatePokemon;
+  //  System.out.println("After buff in loop: " + generatePokemon.getName());
+   return generatePokemon;
   }
 
   public Pokemon getPokemon(String name) {

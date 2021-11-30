@@ -105,9 +105,26 @@ public class Trainer extends Entity{
     if(potions > 0)
     {
       getPokemon(pokeIndex).heal(); 
+
+      PokemonGenerator pokemonGen = PokemonGenerator.getInstance();
+      Pokemon buffPokemon = pokemonGen.addRandomBuff(pokemon.get(pokeIndex - 1));
+      pokemon.set(pokeIndex -1, buffPokemon);
+      
+      // Random rand = new Random();pke
+      // int res = rand.nextInt(2) + 1;
+      // //create new buff poke 
+      // if(res == 1)
+      // {
+      //   Pokemon p1 = new AttackUp(pokemon.get(pokeIndex));
+      //   pokemon.set(pokeIndex,p1);
+      // }
+      // else 
+      // {
+      //   Pokemon p1 = new HpUp(pokemon.get(pokeIndex));
+      //   pokemon.set(pokeIndex,p1);
+      // }
       potions--;
     }
-     
   }
   
    /**
@@ -232,7 +249,7 @@ public class Trainer extends Entity{
       //  System.out.println("Loc: " + loc.toString());
        Map.getInstance().reveal(loc); 
       //  map.reveal(loc);
-       System.out.println("Go East: " + Map.getInstance().getCharAtLoc(loc));
+      //  System.out.println("Go East: " + Map.getInstance().getCharAtLoc(loc));
       //  System.out.println("Go East: " + map.getCharAtLoc(loc)); 
        return Map.getInstance().getCharAtLoc(loc);
       //  return map.getCharAtLoc(loc);
@@ -300,7 +317,7 @@ public class Trainer extends Entity{
     String p = "";
     for(int i = 0; i < pokemon.size(); i++)
     {
-      p += (i+1) + ". " + pokemon.get(i).toString();
+      p += (i+1) + ". " + pokemon.get(i).toString() + "\n";
     }
     return p;
   }
@@ -325,23 +342,11 @@ public class Trainer extends Entity{
     }
   }
 
-  public void debuffAllPokemon()
+  public void debuffPokemon(int index)
   {
-    Random rand = new Random();
-    int res = rand.nextInt(2) + 1;
-    //create new buff poke 
-    for(int i = 0; i < pokemon.size(); i++){
-      if(res == 1)
-      {
-        Pokemon p1 = new AttackDown(pokemon.get(i));
-        pokemon.set(i,p1);
-      }
-      else 
-      {
-        Pokemon p1 = new HpDown(pokemon.get(i));
-        pokemon.set(i,p1);
-      }
-    }
+    PokemonGenerator pokemonGen = PokemonGenerator.getInstance();
+    Pokemon buffPokemon = pokemonGen.addRandomDebuff(pokemon.get(index - 1));
+    pokemon.set(index -1, buffPokemon);
   }
 
   //remove the pokemon from the list 
@@ -370,7 +375,4 @@ public class Trainer extends Entity{
     }
       return   c + "\n" + "\nInventory:\n-----------\n" + " Money: " + a + "\n" + " Potions: " + f + "\n" + " Pokeball: " + b + "\n" + "\nMap:\n" + d + "\n" + "\nPokemons:\n----------\n" +  e  + " \n ";
   }
-}
-
-   
-    
+}   
