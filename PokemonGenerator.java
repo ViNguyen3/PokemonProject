@@ -13,7 +13,7 @@ public class PokemonGenerator {
   private static PokemonGenerator instance = null;
 
   //CHANGES TO PUBLIC FOR LAZY PURPOSES. 
-  public PokemonGenerator() {
+  private PokemonGenerator() {
     try{
       File pokemonList = new File("PokemonList.txt");
       Scanner fileScan = new Scanner(pokemonList);

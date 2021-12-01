@@ -32,7 +32,7 @@ public class Grass extends Pokemon
       return attackMenu;
     }
     else {
-      return "1. Vine Whip\n2. Razor Leaf\n3. Solar Beam";
+      return attackMenu;
     }
    }
    

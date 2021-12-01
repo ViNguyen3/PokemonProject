@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;;
 * The Main class for our Pokemon game project
 * @author Dylan Ros
 * @author Vi Nguyen
-* @author Angel Rubio
 */
 class Main {
   /**
@@ -23,7 +22,7 @@ class Main {
 
 
     System.out.println("================================================================================");
-    System.out.println("||(Maybe)                                  ,'\\                                ||");
+    System.out.println("||(Maybe)                           ,'\\                                ||");
     System.out.println("||    _.----.        ____         ,'  _\\   ___    ___     ____                ||");
     System.out.println("||_,-'       `.     |    |  /`.   \\,-'    |   \\  /   |   |    \\  |`.          ||");
     System.out.println("||\\      __    \\    '-.  | /   `.  ___    |    \\/    |   '-.   \\ |  |         ||");
@@ -634,10 +633,10 @@ class Main {
     boolean battle = true;
     
     while (battle) {
-      // If the wild pokemon is defeated, end the fight and reward player 5-10 money.
+      // If the gym leader is defeated, end the fight and reward player 20 money.
       if (gymPoke.getHp() == 0) {
         System.out.println("\nThe gym leader's " + gymPoke.getName() + " has been defeated!");
-        int rewardMoney = rand.nextInt(5) + 5;
+        int rewardMoney = 20;
         System.out.println("You earned " + rewardMoney + " money for this victory!\n");
         t.receiveMoney(rewardMoney);
         break;
@@ -736,7 +735,7 @@ class Main {
             System.out.println(healPokemon.getName() + " is at full health, cannot be healed.");
           }
           else {
-            System.out.println("You chose to heal " + healPokemon.getName());
+            System.out.println("You chose to heal and buff " + healPokemon.getName());
             t.usePotion(pokemonChoice);
           }    
           // End of 2. Use Potion
@@ -793,23 +792,7 @@ class Main {
           System.out.println(chosenPokemon.getName() + ", I choose you!");
           System.out.println("");      
 
-          System.out.println("Calculating debuff probability!");
-          Random randDebuff = new Random();
-          int debuffProb = randDebuff.nextInt(100);
-          if(debuffProb <= 24)
-          {
-            //debuff enemy's poke
-            PokemonGenerator pokemonGen = PokemonGenerator.getInstance();
-            wild = pokemonGen.addRandomDebuff(wild);
-            System.out.println("The wild " + wild.getName() + " has been debuffed!\n");
-          }
-          else if (debuffProb < 35 && debuffProb >= 25)
-          {
-            //debuff player's pokemon
-            t.debuffPokemon(pokeChoice);
-            System.out.println("Uh oh! Your " + chosenPokemon.getName() + " has been debuffed!\n");
-
-          }
+ 
 
 
           // If chosen pokemon has no health, damage the trainer and break
@@ -842,7 +825,23 @@ class Main {
             System.out.println(chosenPokemon.attack(wild, 2, CheckInput.getIntRange(1,chosenPokemon.getNumAttackMenuItems(2))));         
           }
 
-
+         //Debuff during battle
+          // System.out.println("\nCalculating debuff probability!");
+          Random randDebuff = new Random();
+          int debuffProb = randDebuff.nextInt(100);
+          if(debuffProb <= 24)
+          {
+            //debuff enemy's poke
+            PokemonGenerator pokemonGen = PokemonGenerator.getInstance();
+            wild = pokemonGen.addRandomDebuff(wild);
+            System.out.println("\nThe wild " + wild.getName() + " receives a debuff from your " + chosenPokemon.getName() + " attack!\n");
+          }
+          else if (debuffProb < 35 && debuffProb >= 25)
+          {
+            //debuff player's pokemon
+            t.debuffPokemon(pokeChoice);
+            System.out.println("\nUh oh! Your " + chosenPokemon.getName() + " received a debuff from the wild " + wild.getName() + "!\n");
+          }
             // Wild Pokemon's random move (basic or special)
           System.out.println("The wild " + wild.getName() + " is getting ready to charge!");
           int wildAttack = rand.nextInt(2) + 1;
@@ -883,7 +882,7 @@ class Main {
             System.out.println(healPokemon.getName() + " is at full health, cannot be healed.");
           }
           else {
-            System.out.println("You chose to heal " + healPokemon.getName());
+            System.out.println("You chose to heal and buff " + healPokemon.getName());
             t.usePotion(pokemonChoice);
             // Pokemon buffPokemon = pokemonGen.addRandomBuff(healPokemon);
             // System.out.println("buff Poke: " + buffPokemon.getName());
@@ -909,7 +908,7 @@ class Main {
                   break;  
                 }
                 else {
-                  System.out.println("You are only able to have 6 pokemon!\nChoose a pokemon to remove:");
+                  System.out.println("\nYou are only able to have 6 pokemon!\n\nChoose a pokemon to remove:");
                   System.out.println(t.getPokemonList());
                   int pokemonRemove =  CheckInput.getIntRange(0, t.getNumPokemon()); 
                   t.removePokemon(pokemonRemove-1);

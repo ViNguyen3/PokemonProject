@@ -6,9 +6,9 @@ public class AttackDown extends PokemonDecorator
   }
   
 @Override
-  public int getAttackBonus(int type)
+  public int getAttackBonus(int atkType)
   {
     //default is decrease attack point by 1 
-    return super.getAttackBonus(type)-1; 
+    return super.getAttackBonus(atkType)-1; 
   }
 }

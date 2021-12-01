@@ -144,7 +144,6 @@ public abstract class Pokemon extends Entity {
 
 // attack bonus added to damage
   public int getAttackBonus(int atkType) {
-    // FIX ME
     return 0;
   }
 

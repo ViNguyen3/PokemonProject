@@ -44,30 +44,40 @@ class Map
   */
   public void loadMap(int mapNum) throws FileNotFoundException
   {
+    try
+    {
     String mapName = "Area" + mapNum + ".txt"; 
     Scanner in = new Scanner(new File(mapName)); 
     int i = 0,j = 0;
     //this loop is to read file 
-    while (in.hasNextLine())
-    {
-      String currentLine = in.nextLine();
-      //loop go through current line and set boolean value 
-      for(int z = 0; z < currentLine.length(); z++)
-      { 
-        if(Character.isLetter(currentLine.charAt(z)))
-        {
-          map[j][i] = currentLine.charAt(z); 
-          revealed[j][i] = false;
-          i++;
-        }
-        if(i == 5)
-        {
-          j++; 
-          i = 0;
+   
+        while (in.hasNextLine())
+      {
+        String currentLine = in.nextLine();
+        //loop go through current line and set boolean value 
+        for(int z = 0; z < currentLine.length(); z++)
+        { 
+          if(Character.isLetter(currentLine.charAt(z)))
+          {
+            map[j][i] = currentLine.charAt(z); 
+            revealed[j][i] = false;
+            i++;
+          }
+          if(i == 5)
+          {
+            j++; 
+            i = 0;
+          }
         }
       }
+      in.close();
     }
-    in.close();
+    catch(Exception e)
+    {
+      System.out.println( "==========================");
+      System.out.println("NO MAP FILE TO READ");
+      System.out.println( "==========================");
+    }
   }
   
 

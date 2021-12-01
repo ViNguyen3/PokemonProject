@@ -29,7 +29,7 @@ public class Water extends Pokemon
       return attackMenu;
     }
     else {
-      return "1. Water Gun\n2. Bubble Beam\n3. Waterfall";
+      return attackMenu;
     }    
    }
    

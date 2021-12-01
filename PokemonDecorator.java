@@ -44,4 +44,10 @@ public abstract class PokemonDecorator extends Pokemon
   {
     return super.getAttackBonus(type);         
   }
+
+  @Override
+  public int getType() {
+
+    return pokemon.getType();
+  }  
 }

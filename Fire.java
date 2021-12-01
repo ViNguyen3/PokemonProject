@@ -34,7 +34,7 @@ public class Fire extends Pokemon
       return attackMenu;
     }
     else {
-      return "1. Ember\n2. Fire Blast\n3. Fire Punch";
+      return attackMenu;
     }
    }
    
