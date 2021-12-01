@@ -22,7 +22,7 @@ class Main {
 
 
     System.out.println("================================================================================");
-    System.out.println("||(Maybe)                           ,'\\                                ||");
+    System.out.println("||(Maybe)                           ,'\\                                       ||");
     System.out.println("||    _.----.        ____         ,'  _\\   ___    ___     ____                ||");
     System.out.println("||_,-'       `.     |    |  /`.   \\,-'    |   \\  /   |   |    \\  |`.          ||");
     System.out.println("||\\      __    \\    '-.  | /   `.  ___    |    \\/    |   '-.   \\ |  |         ||");
@@ -56,12 +56,61 @@ class Main {
     System.out.println("      ▀▄▄▄▄▄▄▀▀▀▒▒▒▒▒▄▄▀     ");
     System.out.println("         ▀▀▀▀▀▀▀▀▀▀▀▀        ");
     System.out.println(); 
-    System.out.println("-----------------------------------------------------");
-    System.out.println("Prof.Doge: Welcome new trainer! What is your name?");
-    System.out.println("-----------------------------------------------------");
+    System.out.println("-------------------------------------------------------------");
+    // System.out.println("Prof.Doge: Welcome new trainer! What is your name?");
+    System.out.println("Prof.Doge: Are you going to abuse the animal in here again!");
+    System.out.println("--------------------------------------------------------------");
+    System.out.println("1. Yes sir\n2. No sir I'm sorry");
+    int response = CheckInput.getIntRange(1,2);  
+    switch(response)
+    {
+      case 1: 
+      System.out.println("　  ───────▄▀▀▀▀▀▀▀▀▀▀▄▄");
+        System.out.println("　────▄▀▀─────────────▀▄");
+        System.out.println("　──▄▀──────────────────▀▄");
+        System.out.println("　──█─────────────────────▀▄");
+        System.out.println("　─▐▌────────▄▄▄▄▄▄▄───────▐▌");
+        System.out.println("　─█───────────▄▄▄▄──▀▀▀▀▀──█");
+        System.out.println("　▐▌───────▀▀▀▀─────▀▀▀▀▀───▐▌");
+        System.out.println("　█─────────▄▄▀▀▀▀▀────▀▀▀▀▄─█");
+        System.out.println("　█────────────────▀───▐─────▐▌");
+        System.out.println("　▐▌─────────▐▀▀██▄──────▄▄▄─▐▌");
+        System.out.println("　─█───────────▀▀▀──────▀▀██──█");
+        System.out.println("　─▐▌────▄─────────────▌──────█");
+        System.out.println("　──▐▌──▐──────────────▀▄─────█");
+        System.out.println("　───█───▌────────▐▀────▄▀───▐▌");
+        System.out.println("　───▐▌──▀▄────────▀─▀─▀▀───▄▀");
+        System.out.println("　───▐▌──▐▀▄────────────────█");
+        System.out.println("　───▐▌───▌─▀▄────▀▀▀▀▀▀───█");
+        System.out.println("　───█───▀────▀▄──────────▄▀");
+        System.out.println("　──▐▌──────────▀▄──────▄▀");
+        System.out.println("　─▄▀───▄▀────────▀▀▀▀█▀");
+        System.out.println("　▀───▄▀──────────▀───▀▀▀▀▄▄▄▄▄");
+        System.out.println("-------------------------------------------------------------");  
+        System.out.println("Prof.Doge: My disappointment is immesurable and my day is ruined by YOU!"); 
+        System.out.println("-------------------------------------------------------------");
+        break;
+      case 2: 
+        System.out.println("-------------------------------------------------------------");      
+        System.out.println("Prof.Doge: Good job you are a good person! Now go and give my group 100 points!");
+        System.out.println("-------------------------------------------------------------");
+        System.out.println(" _____   ___  ___  ___ _____   _____  _   _ ___________  ");
+        System.out.println("|  __ \\ / _ \\ |  \\/  ||  ___| |  _  || | | |  ___| ___ \\ ");
+        System.out.println("| |  \\// /_\\ \\| .  . || |__   | | | || | | | |__ | |_/ / ");
+        System.out.println("| | __ |  _  || |\\/| ||  __|  | | | || | | |  __||    /  ");
+        System.out.println("| |_\\ \\| | | || |  | || |___  \\ \\_/ /\\ \\_/ / |___| |\\ \\  ");
+        System.out.println(" \\____/\\_| |_/\\_|  |_/\\____/   \\___/  \\___/\\____/\\_| \\_| ");
+        System.exit(0);
+        break;
+    }
+    System.out.println("-------------------------------------------------------------");
+    System.out.println("Prof.Doge: Hurry up what is your name then?");
+    System.out.println("-------------------------------------------------------------");
     playerName = CheckInput.getString();
     System.out.println("");
+    System.out.println("-------------------------------------------------------------");
     System.out.println("ﾉ｡≧◇≦）ﾉ What a bad name, " + playerName + " are you serious! LOL!!!");
+    System.out.println("-------------------------------------------------------------");
 
     System.out.println("Anyways, please choose your first pokemon:\n1. Charmander\n2. Bulbasaur\n3. Squirtle");
 
@@ -189,8 +238,14 @@ class Main {
      {
       // Options for different choices, as well as overriding mapchar 
       if (player.getHp() == 0) {
-        System.out.println("\n YOU DIED ");
-        System.out.println("\n GAME OVER");
+        System.out.println("__   _______ _   _  ______ _____ ___________ ");
+        System.out.println("\\ \\ / /  _  | | | | |  _  \\_   _|  ___|  _  \\");
+        System.out.println(" \\ V /| | | | | | | | | | | | | | |__ | | | |");
+        System.out.println("  \\ / | | | | | | | | | | | | | |  __|| | | |");
+        System.out.println("  | | \\ \\_/ / |_| | | |/ / _| |_| |___| |/ / ");
+        System.out.println("  \\_/  \\___/ \\___/  |___/  \\___/\\____/|___/  ");
+        // System.out.println("\n YOU DIED ");
+        // System.out.println("\n GAME OVER");
         break;
       }
       System.out.println(player.toString());
@@ -241,7 +296,12 @@ class Main {
       // Also keep the old location to transfer to the new map
       else if (mapChar == 'f')
       {
-        System.out.println("Boss FIGHT !"); 
+        System.out.println(" ______  _______ ______ ______    _______ _ _______ _     _ _______");
+        System.out.println("(____  \\(_______) _____) _____)  (_______) (_______|_)   (_|_______)  ");
+        System.out.println(" ____)  )_     ( (____( (____     _____  | |_   ___ _______    _      ");
+        System.out.println("|  __  (| |   | \\____ \\\\____ \\   |  ___) | | | (_  |  ___  |  | |     ");
+        System.out.println("| |__)  ) |___| |____) )____) )  | |     | | |___) | |   | |  | |     ");
+        System.out.println("|______/ \\_____(______(______/   |_|     |_|\\_____/|_|   |_|  |_|     ");
         Pokemon tempPoke = PokemonGenerator.getInstance().generateRandomPokemon(mapNumber + 2);
         Trainer gymLeader = new Trainer("Gym leader", tempPoke);
         System.out.println("The gym leader has appeared! Get ready for battle!\nThey have a " + tempPoke.getName() + "!\n");

@@ -515,20 +515,71 @@ class Map1
 // System.out.println("　　　　　　 　 　 　 　　 　　 　 　　 　 　　 　i ::.. .:ﾊ､:: : : : : : `ヽ、");
 
 // System.out.println("　　　　　　　　　　　　　　　　　　　　　　　 　} ::`:::::::{＼:.:. : : : : : :ヽ");
-  System.out.println("Have you bought my doge coin ? "); 
-  System.out.println("1. Sir yes sir\n2. No sir I'm sorry");
-  int response = CheckInput.getIntRange(1,2); 
+  // System.out.println("Have you bought my doge coin ? "); 
+  // System.out.println("1. Sir yes sir\n2. No sir I'm sorry");
+  // int response = CheckInput.getIntRange(1,2); 
   
-  switch(response)
-  {
-    case 1: 
-      System.out.println("Good job"); 
-      break;
-    case 2: 
-      System.out.println("YOu are bad");
-      break;
-  }
-     
-  }
+  // switch(response)
+  // {
+  //   case 1: 
+  //     System.out.println("Good job"); 
+  //     break;
+  //   case 2: 
+  //     System.out.println("YOu are bad");
+  //     break;
+  // }
 
+
+// System.out.println("　  ───────▄▀▀▀▀▀▀▀▀▀▀▄▄");
+// System.out.println("　────▄▀▀─────────────▀▄");
+// System.out.println("　──▄▀──────────────────▀▄");
+// System.out.println("　──█─────────────────────▀▄");
+// System.out.println("　─▐▌────────▄▄▄▄▄▄▄───────▐▌");
+// System.out.println("　─█───────────▄▄▄▄──▀▀▀▀▀──█");
+// System.out.println("　▐▌───────▀▀▀▀─────▀▀▀▀▀───▐▌");
+// System.out.println("　█─────────▄▄▀▀▀▀▀────▀▀▀▀▄─█");
+// System.out.println("　█────────────────▀───▐─────▐▌");
+// System.out.println("　▐▌─────────▐▀▀██▄──────▄▄▄─▐▌");
+// System.out.println("　─█───────────▀▀▀──────▀▀██──█");
+// System.out.println("　─▐▌────▄─────────────▌──────█");
+// System.out.println("　──▐▌──▐──────────────▀▄─────█");
+// System.out.println("　───█───▌────────▐▀────▄▀───▐▌");
+// System.out.println("　───▐▌──▀▄────────▀─▀─▀▀───▄▀");
+// System.out.println("　───▐▌──▐▀▄────────────────█");
+// System.out.println("　───▐▌───▌─▀▄────▀▀▀▀▀▀───█");
+// System.out.println("　───█───▀────▀▄──────────▄▀");
+// System.out.println("　──▐▌──────────▀▄──────▄▀");
+// System.out.println("　─▄▀───▄▀────────▀▀▀▀█▀");
+// System.out.println("　▀───▄▀──────────▀───▀▀▀▀▄▄▄▄▄");
+    
+
+
+// System.out.println(" ______  _______ ______ ______    _______ _ _______ _     _ _______");
+// System.out.println("(____  \\(_______) _____) _____)  (_______) (_______|_)   (_|_______)  ");
+// System.out.println(" ____)  )_     ( (____( (____     _____  | |_   ___ _______    _      ");
+// System.out.println("|  __  (| |   | \\____ \\\\____ \\   |  ___) | | | (_  |  ___  |  | |     ");
+// System.out.println("| |__)  ) |___| |____) )____) )  | |     | | |___) | |   | |  | |     ");
+// System.out.println("|______/ \\_____(______(______/   |_|     |_|\\_____/|_|   |_|  |_|     ");
+
+
+// System.out.println(" _____   ___  ___  ___ _____   _____  _   _ ___________  ");
+// System.out.println("|  __ \\ / _ \\ |  \\/  ||  ___| |  _  || | | |  ___| ___ \\ ");
+// System.out.println("| |  \\// /_\\ \\| .  . || |__   | | | || | | | |__ | |_/ / ");
+// System.out.println("| | __ |  _  || |\\/| ||  __|  | | | || | | |  __||    /  ");
+// System.out.println("| |_\\ \\| | | || |  | || |___  \\ \\_/ /\\ \\_/ / |___| |\\ \\  ");
+// System.out.println(" \\____/\\_| |_/\\_|  |_/\\____/   \\___/  \\___/\\____/\\_| \\_| ");
+
+
+// System.out.println("__   _______ _   _  ______ _____ ___________ ");
+// System.out.println("\\ \\ / /  _  | | | | |  _  \\_   _|  ___|  _  \\");
+// System.out.println(" \\ V /| | | | | | | | | | | | | | |__ | | | |");
+// System.out.println("  \\ / | | | | | | | | | | | | | |  __|| | | |");
+// System.out.println("  | | \\ \\_/ / |_| | | |/ / _| |_| |___| |/ / ");
+// System.out.println("  \\_/  \\___/ \\___/  |___/  \\___/\\____/|___/  ");
+                                             
+                                             
+                                                        
+                                                        
+                                                                      
+  }
 }
