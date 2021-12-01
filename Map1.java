@@ -364,5 +364,159 @@
 // // System.out.println("   -\" /`.         _,'     | _  _  _.|");
 // // System.out.println("    \"\"--'---\"\"\"\"\"'        `' '! |! /");
 // // System.out.println("                            `\" \" -'");   
+
+// // System.out.println("================================================================================");
+// // System.out.println("||                                  ,'\\                                       ||");
+// // System.out.println("||    _.----.        ____         ,'  _\\   ___    ___     ____                ||");
+// // System.out.println("||_,-'       `.     |    |  /`.   \\,-'    |   \\  /   |   |    \\  |`.          ||");
+// // System.out.println("||\\      __    \\    '-.  | /   `.  ___    |    \\/    |   '-.   \\ |  |         ||");
+// // System.out.println("|| \\.    \\ \\   |  __  |  |/    ,','_  `.  |          | __  |    \\|  |         ||");
+// // System.out.println("||   \\    \\/   /,' _`.|      ,' / / / /   |          ,' _`.|     |  |         ||");
+// // System.out.println("||    \\     ,-'/  /   \\    ,'   | \\/ / ,`.|         /  /   \\  |     |         ||");
+// // System.out.println("||     \\    \\ |   \\_/  |   `-.  \\    `'  /|  |    ||   \\_/  | |\\    |         ||");
+// // System.out.println("||      \\    \\ \\      /       `-.`.___,-' |  |\\  /| \\      /  | |   |         ||");
+// // System.out.println("||       \\    \\ `.__,'|  |`-._    `|      |__| \\/ |  `.__,'|  | |   |         ||");
+// // System.out.println("||        \\_.-'       |__|    `-._ |              '-.|     '-.| |   |         ||");
+// // System.out.println("||                                `'                            '-._|         ||");
+// // System.out.println("================================================================================");
+
+
+// // System.out.println("         ▄               ▄    ");
+// // System.out.println("        ▌▒█           ▄▀▒▌   ");
+// // System.out.println("        ▌▒▒█        ▄▀▒▒▒▐   ");
+// // System.out.println("       ▐▄█▒▒▀▀▀▀▄▄▄▀▒▒▒▒▒▐   ");
+// // System.out.println("     ▄▄▀▒▒▒▒▒▒▒▒▒▒▒█▒▒▄█▒▐   ");
+// // System.out.println("   ▄▀▒▒▒░░░▒▒▒░░░▒▒▒▀██▀▒▌   ");
+// // System.out.println("  ▐▒▒▒▄▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀▄▒▌  ");
+// // System.out.println("  ▌░░▌█▀▒▒▒▒▒▄▀█▄▒▒▒▒▒▒▒█▒▐  ");
+// // System.out.println(" ▐░░░▒▒▒▒▒▒▒▒▌██▀▒▒░░░▒▒▒▀▄▌ ");
+// // System.out.println(" ▌░▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒▌ ");
+// // System.out.println("▌▒▒▒▄██▄▒▒▒▒▒▒▒▒░░░░░░░░▒▒▒▐ ");
+// // System.out.println("▐▒▒▐▄█▄█▌▒▒▒▒▒▒▒▒▒▒░▒░▒░▒▒▒▒▌");
+// // System.out.println("▐▒▒▐▀▐▀▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒░▒▒▐ ");
+// // System.out.println(" ▌▒▒▀▄▄▄▄▄▄▒▒▒▒▒▒▒▒░▒░▒░▒▒▒▌ ");
+// // System.out.println(" ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐  ");
+// // System.out.println("  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌  ");
+// // System.out.println("    ▀▄▒▒▒▒▒▒▒▒▒▒▄▄▄▀▒▒▒▒▄▀   ");
+// // System.out.println("      ▀▄▄▄▄▄▄▀▀▀▒▒▒▒▒▄▄▀     ");
+// // System.out.println("         ▀▀▀▀▀▀▀▀▀▀▀▀        ");
+
+
+
+// // System.out.println("                                __- - ");
+// // System.out.println("                               (    ");
+// // System.out.println("                              _))_  ");
+// // System.out.println("                              |  |________ ");
+// // System.out.println("                    .-------\"\"\"\"\"   |    \"\"\"\"\"------. ");
+// // System.out.println("                   /.\".\\            |            /.\".\\ ");
+// // System.out.println("                  /.   .\\           |           /.   .\\ ");
+// // System.out.println("                 /.     .\\          |          /.     .\\ ");
+// // System.out.println("                /.  ___ '.|__....--\"T\"--....__|.' ___  .\\ ");
+// // System.out.println("               |   |_|_|  |   _..   |   --.   |  |_|_|  | ");
+// // System.out.println("               |   |_|_|  |  |  |   |   |_|   |  |_|_|  | ");
+// // System.out.println("               |__________|__|..+--\"\"\"--....__|_________|    ");
+
+// // System.out.println("　　　　　　 　 　　_. -‐- ､　　,.ｨｲ");
+// // System.out.println("　　　 　'ぃ､ ､,_ 　l´/　　 〃>'´/ ll");
+// // System.out.println("　　 　 　`、 ゝ､`ゞ┴､-‐'-< ム .ﾊ");
+// // System.out.println("　　　　　 ヽ. V´ 　 ドヾ/￣｀^ヽ.√ヽ、");
+// // System.out.println("　　　　　　 ヽ|　 　 ト`┴'' ´￣ヽ､ヽ ､ゝ");
+// // System.out.println("　　　　　　　 | 　 　l　　　 　,. -　 L l ､ゝ");
+// // System.out.println("　　　 _r ぐヾ｀)　　 |＝､　 ' ｧFT> ﾚト-ゝ");
+// // System.out.println("　 　 ﾊ､）ﾉイ`{　　 ｨ'Fj`　 　 `´　 l┘");
+// // System.out.println("　　 l: :ヾr‐':O:| i　　| ´　 ､.　_, 　 ﾑｧ' ´ ｀ヽ、");
+// // System.out.println("　　 { : : lO:_:ｲ| l| 　lﾄ､　ヾ、 丿,.ｲ/, : : : : : : :ぃ");
+// // System.out.println("　　/: ､: ｀´: ::l| || 　|´{｀　‐- イ　{, { ｛ i　,ｨ: : :い,");
+// // System.out.println("　 ヽ､: : : :_,:イﾍﾄ､　|:::＼ , _ _ ,. イ｀^｢^[;::ｏ｀ﾝ ｀`ヽ");
+// // System.out.println("　　　 ｀^｢ 　 l 　 l＼ﾄ . : :.:.:.: : ,'.:.ヽノ.:.:.:.l:::::i : : : : : ）");
+// // System.out.println(".　　　　 |　　 l 　ﾊ:ﾉ. : : : : :.:.:.!ｌ.:.: .: : : : :{ ｰ' : : : : ,ﾑ");
+// // System.out.println("　　　　 l 　　 }／　{. : : : : : : : :: : : : : : : :｀ｰrャ‐''´ 　'、");
+// // System.out.println("　　　　 ヽ､ ノ´　 　'、: : : : : : : : : : : : :.::.:::_:|　 ＼　　ﾉ");
+// // System.out.println("　　　 　 　　　　　 　ヽ; : : : : : : : : : : _:-''´ l　　　 ｀´ 　 r- 、");
+// // System.out.println("　　　　　　　 　 　　 　 ヾ,ー--- ‐'^´　 　　＼　　　　　 ＼: :ヽ");
+// // System.out.println("　　　　　 　 　 　 　 　 　 ヽ,　　　　　　　　　 ノ＼　　　 　ﾉ: : }");
+// // System.out.println("　　　　　　　　　　　　　　　 ! 　 　 　 '　_, ‐'´::::::::: ヽ_, -:´ : ::/");
+// // System.out.println("　　　　　　　　　　　　　　　 ト ‐ --‐'''^:::::::::::::::::::: : : :ヽ._, ‐'´");
+// // System.out.println("　　　　　　　　　　　　　　　｜ :::::::::::::::::::::::::::::::::::: : : : : :`、");
+// // System.out.println("　　　　 　 　 　 　　 　 　　 ｜::::::::::::::::::::::::::::::::::: : : : : : : :l");
+// // System.out.println("　　　　　　　　　　　 　 　　　| :::::::::::::::::::::::::::::::: : : : : : : : ::l");
+// // System.out.println("　　　　　　　　　　　 　 　　　 l、::::::::::::::ｰ-: :.:_; : : : : : : : : l");
+// // System.out.println("　　　　　　 　　　 　 　 　 　 　 l、:::::::::::::::::::::::::l. : : : : : : : :l");
+// // System.out.println("　　　　　　　　　　　　　　　　　　ヽ. : : : : : : : ::| : : : : : : : l");
+// // System.out.println("　　　　　　　　　　　　　　　　　　　ヽ : : : : : : : l. : : : : : : :l");
+// // System.out.println("　　　　　　　　　　　　　　　　　　　　 ＼ : : : : : l : : : : : : :!");
+// // System.out.println("　　　　　　　　　　　　　　　　　　　 　 　ヽ、: : :::l : : : : ; : l、");
+// // System.out.println("　　　　　 　 　 　 　　 　　 　 　　 　 　　 　i ::.. .:ﾊ､:: : : : : : `ヽ、");
+// // System.out.println("　　　　　　　　　　　　　　　　　　　　　　 　} ::`:::::::{＼:.:. : : : : : :ヽ");
+
+
+
+
+// 　System.out.println("　　　　　　 　 　　_. -‐- ､　　,.ｨｲ");
+
+// 　System.out.println("　　　 　'ぃ､ ､,_ 　l´/　　 〃>'´/ ll");
+
+// 　System.out.println("　　 　 　`、 ゝ､`ゞ┴､-‐'-< ム .ﾊ");
+
+// 　System.out.println("　　　　　 ヽ. V´ 　 ドヾ/￣｀^ヽ.√ヽ、");
+
+// 　System.out.println("　　　　　　 ヽ|　 　 ト`┴'' ´￣ヽ､ヽ ､ゝ");
+
+// 　System.out.println("　　　　　　　 | 　 　l　　　 　,. -　 L l ､ゝ");
+
+// 　System.out.println("　　　 _r ぐヾ｀)　　 |＝､　 ' ｧFT> ﾚト-ゝ");
+
+// 　System.out.println("　 　 ﾊ､）ﾉイ`{　　 ｨ'Fj`　 　 `´　 l┘");
+
+// 　System.out.println("　　 l: :ヾr‐':O:| i　　| ´　 ､.　_, 　 ﾑｧ' ´ ｀ヽ、");
+
+// 　System.out.println("　　 { : : lO:_:ｲ| l| 　lﾄ､　ヾ、 丿,.ｲ/, : : : : : : :ぃ");
+
+// 　System.out.println("　　/: ､: ｀´: ::l| || 　|´{｀　‐- イ　{, { ｛ i　,ｨ: : :い,");
+
+// 　System.out.println("　 ヽ､: : : :_,:イﾍﾄ､　|:::＼ , _ _ ,. イ｀^｢^[;::ｏ｀ﾝ ｀`ヽ");
+
+// 　System.out.println("　　　 ｀^｢ 　 l 　 l＼ﾄ . : :.:.:.: : ,'.:.ヽノ.:.:.:.l:::::i : : : : : ）");
+
+// System.out.println("　.　　　　 |　　 l 　ﾊ:ﾉ. : : : : :.:.:.!ｌ.:.: .: : : : :{ ｰ' : : : : ,ﾑ");
+
+// System.out.println("　　　　　 l 　　 }／　{. : : : : : : : :: : : : : : : :｀ｰrャ‐''´ 　'、");
+
+// System.out.println("　　　　　 ヽ､ ノ´　 　'、: : : : : : : : : : : : :.::.:::_:|　 ＼　　ﾉ");
+
+// System.out.println("　　　　 　 　　　　　 　ヽ; : : : : : : : : : : _:-''´ l　　　 ｀´ 　 r- 、");
+
+// System.out.println("　　　　　　　　 　 　　 　 ヾ,ー--- ‐'^´　 　　＼　　　　　 ＼: :ヽ");
+
+// System.out.println("　　　　　　 　 　 　 　 　 　 ヽ,　　　　　　　　　 ノ＼　　　 　ﾉ: : }");
+
+// System.out.println("　　　　　　　　　　　　　　　　 ! 　 　 　 '　_, ‐'´::::::::: ヽ_, -:´ : ::/");
+
+// System.out.println("　　　　　　　　　　　　　　　　 ト ‐ --‐'''^:::::::::::::::::::: : : :ヽ._, ‐'´");
+
+// System.out.println("　　　　　　　　　　　　　　　　｜ :::::::::::::::::::::::::::::::::::: : : : : :`、");
+
+// System.out.println("　　　　　 　 　 　 　　 　 　　 ｜::::::::::::::::::::::::::::::::::: : : : : : : :l");
+
+// System.out.println("　　　　　　　　　　　　 　 　　　| :::::::::::::::::::::::::::::::: : : : : : : : ::l");
+
+// System.out.println("　　　　　　　　　　　　 　 　　　 l、::::::::::::::ｰ-: :.:_; : : : : : : : : l");
+
+// System.out.println("　　　　　　　 　　　 　 　 　 　 　 l、:::::::::::::::::::::::::l. : : : : : : : :l");
+
+// System.out.println("　　　　　　　　　　　　　　　　　　　ヽ. : : : : : : : ::| : : : : : : : l");
+
+// System.out.println("　　　　　　　　　　　　　　　　　　　　ヽ : : : : : : : l. : : : : : : :l");
+
+// System.out.println("　　　　　　　　　　　　　　　　　　　　　 ＼ : : : : : l : : : : : : :!");
+
+// System.out.println("　　　　　　　　　　　　　　　　　　　　 　 　ヽ、: : :::l : : : : ; : l、");
+
+// System.out.println("　　　　　　 　 　 　 　　 　　 　 　　 　 　　 　i ::.. .:ﾊ､:: : : : : : `ヽ、");
+
+// System.out.println("　　　　　　　　　　　　　　　　　　　　　　　 　} ::`:::::::{＼:.:. : : : : : :ヽ");
+
+
 //   }
+
 // }
