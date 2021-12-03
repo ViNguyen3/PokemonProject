@@ -19,8 +19,7 @@ public class Grass extends Pokemon
   /** 
   * The getAttackMenu method consists of the two attack menu options
   * @param atkType represents the attack type choice from the attack type menu
-  * @return attackMenu if atkType is 1, returns basic attack menu
-  * @return attackMenu if atkType is 2, returns the special attack menu
+  * @return attackMenu attack menu based on atkType
   */
    @Override 
    public String getAttackMenu(int atkType)
@@ -108,8 +107,7 @@ public class Grass extends Pokemon
   * The getAttackMultiplier method consists of the attack multiplier based on attack type
   * @param p represents the pokemon that will receive the multiplier
   * @param atkType represents the attack type choice from the attack type menu
-  * @return 1 if atkType is equal to 1 (basic attack)
-  * @return dmgMultiplier if atkType is equal to 2 (special attack) using the battleTable
+  * @return dmgMultiplier based on atkType
   */
    @Override 
    public double getAttackMultiplier(Pokemon p, int atkType)

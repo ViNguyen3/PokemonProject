@@ -42,7 +42,6 @@ public abstract class Pokemon extends Entity {
   * The getAttackMenu method consists of the two attack menu options
   * @param atkType represents the attack type choice from the attack type menu
   * @return attackMenu which is the string consisting of the two type of attack menus
-  * @return empty string if not atkType != 1
   */
   public String getAttackMenu(int atkType) {
     String attackMenu = "1. Slam\n2. Tackle\n3. Punch";

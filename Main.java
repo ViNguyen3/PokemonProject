@@ -304,8 +304,10 @@ class Main {
         System.out.println("| |__)  ) |___| |____) )____) )  | |     | | |___) | |   | |  | |     ");
         System.out.println("|______/ \\_____(______(______/   |_|     |_|\\_____/|_|   |_|  |_|     ");
         Pokemon tempPoke = PokemonGenerator.getInstance().generateRandomPokemon(mapNumber + 2);
+        Trainer gymLeader = new Trainer("Gym leader", tempPoke);
         System.out.println("The gym leader has appeared! Get ready for battle!\nThey have a " + tempPoke.getName() + "!\n");
-        gymAttack(player, tempPoke);
+        gymAttack(player, gymLeader, tempPoke);
+        // gymAttack(player,tempPoke);
         if(tempPoke.getHp() == 0) 
         {
           Map.getInstance().removeCharAtLoc(player.getLocation());
@@ -329,7 +331,7 @@ class Main {
         }
         else
         {
-          System.out.println("You have lost the battle agains the gym leader!");
+          System.out.println("You have lost the battle against the gym leader!");
           Random rand = new Random();
           int rand3 = rand.nextInt(4); 
           System.out.println("\nYou failed to defeat the gym leader's " + tempPoke.getName() + " and ran away!\nCome back when you're ready.\n");
@@ -394,7 +396,7 @@ class Main {
       {
         //randomzie number to choose which one to print out 
         Random num = new Random(); 
-        int num2 = num.nextInt(7); 
+        int num2 = num.nextInt(6); 
         switch(num2)
         {
           case 0: 
@@ -471,6 +473,7 @@ class Main {
                 System.out.println("------------------------------------------------------------"); 
                 System.out.println("Vegita: What do you mean you don't know! You borrowed my money to watch movie with him!!!!");
                 System.out.println("------------------------------------------------------------"); 
+                System.out.println("**Vegita took half of your money");
                 player.spendMoney((int)((player.getMoney())/2)); 
               }
               break;
@@ -555,7 +558,7 @@ class Main {
             System.out.println("------------------------------------------------------------");  
             System.out.println("Miku: Oi, Onii-chan~~(｡•̀ᴗ-)✧");
             System.out.println("------------------------------------------------------------");  
-            System.out.println("1.(Push Miku aside) We shouldn't be together, you are too good for me.\n2. Let's go babeeeeee!!!");
+            System.out.println("1.(Push Miku aside) We shouldn't be together, you are too good for me.\n2. Let's go babeeeeee!!!(Might not be a good idea cause the programmer can be jealous sometimes...)");
             int response3 = CheckInput.getIntRange(1,2);
             switch(response3)
             {
@@ -580,11 +583,6 @@ class Main {
             }
             break;
           case 3: 
-            System.out.println("You run into Saber's dad\nSaber's dad: How dare you decieve my daughter!\n(╬ Ò ‸ Ó)\nC's dad smack you for 10 health and took all your money cause the game hates you!");
-            player.takeDamage(10); 
-            player.spendMoney(player.getMoney()); 
-            break; 
-          case 4: 
             System.out.println("------------------------------------------------------------"); 
             System.out.println("Ever heard of World War II before ?");
             System.out.println("------------------------------------------------------------"); 
@@ -607,7 +605,7 @@ class Main {
             System.out.println("_____.,-#%&$@%#&#~,._____");
             player.takeDamage((int)(player.getHp()/2)); 
             break;
-          case 5: 
+          case 4: 
             System.out.println("You were bamboozled by a tank and lose 5 health! ");
             System.out.println("         ________      ");
             System.out.println("     (( /========\\ ");
@@ -619,7 +617,7 @@ class Main {
             System.out.println("   | OOOOOOOOOOOOOOOOOOO0 |   =  ");
             player.takeDamage(5);
             break; 
-          case 6: 
+          case 5: 
             System.out.println("You meet Doraemon and was given some money and heal yourself"); 
             System.out.println("           ⢀⣠⣤⣴⣶⣶⣶⣶⣶⠶⣶⣤⣤⣀⠀⠀⠀  ");
             System.out.println("       ⢀⣤⣾⣿⣿⣿⠁⠀⢀⠈⢿⢀⣀⠀⠹⣿⣿⣿⣦⣄");
@@ -659,9 +657,117 @@ class Main {
          }
         else
          {
-          System.out.println("\nWelcome to the Pokemon hospital!\nPoor little pokemons, you have a horrible master!\nLet me fix them up.\n\nPOKEMON HAVE BEEN HEALED\n");
-          player.healAllPokemon();
+          System.out.println(" ░▒▓▓▓▒▒▒▒                      \"▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓        ▄▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\"");  
+          System.out.println("    ▒▒ÑÑÑ▒▒▒▒                        ╙▓▓▓▓▓▓▓▓▓▓▓▓▓▄     ┌▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▀");  
+          System.out.println("    ▒▒▓▓▓▒▒▒▒                          \"▀▓▓▓▓▓▓▓▓▓▓▓    ╓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▀`");  
+          System.out.println("    ░┼▓▓▓▒▒▒▒                             \"▀▓▓▓▓▓▓▓▓▓▓▓▄▓▓▓▓▓▓▓▓▓▓▓▓▓▓▀\"`");  
+          System.out.println("    ▒┼Ñ▓▓▒▒▒▒                              ,.J▀▀▀▀▀▀▀▀▀▀▀▀▓▓▓▓▀▀\"\"`");  
+          System.out.println("    ▒▒▓▓▓▒▒▒▒                      ,⌐ⁿ^``                     `\"≡≈,");  
+          System.out.println("    ▒┼ÑÑÑ▒▒▒▒                 ,«^`              .   ,½              \">.");  
+          System.out.println("    ░┼ÑÑÑ▒▒▒▒               ⌐░                ,▒  .^  ¼ ⁿ               Y┬");  
+          System.out.println("    ░┼Ñ▓▓▒▒▒▒             ε`         √`     »`ó »`     ╠τ                `%");  
+          System.out.println("    ░┼ÑÑÑ▒▒▒▒          ┌ε`░  ,ε     /    ≡^ ╓Ñ^         └ *     U            ≡");  
+          System.out.println("    ░┼ÑÑÑ▒▒▒▒         /```░ ╓▒░░ ░▒▒  ,ⁿ                    *φ  └H            `φ");  
+          System.out.println("    ░┼ÑÑÑ▒▒▒▒        ô`░░░░┌▒▒▄`,^╒▒*`                        `ⁿ ╙▒ ▒  ░▒       ▒");  
+          System.out.println("    ░┼ÑÑ▓▒▒▒▒       ▒ ░   ┌Ñ▒▒░Å             `\"`      .   ,^     `^\"φ½ ░]  ░ ⌐  ░▒");  
+          System.out.println("    ░┼ÑÑÑ▒▒▒▒      Å`░   ░╣Ñ Å`                         `            Y▒░░░░ ░Ü░  ░▒");  
+          System.out.println("    ░┼ÑÑÑ▒▒▒▒     /`░   ░╪M                                            ½▒M░  │░░ ░░½");  
+          System.out.println("    ░┼▒Ñ▓▒▒▒▒    ╔░░  ░░)`  ▒▒Nm≥φ╖╓,.,,╓╖φⁿ                            ½H░░░!H░░░░");  
+          System.out.println("    ░┼▒Ñ▒▒▒▒▒   ┌Ü░░   ┌      ┌▓Ω^]▓▓▓▓▓▓M`             ╓φ,              ▒  ░░▒░░`:░");  
+          System.out.println("    ░┼ÑÑ▒▒▒▒▒   ô░    ░Ñ       ▀▓▓▓▓▓▓▓▓▀                \"▒Ñ▒▒▒N▄▄▄▄d▒▒▒ H░  ░║░░░!");  
+          System.out.println("     ┼▒▒▒▒▒▒▒  ╒░    ░╪                                   ▓▓æ▓▓▓▓▓▓▓▓    H░░░░]░░░░");  
+          System.out.println("     ┼▒▒▒▒▒▒▒  ▒░░  ░╒▓                                    `\"▀▀▀▀▀▀▀`    H░░░░║▒░░░");  
+          System.out.println("     ┼▒▒▒▒▒▒▒  ░░░ ░░╣M                                                  H░░░░║▒░░░▒");  
+          System.out.println("     ┼▒▒▒▒▒▒▒ │░   ░]▒                    ╓⌐⌐~~⌐⌐.                      ┌▒░  ░╣▒░░░░");  
+          System.out.println("     ┼▒▒▒▒░░░ ║░░  ░▓Ñ                               └                  │░  ░░▒▒▒░░░");  
+          System.out.println("     ┼▒▒▒▒░░░ ▒░  ░╪▒                                                   ║   ░░M╣▒░░░");  
+          System.out.println("     ┼▒▒▒▒░░░ H░░░░▓▌                                                   ▒░░░░┼▒ \\░░┼");  
+          System.out.println("     ┼▒▒▒▒░░░│░░░░┼▒▌                                                   H░ ░░]▒ └▒░▒");  
+          System.out.println("     ┼▒▒▒▒░░░║░░░░║▒▒                                                  ┼░░░░░É  /░░▒");  
+          System.out.println("     ┼▒▒▒▒░░░║▒░░░▓▒▒H                                                 ╠░░░░░H ó░░┼`");  
+          System.out.println("     ┼▒▒▒H░░░║▒░░░▒▒▒▒                                                 Ü░░░░░W▓▒▒▒▒");  
+          System.out.println("     │▒▒▒▒░░░║▒▒▒┼▒ÑÑÑ▓                                               ┌░░░░░╪▒▒▒▒▒H┌");  
+          System.out.println("     │▒▒▒▒░░░║▒▒▒]ÑÑÑÑ▓▓                                              j░░░░▒║Ñ▒▒▒▒M");  
+          System.out.println("    `└ªªªºⁿ\"ⁿ╙╙╙╙ªª╜╜╜▀▀▀ⁿ                                            ╙╙╙╙╙╙▀ªª╜╜ºⁿº");  
+          System.out.println("------------------------------------------------------------"); 
+          // System.out.println("\nWelcome to the Pokemon hospital!\nPoor little pokemons, you have a horrible master!\nLet me fix them up.\n\nPOKEMON HAVE BEEN HEALED\n");
+          System.out.println("Nurse: Why are you putting these animals in a ball ?");
+          System.out.println("------------------------------------------------------------"); 
+          System.out.println("1.Ummm\n2.Cause that is how the game works?");
+          int response6 = CheckInput.getIntRange(1,2);
+          switch(response6)
+          {
+            case 1: 
+              System.out.println("------------------------------------------------------------"); 
+              System.out.println("Nurse: Imma call 911 and animal service on you ?");
+              System.out.println("------------------------------------------------------------"); 
+              break;
+            case 2: 
+              System.out.println("------------------------------------------------------------"); 
+              System.out.println("Nurse: I'm still calling authorities to solve this animal cruelty!");
+              System.out.println("------------------------------------------------------------"); 
+              break;
+          }
+          System.out.println("              ░░▄▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓⌐"); 
+          System.out.println("             ░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▀▒▒▒▒▒▀▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓M"); 
+          System.out.println("            ░j▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▀"); 
+          System.out.println("           ░╪▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓M"); 
+          System.out.println("           ]▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▀\""); 
+          System.out.println("          ░Å▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▌"); 
+          System.out.println("            ▀▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"); 
+          System.out.println("            ` \"▀▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓H"); 
+          System.out.println("                `░▀▀▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓⌂"); 
+          System.out.println("                    ░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▀▓"); 
+          System.out.println("                    ┼▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▌"); 
+          System.out.println("                    ┼▓▓▓▓▓▓▓▓▓▓▓▀▀▓▓▓▓▓▓▓▓▓▓▀▀▀▀▀▀▀▀\"░░▀▓▓▓▓▓▓▌ ╙▓▓▒\"▒"); 
+          System.out.println("                    ░▀▓▓▓▓▓▓\"\"\"\"\"\"▀▀▓▓▓▓▓▓▓▌░░▒K▀▀▓▓▓Næε▓▓▓▓▓▓▌` ▓▓"); 
+          System.out.println("                     ░▓▓▓▓▓▌░▄▓▓Φ▓▓▓▓▌▀▓▓▓▓▌  ` ▓▓▓▀▓M  j▓▓▓▓▓H▒░┼▓"); 
+          System.out.println("                    ░╪▀┼▓▓▓▌▒\" ▓▓▓▓H`╙\"░▀▓▓▒``  `\"```   └▓▒▓▓▓H░ⁿ]▓"); 
+          System.out.println("                    ▒░`░▓▒▓▓▒░»░\"\"'`  ░▒``▀▌             ▓┼ⁿ▓▓M,▄▓▓░"); 
+          System.out.println("                        ║▒▀▓▒▒   ░``   ╚                 `\" "); 
+          System.out.println("                         ⁿ`▓H▒`                             ▓▒▓▓▓H\"H"); 
+          System.out.println("                            ░ ▒                            ╓▒]▓▓▀H"); 
+          System.out.println("                               ▒                          /` ]▓▌┴"); 
+          System.out.println("                                ╙φ                     ,ε` ▒ ]▌▒"); 
+          System.out.println("                                  ▒φ      `  \"       ╓▒`  ]` ┼H"); 
+          System.out.println("                                    *w             «▒    ╓░  ░H"); 
+          System.out.println("                                      `½φ       ╓▒`     ╓▒    ▒▒ε"); 
+          System.out.println("                                         \"v⌐⌐«≡░       ╓▒   ≡▒▒▒▒▒"); 
+          System.out.println("                                         ]▒H            ╓▒▒▒▒▒▒▒░\"▒"); 
+          System.out.println("                                       ,▒▒▒H        ,«▒▒▒▒▒▒▒▒░   ║*$▓▄⌂"); 
+          System.out.println("                                     ,▒`▒▒▒▒N    .«▒▒▒▒▒▒▒▒▒`    ≡` Å▓▓▓▓▓▄░"); 
+          System.out.println("                               .╓▄▓▓▓ÖH  ▒▒▒▒▒w▄▒▒▒▒▒▒▒▒▒░`    .\"  ]▓▓▓▓▓▓▓▓▓▓▄▄,"); 
+          System.out.println("                           ,▄▓▓▓▓▓▓▓▓ ▒   `▒▒▒▒▒▒▒▒▒▒▒▒`     ,^   ]▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"); 
+          System.out.println("                        ╓▓▓▓▓▓▓▓▓▓▓▓▌ ╙     ▒░▒▒▒▒▒▒`      .▒`   j▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"); 
+          System.out.println("                      ╓▒▓▓▓▓▓▓▓▓▓▓▓▓H  ▒  .▒  ▒    ▒      ≡`    ]▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▀`"); 
+          System.out.println("Police: What's going on here ?");
+          System.out.println("------------------------------------------------------------"); 
+          System.out.println("1.Sorry officer nothing is wrong here I just playing a game\n2.I invoke my fifth amendment to be silent and stop self-incrmination (This might not be the best choice...)");
+          int response7 = CheckInput.getIntRange(1,2);
+          switch(response7)
+          {
+            case 1: 
+              System.out.println("------------------------------------------------------------"); 
+              System.out.println("Police: Ok Imma give you the benefit of the doubt here.");
+              System.out.println("------------------------------------------------------------"); 
+              System.out.println("**Your Pokemons are all healed");
+              player.healAllPokemon();
+              break;
+            case 2: 
+              System.out.println("------------------------------------------------------------"); 
+              System.out.println("Police: You are going to jail son");
+              System.out.println("------------------------------------------------------------"); 
+              System.out.println(" _____   ___  ___  ___ _____   _____  _   _ ___________  ");
+              System.out.println("|  __ \\ / _ \\ |  \\/  ||  ___| |  _  || | | |  ___| ___ \\ ");
+              System.out.println("| |  \\// /_\\ \\| .  . || |__   | | | || | | | |__ | |_/ / ");
+              System.out.println("| | __ |  _  || |\\/| ||  __|  | | | || | | |  __||    /  ");
+              System.out.println("| |_\\ \\| | | || |  | || |___  \\ \\_/ /\\ \\_/ / |___| |\\ \\  ");
+              System.out.println(" \\____/\\_| |_/\\_|  |_/\\____/   \\___/  \\___/\\____/\\_| \\_| ");
+              System.exit(0);
+              break;
+          }
          }
+       
        } 
      }while(i != 5 || player.getHp() == 0);   
     
@@ -714,12 +820,14 @@ class Main {
       }
     }while(val != 3);
   }
+
   /** 
   * The gymAttack method is the game's combat system for the gym leader consisting of the use of attacks and potions.
   * @param t represents the trainer
+  * @param gym represents the gym leader
   * @param gymPoke represents the gym leader's pokemon that the player fights
   */
-  public static void gymAttack(Trainer t, Pokemon gymPoke) {
+  public static void gymAttack(Trainer t, Trainer gym, Pokemon gymPoke) {
    
     Random rand = new Random();
 
@@ -751,25 +859,50 @@ class Main {
           System.out.println(t.getPokemonList());
           System.out.println("");
 
-      
+
           // Choose from list of pokemon and display chosen pokemon
           Pokemon chosenPokemon = t.getPokemon(CheckInput.getIntRange(1, t.getNumPokemon()));
           System.out.println(chosenPokemon.getName() + ", I choose you!");
           System.out.println("");      
 
-
+          int counter = 0;
           // If chosen pokemon has no health, damage the trainer and break
-          if (chosenPokemon.getHp() == 0 ) {
-            
-            int dmg = rand.nextInt(10) + 1;
-            
-            System.out.println(chosenPokemon.getName() + " has no more health left!");
-            System.out.println("The gym leader's " + gymPoke.getName() + " charges and attacks you instead!");
-            System.out.println("You take " + dmg + " damage!\n");
-            t.takeDamage(dmg);
-            battle = false;
-            break;          
-          }        
+          if(chosenPokemon.getHp() == 0) {
+            System.out.println(chosenPokemon.getName() + " has no more health left!");  
+            for(int i = 1; i <= t.getNumPokemon(); i++) {
+              if (t.getPokemon(i).getHp() > 0) {
+                              
+                System.out.println("THere are pokemon in the list that has more than 0 health");
+                int dmg = rand.nextInt(10) + 1;
+                System.out.println("The gym leader's " + gymPoke.getName() + " charges and attacks you instead!");
+                System.out.println("You take " + dmg + " damage!\n");
+                System.out.println("STOP CHOOSING THE ONE WITHOUT HEALTH DO YOU WANT TO DIE !????????????????");
+                t.takeDamage(dmg);
+                counter++;
+                System.out.println("Choose another Pokemon:");
+                System.out.println(t.getPokemonList());
+                System.out.println("");
+                chosenPokemon = t.getPokemon(CheckInput.getIntRange(1, t.getNumPokemon()));
+                // // Choose from list of pokemon and display chosen pokemon
+                System.out.println(chosenPokemon.getName() + ", I choose you!");
+                System.out.println("");                   
+              }
+              // else if (t.getPokemon(i).getHp() == 0) {
+              //case that all pokemon are 0 health
+              else if(counter == t.getNumPokemon())
+              { 
+                // int dmg = rand.nextInt(10) + 1;
+                System.out.println("You have no healthy Pokemon come back later!");
+                // System.out.println("The gym leader's " + gymPoke.getName() + " charges and attacks you instead!");
+                // System.out.println("You take " + dmg + " damage!\n");
+                // t.takeDamage(dmg);
+                battle = false;
+                break; 
+              }
+          }
+          }  
+    
+ 
 
           // Display and choose attack set (basic or special)
           //cast down to call method from Pokemon class 
@@ -787,24 +920,6 @@ class Main {
             System.out.println(chosenPokemon.getAttackMenu(2)); 
             System.out.println(chosenPokemon.attack(gymPoke, 2, CheckInput.getIntRange(1,chosenPokemon.getNumAttackMenuItems(2))));         
           }
-
-         //Debuff during battle
-          // System.out.println("\nCalculating debuff probability!");
-          Random randDebuff = new Random();
-          int debuffProb = randDebuff.nextInt(100);
-          if(debuffProb <= 24)
-          {
-            //debuff enemy's poke
-            PokemonGenerator pokemonGen = PokemonGenerator.getInstance();
-            gymPoke = pokemonGen.addRandomDebuff(gymPoke);
-            System.out.println("\nThe gym leader's " + gymPoke.getName() + " receives a debuff from your " + chosenPokemon.getName() + " attack!\n");
-          }
-          else if (debuffProb < 35 && debuffProb >= 25)
-          {
-            //debuff player's pokemon
-            t.debuffPokemon(gymChoice);
-            System.out.println("\nUh oh! Your " + chosenPokemon.getName() + " received a debuff from the gym leader's " + gymPoke.getName() + "!\n");
-          }          
 
 
             // Wild Pokemon's random move (basic or special)
@@ -853,7 +968,7 @@ class Main {
           break;
       }
       }
-  }            
+  }        
 
 /**
 * The trainerAttack method is the game's combat system consisting of the use of attacks, potions, pokeballs, and running away from a fight.
@@ -873,21 +988,19 @@ class Main {
         int rewardMoney = rand.nextInt(5) + 5;
         System.out.println("You earned " + rewardMoney + " money for this victory!\n");
         t.receiveMoney(rewardMoney);
+        Map.getInstance().removeCharAtLoc(t.getLocation());
         break;
       } 
       else if(t.getHp() == 0)
       {
         break;
       }
-
-      
+ 
 
       String wildMenu = "What do you want to do?\n1. Fight\n2. Use Potion\n3. Throw Pokeballs\n4. Run away";
       System.out.println(wildMenu);
       int wildChoice = CheckInput.getIntRange(1, 4);
-      System.out.println("");
-       
-
+      System.out.println("");      
 
       switch(wildChoice) {
         // 1. Fight
@@ -902,9 +1015,6 @@ class Main {
           Pokemon chosenPokemon = t.getPokemon(pokeChoice);
           System.out.println(chosenPokemon.getName() + ", I choose you!");
           System.out.println("");      
-
- 
-
 
           // If chosen pokemon has no health, damage the trainer and break
           if (chosenPokemon.getHp() == 0 ) {

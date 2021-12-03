@@ -28,6 +28,11 @@ class Map
      }
   }
 
+   /**
+  * Following the Singleton design pattern, this static method return the map instance in order to 
+  * make the map reacheable from other classes without the need of creating new instances.
+  * @return Map instance 
+  */
   public static Map getInstance()
   {
     if(Map.instance == null)
@@ -167,6 +172,7 @@ class Map
   */
   public void removeCharAtLoc(Point p)
   {
+    // System.out.println("removeCharAtLOc is called ");
     map[(int)p.getX()][(int)p.getY()] = 'n'; 
   }
 }

@@ -10,7 +10,7 @@ import java.util.Random;
 * private point loc contains the current location of the trainer 
 * private map reads through the {@link Map}
 * pokemon is the arraylist that contains all the pokemon the trainer has collected.
-* @author Angel Rubio
+* 
 */
 public class Trainer extends Entity{
   private int money;
@@ -37,6 +37,7 @@ public class Trainer extends Entity{
   }
 
  /**
+  * Handles the money that the trainer receives
   * @return returns the current amount of money the trainer posesses.
   */
   public int getMoney()
@@ -47,8 +48,7 @@ public class Trainer extends Entity{
    /**
   * spendMoney is a boolean method that checks if the total cash is greater or less than price for item
   * @param amnt is the amount of money said item cost and subtrated from total money.
-  * @return true if you have more money than amnt
-  * @return false if it's the opposite
+  * @return boolean based on money being spent
   */
   public boolean spendMoney(int amnt)
   {
@@ -75,8 +75,7 @@ public class Trainer extends Entity{
   }
    /**
   * hasPotion() is a boolean method that checks to see if you have potions.
-  * @return true if you have a potion
-  * @return false if you don't
+  * @return boolean based on potions in player inventory
   */
   public boolean hasPotion()
   {
@@ -131,8 +130,7 @@ public class Trainer extends Entity{
   
    /**
   *Checks to see if the user has a pokeball.
-  * @return true if user has 1 or more pokeballs and 
-  * @return false if it's zero
+  * @return boolean based on pokeballs in player inventory
   */
   public boolean hasPokeball() 
   {
@@ -193,8 +191,7 @@ public class Trainer extends Entity{
 
    /**
   * goNorth() is a method that reads the trainers current location to see if they can go North.
-  *@return returns invalid due to loc being outofbounds
-  *@return returns trainer current location after moving one step north.
+  *@return trainer current location after moving one step north.
   */
   public char goNorth() 
   { 
@@ -216,8 +213,7 @@ public class Trainer extends Entity{
 
   /**
   * goSouth() is a method that reads the trainers current location to see if they can go south.
-  *@return returns invalid due to loc being outofbounds
-  *@return returns trainer current location after moving one step south.
+  *@return trainer current location after moving one step south.
   */
   public char goSouth() 
   {
@@ -238,8 +234,7 @@ public class Trainer extends Entity{
 
   /**
   * goEast() is a method that reads the trainers current location to see if they can go East.
-  *@return returns invalid due to loc being outofbounds
-  *@return returns trainer current location after moving one step east.
+  *@return trainer current location after moving one step east.
   */
   public char goEast() 
   {
@@ -262,8 +257,7 @@ public class Trainer extends Entity{
 
   /**
   * goWest() is a method that reads the trainers current location to see if they can go West.
-  *@return returns invalid due to loc being outofbounds
-  *@return returns trainer current location after moving one step north.
+  *@return trainer current location after moving one step north.
   */
   public char goWest() 
   {
@@ -325,7 +319,10 @@ public class Trainer extends Entity{
     return p;
   }
 
-  
+
+  /**
+  *buffAllPokemon creates new buff pokemon with decorators and then replace the old one in the list.
+  */
   public void buffAllPokemon()
   { 
     Random rand = new Random();
@@ -345,6 +342,9 @@ public class Trainer extends Entity{
     }
   }
 
+  /**
+  *debuffAllPokemon creates new debuff pokemon with decorators and then replace the old one in the list.
+  */
   public void debuffPokemon(int index)
   {
     PokemonGenerator pokemonGen = PokemonGenerator.getInstance();
