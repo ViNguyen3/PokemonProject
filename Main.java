@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;;
 */
 class Main {
   /**
-  * The main method consists of every user prompt, construction of Map and Trainer objects, displays the map, directions, ability to quit the game, and various events depending on the trainer's position on the map.
+  * The main method is in charge of user prompts, the construction of Map and Trainer objects, the display of the map, directions, the ability to quit the game, and various events depending on the trainer's position on the map.
   */
   public static void main(String[] args) throws FileNotFoundException
   {
@@ -56,9 +56,9 @@ class Main {
     System.out.println("      ▀▄▄▄▄▄▄▀▀▀▒▒▒▒▒▄▄▀     ");
     System.out.println("         ▀▀▀▀▀▀▀▀▀▀▀▀        ");
     System.out.println(); 
-    System.out.println("-------------------------------------------------------------");
+    System.out.println("------------------------------------------------------------");
     // System.out.println("Prof.Doge: Welcome new trainer! What is your name?");
-    System.out.println("Prof.Doge: Are you going to abuse the animal in here again!");
+    System.out.println("  Prof.Doge: Are you going to abuse the animal in here again!");
     System.out.println("--------------------------------------------------------------");
     System.out.println("1. Yes sir\n2. No sir I'm sorry");
     int response = CheckInput.getIntRange(1,2);  
@@ -109,10 +109,11 @@ class Main {
     playerName = CheckInput.getString();
     System.out.println("");
     System.out.println("-------------------------------------------------------------");
-    System.out.println("ﾉ｡≧◇≦）ﾉ What a bad name, " + playerName + " are you serious! LOL!!!");
+    System.out.println("Prof.Doge: ﾉ｡≧◇≦）ﾉ What a bad name, " + playerName + " are you serious! LOL!!!");
     System.out.println("-------------------------------------------------------------");
-
-    System.out.println("Anyways, please choose your first pokemon:\n1. Charmander\n2. Bulbasaur\n3. Squirtle");
+    System.out.println("-------------------------------------------------------------");
+    System.out.println("Prof.Doge: Anyways, please choose your first pokemon:\n1. Charmander\n2. Bulbasaur\n3. Squirtle");
+    System.out.println("-------------------------------------------------------------");
 
     // Use the CheckInput class for the user inputs (range for menu options)
     starterPokemonChoice = CheckInput.getIntRange(1, 3);
@@ -303,9 +304,8 @@ class Main {
         System.out.println("| |__)  ) |___| |____) )____) )  | |     | | |___) | |   | |  | |     ");
         System.out.println("|______/ \\_____(______(______/   |_|     |_|\\_____/|_|   |_|  |_|     ");
         Pokemon tempPoke = PokemonGenerator.getInstance().generateRandomPokemon(mapNumber + 2);
-        Trainer gymLeader = new Trainer("Gym leader", tempPoke);
         System.out.println("The gym leader has appeared! Get ready for battle!\nThey have a " + tempPoke.getName() + "!\n");
-        gymAttack(player, gymLeader, tempPoke);
+        gymAttack(player, tempPoke);
         if(tempPoke.getHp() == 0) 
         {
           Map.getInstance().removeCharAtLoc(player.getLocation());
@@ -398,7 +398,7 @@ class Main {
         switch(num2)
         {
           case 0: 
-            System.out.println("You run into Vegita from Dragon Ball\nVegita: Where's my money that you borrow before to buy pokeballs!\nA rob half of your money.");
+            // System.out.println("You run into Vegita from Dragon Ball\nVegita: Where's my money that you borrow before to buy pokeballs!\nA rob half of your money.");
             System.out.println("                                 ,");
             System.out.println("                           ,   ,'|");
             System.out.println("                         ,/|.-'   \\.");
@@ -428,102 +428,156 @@ class Main {
             System.out.println("  / /   | |                      `/\"--. -' /\\");
             System.out.println("  | |     \\ \\                     /     \\     |");
             System.out.println("  | \\      | \\                 .-|      |    |");
-            player.spendMoney((int)((player.getMoney())/2)); 
-            break;
+            System.out.println("------------------------------------------------------------");
+            System.out.println("Vegita: Do you know who Songoku is ?");
+            System.out.println("--------------------------------------------------------------");
+            System.out.println("1. Yes is it the guy that you hate\n2. No, who is that ?");
+            int response1 = CheckInput.getIntRange(1,2); 
+            switch(response1)
+            {
+              case 1: 
+                System.out.println("--------------------------------------------------------------");
+                System.out.println("Vegita: Good now where is my money then.");
+                System.out.println("--------------------------------------------------------------");
+                System.out.println("1. Here you go sir\n2. No what money??");
+                int response2 = CheckInput.getIntRange(1,2); 
+                switch(response2)
+                {
+                  case 1: 
+                    System.out.println("------------------------------------------------------------"); 
+                    System.out.println("Vegita: Due to your honesty here is my reward for you!");
+                    System.out.println("------------------------------------------------------------"); 
+                    System.out.println("**Vegita did not take the money and give you a potion as a gift");
+                    player.receivePotion();
+                    break;
+                  case 2: 
+                    System.out.println("------------------------------------------------------------"); 
+                    System.out.println("Vegita: Imma teach you a lesson for not giving me my money back!");
+                    System.out.println("------------------------------------------------------------"); 
+                    System.out.println("**Vegita beated you to a pulp and take all your money!!");
+                    if(player.getMoney() == 0)
+                    {
+                      System.out.println("**Dang go make some money you are realy poor?");
+                    } 
+                    else 
+                    {
+                      player.spendMoney((int)(player.getMoney())); 
+                    }
+                    player.takeDamage(10);
+                    break;
+                }
+              break;
+              case 2: 
+                System.out.println("------------------------------------------------------------"); 
+                System.out.println("Vegita: What do you mean you don't know! You borrowed my money to watch movie with him!!!!");
+                System.out.println("------------------------------------------------------------"); 
+                player.spendMoney((int)((player.getMoney())/2)); 
+              }
+              break;
           case 1: 
-            System.out.println("You run into Saber\nSaber: Hey, buy me something to eat\n（；¬＿¬)\nSaber took away half your money");
-            // System.out.println(" 　　　　　　　　　　　　　＿　 　 ＿＿ 　_,..　-―-    "); 
-            // System.out.println("　　　　　　　　　　　__<＞''\"´　　　　　 ｀^''＜⌒丶 ＼"); 
-            // System.out.println("　　　　　　　　　　〈／ 　 ／　　　　　　　　　 ＼ 　 ＼丶  "); 
-            // System.out.println("　　　　　　　　 ／7ﾞ /　/　　　　　 　 　 　 　 　 ヽ　　∨"); 
-            // System.out.println("　　　　　　 　 _〉:∧│　　　　 | :　　　　　|:　　　|ハ"); 
-            // System.out.println("　　 　  　 　 〈: 7 : : |　|　 　 : | : :　| : : 　| : : .　j:　i"); 
-            // System.out.println("　　　　　　　　〉| : ヽ|　|│:ィ:/|⌒:/ﾄ : : |ィ7ト: /: :│"); 
-            // System.out.println("　 　 　 　 　 〈八＼_|　|人ィ灯圷ﾐ/ｲ : ﾘィ灯Y}.: : :|　　"); 
-            // System.out.println("　　　　　　　　｀{: :〈│: 　 |　Vツ　　|／　ﾋｿ /:.|/|/　　　 "); 
-            // System.out.println("　　　　　　　　　｀ｰｯ| :　　| 　 　 　 　 　 〉　 {: :|"); 
-            // System.out.println("　　　　　 　 　 　 /:::| :　 │　　　　　　　　　八:|"); 
-            // System.out.println(" 　　　　 　 　 　 /:::/| :　　|＼　　 　 ﾉ‐ 　 ｲ: : :|"); 
-            // System.out.println("　　　　　　　　　＼{∧: : : |　　　　.,,_/〉イ|/| : : |"); 
-            // System.out.println("　　　　　 　 　 　 厶ｨﾍ: Ν≧=‐<_,´}′ 　 | ∧|"); 
-            // System.out.println("　 　 　 　　 　 _／⌒＾ ∧|　 　 __/7 ｛≧=､_l厶_　 　,,.｡;;::,."); 
-            // System.out.println("　　　 　 　'´￣｀>､　　 　 ＼／::// /〈:＼　Υ ハ,;;::ﾟ::..　　ﾞ:;,,"); 
-            // System.out.println("　　　　　 |　　　ﾞ⌒＼　　　〈::rく/　{　{ﾊ:::〉　V　;斗-冖冖ｰ‐(ヽ"); 
-            // System.out.println("　　　　　 |　　＼　　　∨　　｀｝　 　 　 ﾉ´　　} 〈　　　　 　 ⊂ﾆﾉ"); 
-            // System.out.println("　　　　　 │　　　ヽ 　　∨　　{　　　　∧　　　∨＼　　　　 ⊂/"); 
-            player.spendMoney((int)(player.getMoney()/2)); 
+                System.out.println("                                             ~  `        `   ~.");  
+                System.out.println("                                         '                         .");  
+                System.out.println("                                    .∩`                               .");  
+                System.out.println("                                   »   `                                .");  
+                System.out.println("                                    ,`      ,                            '");  
+                System.out.println("                                '          ;            ,░     .");  
+                System.out.println("                                  '       ▒ ,        ;  ▒░ :");  
+                System.out.println("                              '  /    ∩ ░░` ▒   '    ▒ ;▒░ ░    ▒  : └    . »");  
+                System.out.println("                                  ░  ≡ ;░▒ ▒▒       .░ ▒▒▒ ░    ▒            ⌂");  
+                System.out.println("                                ∩/ ;,▒ ▒▒∩.░▒       ░ ╒ ▒░╓░    ░░  ░      . ε");  
+                System.out.println("                            :   ░▒ ▒▒▒.▒▒H▒▒▒σφ▄    ▒ ! ▒▒▒░   ;▒▒  ▒    ` │ ░");  
+                System.out.println("                                ▒░ ▒▒▒ ▒░r▒░▒ ┌ `╙*▒▒ ░ ▒▒▒▒,] ▒▒▒ j▒ ▒  ░   '");  
+                System.out.println("                                ░▒░▒▒▒▒▒▄▄▒,▒ ▒  ╚ ;▒░  ▒▒▒ ;∩/\"▀▒φ▒░╓▒  ▒");  
+                System.out.println("                          ┌ ░  ░▒▒▒▒▒▓\"`»^\"▒Å¥N░'▒\\│░▒ ░▒ ▒/░▒ ░▒▒/▒`▒▒ j▒ ┌");  
+                System.out.println("                          '.   ▒░▒░▒H╚ └⌂` ╙▀ `' ` ╙ !░▒░└▒▄φ#╪α▒▒ ▒▒║▒,▒  '");  
+                System.out.println("                           ░  ;▒▒▒▒▒ⁿ   gH]▒Ñ             ` ╓ -╒▓Ö▀▒ ▒▒▒▒▒⌡");  
+                System.out.println("                         :,░  ▒░▒▒░▒    ≡~~                 \"   \"H`║ε▒▒▒▒ ⁿ");  
+                System.out.println("                          ▒   ▒▒▒▒▒▒░              ;        └Ñ╔▒^   ▒▒▒░▒    ⌡");  
+                System.out.println("                          ▒  ;░▒▒▒▒▒H              ⁿ         ░:ⁿ    ▒▒▒▒▒    `");  
+                System.out.println("                         :▒  ▒▒▒▒▒┼▄▄                             ,▒▒▒░░ /");  
+                System.out.println("                        ,┼▒  ▒▒▒▒▒]▓▓▓                           ,▒»▒▒▒░, '");  
+                System.out.println("                      ┌╪▌║▓  `▒▒┼▒å▓▓▓▓         ╓▒▒φ            ╓▄▄╣▒▒▒▒▒");  
+                System.out.println("                   *\"\"*▀▓║▓░  ▒▒▓▒▓▓▓▓▓`▒       ╙▒▒▒          ╓▓▓▓▓M▒▒▒▒ `");  
+                System.out.println("               '         ╙▓▒  ▒▒▓▓▓▓▓▓▓ ]▒▒                ,▄▓▓▓▓▓▓░▒▒▒░/└");  
+                System.out.println("                         ! ▓  ▒┼▓▓▓▓▓▓▓▄ ▒▒▒▒,         ,≡▒▓▓▓▓▓▓▓▓▌▒▒▒▒╒ ∩");  
+                System.out.println("           '/               ¼ ▒]▓▓▓▓▓▓▓▓▓▄ ░▒▒▒φ ,,µ▒▒▒▒▒ ▓▓▓▓▓▓▓▓▒▒▒▒┌▓▓┌Nφ");  
+                System.out.println("           ,                └ε╚╫▓▓▓▓▓▓▓▓▓▓▓▓▄░▒▒▒▒▒▒░,▄▄▓▓▓▓▓▓▓▓▓▌▌▒▒▒▓▓M▓ÑÑ▄");  
+                System.out.println("                             ▓ⁿ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓H▒▒▓▓▓▓▓▀▀\"\"ⁿ.");  
+                System.out.println("       ~*^```````'¬≡⌂       ░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▓▓▓▀' ");  
+                System.out.println("------------------------------------------------------------"); 
+                System.out.println("Saber: Hey hey buy me something to eat.");
+                System.out.println("------------------------------------------------------------");       
+                System.out.println("1.Fine, here is the money go buy yourself a burger I know you like that.\n2.Sorry I don't have time to waste for you.");
+                int response5 = CheckInput.getIntRange(1, 2);
+                switch(response5)
+                {
+                  case 1: 
+                    System.out.println("------------------------------------------------------------"); 
+                    System.out.println("Saber: Nice I love you " + player.getName());
+                    System.out.println("------------------------------------------------------------"); 
+                    if(player.getMoney() == 0)
+                    {
+                      System.out.println("**Dang go make some money you are realy poor?");
+                    } 
+                    else
+                    {
+                      player.spendMoney((int)(player.getMoney()/2));     
+                    }
+                    break;
+                  case 2: 
+                    System.out.println("------------------------------------------------------------"); 
+                    System.out.println("Saber: Fine Imma buy it myself!");
+                    System.out.println("------------------------------------------------------------");  
+                    break;
+                }
             break;
           case 2: 
-            System.out.println("You run into Hatsune Miku\nMiku: Oi, Onii-chan~~(｡•̀ᴗ-)✧\nC kissed you (⁄ ⁄•⁄ω⁄•⁄ ⁄) and heal you to full health");
-            // System.out.println("                                           ░░▒▒░░░░░░       ");
-            // System.out.println("                                         ░░░░░░░░░░░░░░▒▒░░ ");
-            // System.out.println("                                       ░░▒▒░░░░░░░░░░░░▒▒▓▓░░▒▒  ");
-            // System.out.println("                                     ░░░░▒▒░░░░░░░░    ░░▒▒▓▓░░▒▒");
-            // System.out.println("                                     ░░░░░░▒▒░░░░░░░░  ░░▒▒▓▓░░▒▒ ");
-            // System.out.println("                                     ▒▒▒▒░░░░░░░░░░░░░░░░░░▓▓▒▒░░░░ ");
-            // System.out.println("                                     ░░▒▒░░  ░░░░▒▒░░░░░░▒▒▓▓▒▒▒▒░░ ");
-            // System.out.println("   ░░                                ░░▒▒▒▒▒▒    ▓▓▒▒▒▒░░░░▓▓▒▒▒▒░░          ");
-            // System.out.println(" ░░░░░░  ░░                          ░░▓▓░░        ░░▒▒░░▒▒░░▒▒░░░░     ");
-            // System.out.println(" ░░░░░░░░  ░░░░                        ▓▓░░  ░░    ░░▒▒▒▒▒▒  ▒▒░░░░  ");
-            // System.out.println("    ░░░░░░░░░░      ░░                  ▒▒▒▒        ▒▒▓▓░░    ▒▒░░░░   ");
-            // System.out.println("            ░░░░░░      ░░░░    ░░░░  ▒▒▒▒▒▒▓▓░░░░░░▓▓        ▒▒▒▒░░░░  ");
-            // System.out.println("                ░░░░░░░          ▒▒    ░░░░▒▒░░░░░░░░▒▒░░░░  ▒▒▒▒░░▒▒    ");
-            // System.out.println("                    ░░░░░░░░░░░░▒▒  ░░░░░░░░░░░░░░          ░░▒▒░░▒▒");
-            // System.out.println("                              ▒▒▓▓░░░░░░░░░░░░░░░░          ░░▒▒░░░░");
-            // System.out.println("                                ▒▒▒▒░░░░    ░░░░░░▒▒░░  ░░░░░░▒▒░░░░░░");
-            // System.out.println("                            ░░▒▒▒▒▒▒▓▓▒▒  ░░░░    ▒▒░░░░░░░░▒▒░░░░░░ ");
-            // System.out.println("                            ▒▒▒▒▒▒▒▒░░▓▓▒▒░░      ▒▒░░░░░░░░▒▒░░░░▒▒");
-            // System.out.println("                          ░░▒▒▒▒▒▒▒▒░░░░▓▓      ░░░░░░░░░░░░▒▒░░▒▒▒▒");
-            // System.out.println("                          ▒▒▒▒▒▒▒▒▒▒░░░░      ░░░░        ░░▒▒░░▒▒▒▒");
-            // System.out.println("                      ░░░░▒▒▒▒▒▒░░      ▒▒░░░░  ░░      ░░▒▒░░▒▒▒▒ ");
-            // System.out.println("                   ▒▒░░▒▒▒▒░░    ░░▒▒▒▒░░    ░░      ░░▒▒▒▒▒▒░░");
-            // System.out.println("                      ▒▒▒▒▒▒    ░░░░  ░░▓▓▒▒    ░░      ▒▒▒▒▒▒▒▒░░");
-            // System.out.println("                    ░░░░      ░░░░  ░░░░░░▒▒            ▒▒▒▒▒▒▒▒░░");
-            // System.out.println("                 ░░░░  ▒▒▓▓░░░░░░░░░░  ▒▒            ▒▒▒▒▒▒▒▒░░");
-            // System.out.println("                    ▒▒░░▒▒▒▒▓▓    ░░░░    ░░      ░░    ▒▒▒▒▒▒░░░░");
-            // System.out.println("                    ░░▒▒▒▒▒▒▓▓    ░░░░                  ▓▓▒▒▒▒░░▒▒");
-            // System.out.println("               ░░▒▒▒▒▒▒▒▒▒▒░░░░░░                ░░  ▒▒▒▒▒▒  ▒▒");
-            // System.out.println("                  ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░        ░░░░▒▒░░░░▒▒▒▒▒▒  ░░ ");
-            // System.out.println("                  ▒▒▒▒▒▒▒▒▒▒▒▒████████████████████████▒▒▒▒▒▒░░  ░░");
-            // System.out.println("            ░░▒▒▒▒▓▓▒▒▓▓████████████████████▓▓██▓▓▓▓▒▒▒▒  ░░");
-            // System.out.println("                ▒▒▒▒▓▓▒▒▒▒▓▓▓▓██▓▓████▓▓▓▓▓▓▓▓██▓▓▓▓▓▓▓▓▓▓▒▒  ░░");
-            // System.out.println("                ▒▒▒▒▓▓▒▒▓▓██▓▓██▓▓▓▓▓▓▓▓▓▓▓▓▓▓██▓▓▓▓▓▓▓▓▓▓▒▒  ▒▒");
-            // System.out.println("             ▒▒▓▓▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒  ▒▒ ");
-            // System.out.println("                ▒▒▒▒░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██  ░░  ");
-            // System.out.println("                ▓▓▒▒  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ ");
-            // System.out.println("           ░░▓▓▒▒░░▓▓▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▓▓  ▒▒");
-            // System.out.println("              ░░▓▓░░▒▒▓▓░░  ░░░░░░░░▒▒▒▒░░░░▒▒░░░░░░░░░░▒▒  ░░");
-            // System.out.println("              ░░▓▓░░▓▓▒▒    ░░░░░░░░░░        ░░░░░░░░░░░░░░ ");
-            // System.out.println("           ░░▒▒  ▓▓▒▒    ░░░░░░░░░░        ░░░░░░░░░░  ░░");
-            // System.out.println("              ░░▒▒░░▓▓▒▒  ░░░░░░░░░░          ░░░░░░    ░░");
-            // System.out.println("              ░░▒▒░░▒▒░░  ░░░░░░░░░░          ░░░░      ░░ ");
-            // System.out.println("            ▒▒  ▒▒    ░░░░░░░░░░            ░░");
-            // System.out.println("                ▒▒░░▒▒    ░░░░░░░░              ░░");
-            // System.out.println("             ▒▒░░▒▒    ░░░░░░░░              ░░");
-            // System.out.println("                ░░░░░░    ░░░░░░░░              ░░░░ ");
-            // System.out.println("                  ░░░░    ░░  ░░░░              ░░░░");
-            // System.out.println("              ░░      ░░  ░░                ▒▒░░    ░░");
-            // System.out.println("                  ░░    ░░░░░░░░                ░░░░    ░░");
-            // System.out.println("                     ░░░░░░░░                ░░░░░░░░");
-            // System.out.println("                        ░░░░░░░░                ░░  ░░░░  ░░");
-            // System.out.println("                        ░░░░░░░░                ░░  ░░░░");
-            // System.out.println("                  ░░░░░░  ░░                    ░░░░");
-            // System.out.println("                      ▒▒░░  ░░░░                    ░░░░    ░░");
-            // System.out.println("                   ▓▓██████                        ▒▒▒▒██▓▓");
-            // System.out.println("                      ██████▒▒                        ▓▓████▓▓");
-            // System.out.println("                      ██████░░                        ░░██████");
-            // System.out.println("               ██████                            ██████  ");
-            // System.out.println("                    ░░████▓▓                            ▓▓████ ");
-            // System.out.println("                    ░░████░░                            ▒▒████░░ ");
-            // System.out.println("             ▒▒████                                ████▓▓");
-            // System.out.println("                    ████▓▓                                ██████  ");
-            // System.out.println("                    ▓▓▓▓▓▓                                ▓▓██▓▓░░");
-            // System.out.println("                  ▒▒▓▓▓▓▒▒░░░░                            ▒▒▓▓▓▓░░    ");
-            // System.out.println("                      ▓▓▒▒░░░░░░                          ░░▒▒▒▒▒▒ ");
-            // System.out.println("                ▓▓░░░░▓▓▓▓░░░░                            ▓▓▒▒░░▓▓");
-            // System.out.println("                ▒▒▒▒▒▒▓▓██▒▒  ░░░░░░░░░░░░░░░░░░░░░░        ▓▓▒▒▒▒▓▓   ");
-            // System.out.println("                ██▓▓▓▓▓▓▓▓                            ░░░░▒▒▓▓▓▓▓▓██");
-            player.heal();
+            // System.out.println("You run into Hatsune Miku\nMiku: Oi, Onii-chan~~(｡•̀ᴗ-)✧\nC kissed you (⁄ ⁄•⁄ω⁄•⁄ ⁄) and heal you to full health");
+            System.out.println("                                     ,╖φ≈╗≈≈≈┬,,     jMª%φ");
+            System.out.println("                       gmφφ,    ╓d▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒>,│H  ]ⁿ");
+            System.out.println("                       ▒    Ñ,ß▒▒▒▒▒▒▒░░░░▒░▒`  '`░░▒░Ñ  │H");
+            System.out.println("                       ▒   ,▀▒▒▒▒▒░░▒░░   `░░▒░   `░▒▒▒▒ε Ñ");
+            System.out.println("                       Ñ ╓Q▓▒▒▒]▒░░░▒▒N░░░ ░`▒▒▒ ░░░▒▒▒▒N▄▒nε╓");
+            System.out.println("                      ╒Ñ#▀▓▒▒▒▒Ñ▒▒▌▒▒▒▒▓▄▒▒░░░ÅDU░▒░▒▒▒▒██H░▒▒▒,");
+            System.out.println("                      │Ñ ▓▒▒▒▒å▓▒▒\"Ñ▒H▒▒Ü▀▄▒░░U╙▓░░░▒▒▒▒▒█▓░▒▒▒▒\\");
+            System.out.println("                     ╔▒N█▒▒▒▒▒▓▓▒M  ▒▓▒▒▒ `ñ▄▒░▒▒▌░░▒▒▒▒Ñ▓▌N░▒▒▒▒░ε");
+            System.out.println("                     ▌▓▓▓▒▒Ü▒▒▓▓╪,   ╣▓▒▒  .<▀▓▒▓Å░░▒▒▒▒▓█▀▒H░U░╙▒ *");
+            System.out.println("                    ╞▒▓▓▌▌▒Ñ▒▓M╙▓     ╙▓▒U    `ÅÑ▓▒▒▓▒▒Ñ▒█M▀▓ε▒▒▒½▒ `");
+            System.out.println("                    ╣▓▓▓▓▌▒▓▒▓░▄▓▄▄.   └▀▒  ▄▓███▓▒▒Ñ▒▒▓▒▒  ▀▓▒▒▒▒U▒▒░τ");
+            System.out.println("                    ▓▓▓▓▓▒▒▓▌▓▐M▓█▓█⌐    \"%\"└▓▓▓▓▐▒╣▓▒▒▌▒▒½  ╙▓▒▒▒▒▓▒▒░y");
+            System.out.println("                   ╒▓▓▓▓▓▌▒▓██▄ └▒▒▒         ╙┴┴`]▒▓▒▒▓█▒▒    └▓▒Ñ▒▒▓▒▒▒\\");
+            System.out.println("                   ╞Ñ▓▓Ñ▓Å▒▒▓▓▓ε                 R░▌▒▒▓▀ ▓      ▀▓▓▒▓▓Ñ▒▒▒");
+            System.out.println("                   ║▓▓▓▌▒ V▒▓▓▓▓                ' ▓▒▓▓^          ╙▓▓▒▓N▒Ñ▒░τ");
+            System.out.println("                   ▓▓▓▓▓▒▓ Ü ╙▓██φ    «   ⌐ⁿ    ╓▓▓C              `▓▓▒▓▓▒▒▒░▒");
+            System.out.println("                   ▓▓▓▓▓M▓N L  ╙▀▓5▄         ,≤`┘*¥                 ╙▓▒▓▓▒▒▒▒Q,");
+            System.out.println("                   ▓▓▓▓▓ └▒▄      `╙ `~. ,╓m▒▒▒w                      ▀▒▓▓▓Ñ▒▒▒%");
+            System.out.println("                   ▓▓▓▓▓  ║▒            ▐▒▒▒▒▒▒`\"     .╓─.             └▓▀▓▒▒Ñ▒▒▒*,  "); 
+            System.out.println("------------------------------------------------------------");  
+            System.out.println("Miku: Oi, Onii-chan~~(｡•̀ᴗ-)✧");
+            System.out.println("------------------------------------------------------------");  
+            System.out.println("1.(Push Miku aside) We shouldn't be together, you are too good for me.\n2. Let's go babeeeeee!!!");
+            int response3 = CheckInput.getIntRange(1,2);
+            switch(response3)
+            {
+              case 1:
+                System.out.println("------------------------------------------------------------");  
+                System.out.println("Miku: How could you (╥﹏╥)");
+                System.out.println("------------------------------------------------------------");  
+                System.out.println("**Miku cries and ran away in embarassment.");
+                break;
+              case 2:
+                System.out.println("------------------------------------------------------------");  
+                System.out.println("Miku: Let me kiss you (ɔˆ ³(ˆ⌣ˆc)");
+                System.out.println("------------------------------------------------------------");  
+                System.out.println("As a programmer with a life that only surrounds a computer and no time for finding a girlfriend. How dare you get one in this game " + player.getName());
+                System.out.println(" _____   ___  ___  ___ _____   _____  _   _ ___________  ");
+                System.out.println("|  __ \\ / _ \\ |  \\/  ||  ___| |  _  || | | |  ___| ___ \\ ");
+                System.out.println("| |  \\// /_\\ \\| .  . || |__   | | | || | | | |__ | |_/ / ");
+                System.out.println("| | __ |  _  || |\\/| ||  __|  | | | || | | |  __||    /  ");
+                System.out.println("| |_\\ \\| | | || |  | || |___  \\ \\_/ /\\ \\_/ / |___| |\\ \\  ");
+                System.out.println(" \\____/\\_| |_/\\_|  |_/\\____/   \\___/  \\___/\\____/\\_| \\_| ");
+                System.exit(0);
+            }
             break;
           case 3: 
             System.out.println("You run into Saber's dad\nSaber's dad: How dare you decieve my daughter!\n(╬ Ò ‸ Ó)\nC's dad smack you for 10 health and took all your money cause the game hates you!");
@@ -531,7 +585,15 @@ class Main {
             player.spendMoney(player.getMoney()); 
             break; 
           case 4: 
-            System.out.println("You ran into an antitank mine from World War II!");
+            System.out.println("------------------------------------------------------------"); 
+            System.out.println("Ever heard of World War II before ?");
+            System.out.println("------------------------------------------------------------"); 
+            System.out.println("1. Yes\n2. No what's that for ?");
+            int response4 = CheckInput.getIntRange(1,2); 
+            System.out.println("------------------------------------------------------------"); 
+            System.out.println("Doesn't matter anyways!");
+            System.out.println("------------------------------------------------------------"); 
+            System.out.println("**You ran into an antitank mine from World War II!");
             System.out.println("      _.-^^---....,,--     ");
             System.out.println("  _--                  --_ ");
             System.out.println("<                        >)");
@@ -608,6 +670,7 @@ class Main {
 
   /**
   * Print the main menu
+  * @return choice the user input for the main menu options
   */
   public static int mainMenu() 
   {
@@ -651,42 +714,12 @@ class Main {
       }
     }while(val != 3);
   }
-
-
-  /**
-  * Generate randomly from 1 to 6 and choose from the wild pokemon. 
-  * @return Pokemon object to use as wild and fight player 
+  /** 
+  * The gymAttack method is the game's combat system for the gym leader consisting of the use of attacks and potions.
+  * @param t represents the trainer
+  * @param gymPoke represents the gym leader's pokemon that the player fights
   */
-  // public static Pokemon chooseRandomPokemon()
-  // {
-  //   Random rand = new Random();
-  //   Pokemon randPokemon = null;
-  //   int rand1 = rand.nextInt(6); 
-  //   switch(rand1) {
-  //     case 0:
-  //       randPokemon = new Bulbasaur();
-  //       break; 
-  //     case 1:
-  //       randPokemon = new Charmander();
-  //       break;
-  //     case 2:
-  //       randPokemon = new Oddish();
-  //       break;
-  //     case 3:
-  //       randPokemon = new Ponyta();
-  //       break;
-  //     case 4:
-  //       randPokemon = new Squirtle();
-  //       break;
-  //     case 5:
-  //       randPokemon = new Staryu();
-  //       break;
-  //   }
-  //   return randPokemon;
-  // }
-
-
-  public static void gymAttack(Trainer t, Trainer gym, Pokemon gymPoke) {
+  public static void gymAttack(Trainer t, Pokemon gymPoke) {
    
     Random rand = new Random();
 
@@ -754,6 +787,24 @@ class Main {
             System.out.println(chosenPokemon.getAttackMenu(2)); 
             System.out.println(chosenPokemon.attack(gymPoke, 2, CheckInput.getIntRange(1,chosenPokemon.getNumAttackMenuItems(2))));         
           }
+
+         //Debuff during battle
+          // System.out.println("\nCalculating debuff probability!");
+          Random randDebuff = new Random();
+          int debuffProb = randDebuff.nextInt(100);
+          if(debuffProb <= 24)
+          {
+            //debuff enemy's poke
+            PokemonGenerator pokemonGen = PokemonGenerator.getInstance();
+            gymPoke = pokemonGen.addRandomDebuff(gymPoke);
+            System.out.println("\nThe gym leader's " + gymPoke.getName() + " receives a debuff from your " + chosenPokemon.getName() + " attack!\n");
+          }
+          else if (debuffProb < 35 && debuffProb >= 25)
+          {
+            //debuff player's pokemon
+            t.debuffPokemon(gymChoice);
+            System.out.println("\nUh oh! Your " + chosenPokemon.getName() + " received a debuff from the gym leader's " + gymPoke.getName() + "!\n");
+          }          
 
 
             // Wild Pokemon's random move (basic or special)

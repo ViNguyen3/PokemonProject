@@ -577,9 +577,56 @@ class Map1
 // System.out.println("  | | \\ \\_/ / |_| | | |/ / _| |_| |___| |/ / ");
 // System.out.println("  \\_/  \\___/ \\___/  |___/  \\___/\\____/|___/  ");
                                              
-                                             
-                                                        
-                                                        
-                                                                      
+  
+//  System.out.println("                                     ,╖φ≈╗≈≈≈┬,,     jMª%φ");
+//  System.out.println("                       gmφφ,    ╓d▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒>,│H  ]ⁿ");
+//  System.out.println("                       ▒    Ñ,ß▒▒▒▒▒▒▒░░░░▒░▒`  '`░░▒░Ñ  │H");
+//  System.out.println("                       ▒   ,▀▒▒▒▒▒░░▒░░   `░░▒░   `░▒▒▒▒ε Ñ");
+//  System.out.println("                       Ñ ╓Q▓▒▒▒]▒░░░▒▒N░░░ ░`▒▒▒ ░░░▒▒▒▒N▄▒nε╓");
+//  System.out.println("                      ╒Ñ#▀▓▒▒▒▒Ñ▒▒▌▒▒▒▒▓▄▒▒░░░ÅDU░▒░▒▒▒▒██H░▒▒▒,");
+//  System.out.println("                      │Ñ ▓▒▒▒▒å▓▒▒\"Ñ▒H▒▒Ü▀▄▒░░U╙▓░░░▒▒▒▒▒█▓░▒▒▒▒\\");
+//  System.out.println("                     ╔▒N█▒▒▒▒▒▓▓▒M  ▒▓▒▒▒ `ñ▄▒░▒▒▌░░▒▒▒▒Ñ▓▌N░▒▒▒▒░ε");
+//  System.out.println("                     ▌▓▓▓▒▒Ü▒▒▓▓╪,   ╣▓▒▒  .<▀▓▒▓Å░░▒▒▒▒▓█▀▒H░U░╙▒ *");
+//  System.out.println("                    ╞▒▓▓▌▌▒Ñ▒▓M╙▓     ╙▓▒U    `ÅÑ▓▒▒▓▒▒Ñ▒█M▀▓ε▒▒▒½▒ `");
+//  System.out.println("                    ╣▓▓▓▓▌▒▓▒▓░▄▓▄▄.   └▀▒  ▄▓███▓▒▒Ñ▒▒▓▒▒  ▀▓▒▒▒▒U▒▒░τ");
+//  System.out.println("                    ▓▓▓▓▓▒▒▓▌▓▐M▓█▓█⌐    \"%\"└▓▓▓▓▐▒╣▓▒▒▌▒▒½  ╙▓▒▒▒▒▓▒▒░y");
+//  System.out.println("                   ╒▓▓▓▓▓▌▒▓██▄ └▒▒▒         ╙┴┴`]▒▓▒▒▓█▒▒    └▓▒Ñ▒▒▓▒▒▒\\");
+//  System.out.println("                   ╞Ñ▓▓Ñ▓Å▒▒▓▓▓ε                 R░▌▒▒▓▀ ▓      ▀▓▓▒▓▓Ñ▒▒▒");
+//  System.out.println("                   ║▓▓▓▌▒ V▒▓▓▓▓                ' ▓▒▓▓^          ╙▓▓▒▓N▒Ñ▒░τ");
+//  System.out.println("                   ▓▓▓▓▓▒▓ Ü ╙▓██φ    «   ⌐ⁿ    ╓▓▓C              `▓▓▒▓▓▒▒▒░▒");
+//  System.out.println("                   ▓▓▓▓▓M▓N L  ╙▀▓5▄         ,≤`┘*¥                 ╙▓▒▓▓▒▒▒▒Q,");
+//  System.out.println("                   ▓▓▓▓▓ └▒▄      `╙ `~. ,╓m▒▒▒w                      ▀▒▓▓▓Ñ▒▒▒%");
+//  System.out.println("                   ▓▓▓▓▓  ║▒            ▐▒▒▒▒▒▒`\"     .╓─.             └▓▀▓▒▒Ñ▒▒▒*,  ");  
+
+
+// System.out.println("                                             ~  `        `   ~.");  
+// System.out.println("                                         '                         .");  
+// System.out.println("                                    .∩`                               .");  
+// System.out.println("                                   »   `                                .");  
+// System.out.println("                                    ,`      ,                            '");  
+// System.out.println("                                '          ;            ,░     .");  
+// System.out.println("                                  '       ▒ ,        ;  ▒░ :");  
+// System.out.println("                              '  /    ∩ ░░` ▒   '    ▒ ;▒░ ░    ▒  : └    . »");  
+// System.out.println("                                  ░  ≡ ;░▒ ▒▒       .░ ▒▒▒ ░    ▒            ⌂");  
+// System.out.println("                                ∩/ ;,▒ ▒▒∩.░▒       ░ ╒ ▒░╓░    ░░  ░      . ε");  
+// System.out.println("                            :   ░▒ ▒▒▒.▒▒H▒▒▒σφ▄    ▒ ! ▒▒▒░   ;▒▒  ▒    ` │ ░");  
+// System.out.println("                                ▒░ ▒▒▒ ▒░r▒░▒ ┌ `╙*▒▒ ░ ▒▒▒▒,] ▒▒▒ j▒ ▒  ░   '");  
+// System.out.println("                                ░▒░▒▒▒▒▒▄▄▒,▒ ▒  ╚ ;▒░  ▒▒▒ ;∩/\"▀▒φ▒░╓▒  ▒");  
+// System.out.println("                          ┌ ░  ░▒▒▒▒▒▓\"`»^\"▒Å¥N░'▒\\│░▒ ░▒ ▒/░▒ ░▒▒/▒`▒▒ j▒ ┌");  
+// System.out.println("                          '.   ▒░▒░▒H╚ └⌂` ╙▀ `' ` ╙ !░▒░└▒▄φ#╪α▒▒ ▒▒║▒,▒  '");  
+// System.out.println("                           ░  ;▒▒▒▒▒ⁿ   gH]▒Ñ             ` ╓ -╒▓Ö▀▒ ▒▒▒▒▒⌡");  
+// System.out.println("                         :,░  ▒░▒▒░▒    ≡~~                 \"   \"H`║ε▒▒▒▒ ⁿ");  
+// System.out.println("                          ▒   ▒▒▒▒▒▒░              ;        └Ñ╔▒^   ▒▒▒░▒    ⌡");  
+// System.out.println("                          ▒  ;░▒▒▒▒▒H              ⁿ         ░:ⁿ    ▒▒▒▒▒    `");  
+// System.out.println("                         :▒  ▒▒▒▒▒┼▄▄                             ,▒▒▒░░ /");  
+// System.out.println("                        ,┼▒  ▒▒▒▒▒]▓▓▓                           ,▒»▒▒▒░, '");  
+// System.out.println("                      ┌╪▌║▓  `▒▒┼▒å▓▓▓▓         ╓▒▒φ            ╓▄▄╣▒▒▒▒▒");  
+// System.out.println("                   *\"\"*▀▓║▓░  ▒▒▓▒▓▓▓▓▓`▒       ╙▒▒▒          ╓▓▓▓▓M▒▒▒▒ `");  
+// System.out.println("               '         ╙▓▒  ▒▒▓▓▓▓▓▓▓ ]▒▒                ,▄▓▓▓▓▓▓░▒▒▒░/└");  
+// System.out.println("                         ! ▓  ▒┼▓▓▓▓▓▓▓▄ ▒▒▒▒,         ,≡▒▓▓▓▓▓▓▓▓▌▒▒▒▒╒ ∩");  
+// System.out.println("           '/               ¼ ▒]▓▓▓▓▓▓▓▓▓▄ ░▒▒▒φ ,,µ▒▒▒▒▒ ▓▓▓▓▓▓▓▓▒▒▒▒┌▓▓┌Nφ");  
+// System.out.println("           ,                └ε╚╫▓▓▓▓▓▓▓▓▓▓▓▓▄░▒▒▒▒▒▒░,▄▄▓▓▓▓▓▓▓▓▓▌▌▒▒▒▓▓M▓ÑÑ▄");  
+// System.out.println("                             ▓ⁿ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓H▒▒▓▓▓▓▓▀▀\"\"ⁿ.");  
+// System.out.println("       ~*^```````'¬≡⌂       ░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▓▓▓▀' ");  
   }
 }

@@ -5,14 +5,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.HashMap;
 import java.util.Random;
-
-
+/**
+* The PokemonGenerator class contains the PokemonGenerator constructor which reads the pokemonlist.txt with pokemons and their type into a hashmap and methods that handle pokemon generation and randomization for pokemons and buff/debuffs.
+* @author Dylan Ros
+*/
 public class PokemonGenerator {
   private HashMap<String, String> pokemon = new HashMap<>();
 
   private static PokemonGenerator instance = null;
-
-  //CHANGES TO PUBLIC FOR LAZY PURPOSES. 
+  /** 
+  * PokemonGenerator constructor reads the pokemonlist.txt with pokemons and their type into a hashmap
+  */
   private PokemonGenerator() {
     try{
       File pokemonList = new File("PokemonList.txt");
@@ -36,7 +39,10 @@ public class PokemonGenerator {
         System.out.println("File was not found.");
       }
     }
-
+  /** 
+  * PokemonGenerator getInstance method for the creation or buffing of pokemon
+  * @return instance which is a new PokemonGenerator
+  */
   public static PokemonGenerator getInstance() {
     if(instance == null) {
       instance = new PokemonGenerator();
@@ -44,26 +50,17 @@ public class PokemonGenerator {
     return instance;
   }
 
+  /** 
+  * generateRandomPokemon randomly selects pokemon and their type from the hashmap and constructs it along with adding a random buff based on levels greater than 1
+  * @param level represents the pokemon level aka map
+  * @return generatePokemon, the constructed pokemon along with any buffs
+  */
   public Pokemon generateRandomPokemon(int level) {
     Random rand = new Random();
     int listPokemon = rand.nextInt(pokemon.size());
     String[] name = pokemon.keySet().toArray(new String[pokemon.size()]);
     String getName = name[listPokemon];
     Pokemon generatePokemon = getPokemon(getName);
-
-
-  //   int l = 0;
-
-  //   for(String key : pokemon.keySet()) {
-  //     if(l == listPokemon) {
-  //       randPokemon = key;
-  //     l++;
-  //     }
-  //   }
-
-
-  //   Pokemon generatePokemon = getPokemon(randPokemon);
-  //   System.out.println(randPokemon);
 
    for(int i = 0; i < level; i++) {
     //  System.out.println("Looping: " + i);
@@ -73,6 +70,11 @@ public class PokemonGenerator {
    return generatePokemon;
   }
 
+  /** 
+  * getPokemon passes in the string with the pokemon's name and constructs the corresponding type
+  * @param name represents the type
+  * @return newPokemon which is a new 
+  */
   public Pokemon getPokemon(String name) {
     Pokemon newPokemon = new Fire(name, 25, 25);
 
@@ -90,6 +92,11 @@ public class PokemonGenerator {
     return newPokemon;
   }
 
+  /** 
+  * addRandomBuff randomly selects a buff for the pokemon
+  * @param p represents the pokemon
+  * @return p1 the pokemon's buff
+  */
   public Pokemon addRandomBuff(Pokemon p) {
     Random rand = new Random();
     int res = rand.nextInt(2) + 1;
@@ -107,6 +114,11 @@ public class PokemonGenerator {
     }
   }
 
+  /** 
+  * addRandomDebuff randomly selects a debuff for the pokemon
+  * @param p represents the pokemon
+  * @return p1 the pokemon's debuff
+  */
   public Pokemon addRandomDebuff(Pokemon p) {
     Random rand = new Random();
     int res = rand.nextInt(2) + 1;

@@ -47,7 +47,8 @@ public class Trainer extends Entity{
    /**
   * spendMoney is a boolean method that checks if the total cash is greater or less than price for item
   * @param amnt is the amount of money said item cost and subtrated from total money.
-  * @return returns true if you have more money than amnt and false if it's the opposite
+  * @return true if you have more money than amnt
+  * @return false if it's the opposite
   */
   public boolean spendMoney(int amnt)
   {
@@ -74,7 +75,8 @@ public class Trainer extends Entity{
   }
    /**
   * hasPotion() is a boolean method that checks to see if you have potions.
-  * @return returns true if you have a potion and false if you don't.
+  * @return true if you have a potion
+  * @return false if you don't
   */
   public boolean hasPotion()
   {
@@ -129,7 +131,8 @@ public class Trainer extends Entity{
   
    /**
   *Checks to see if the user has a pokeball.
-  *@return returns true if user has 1 or more pokeballs and false if it's zero.
+  * @return true if user has 1 or more pokeballs and 
+  * @return false if it's zero
   */
   public boolean hasPokeball() 
   {
